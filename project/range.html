@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <style>
+        body{text-align: center}
+        .cont{width: 300px;height: 300px;margin: 0 auto; }
+    </style>
+</head>
+<body>
+<input type="range" value="0" min="0" max="255"/><span>0</span>
+<br/>
+<input type="range" value="0" min="0" max="255"/><span>0</span>
+<br/>
+<input type="range" value="0" min="0" max="255"/><span>0</span>
+<br/>
+<div class="cont" id="div"></div>
+</body>
+<script>
+    var aa=document.getElementsByTagName("input");
+    var div=document.getElementById("div");
+    function col(){
+        var r=parseInt(aa[0].value);
+        var g=parseInt(aa[1].value);
+        var b=parseInt(aa[2].value);
+        return "rgb("+r+","+g+","+b+")";
+    }
+    col();
+    div.style.backgroundColor=col();
+    for(var i=0;i<aa.length;i++){
+        aa[i].oninput=function(){
+            this.nextSibling.innerHTML=this.value;
+            div.style.backgroundColor=col()
+        }
+    }
+
+
+</script>
+</html>

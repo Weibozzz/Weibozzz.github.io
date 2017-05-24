@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css函数——设置/读取对象的属性</title>
+    <style>
+        div{width:400px;height:200px;background:#fef4eb;border:1px solid #f60;margin:0 auto;}
+        input{border:0;color:#fff;cursor:pointer;font-weight:700;background:#f60;padding:2px 4px;margin:10px 0 0 10px;}
+    </style>
+</head>
+<body>
+<div id="box">
+    <input type="button" value="Get Style" /><input type="button" value="Set Style" /><input type="button" value="Default Style" />
+</div>
+</body>
+<script>
+    var oInput=document.getElementsByTagName("input");
+    var oBox=document.getElementById("box");
+    function css(ele,attr,val) {
+        switch (arguments.length){
+            case 2:
+                if(typeof  attr== "object"){
+                    for(var i in attr){ele.style[i]=attr[i]}
+                }else{
+                    return ele.currentStyle ? ele.currentStyle=attr : getComputedStyle(ele,null)[attr];
+                }
+                break;
+            case  3:
+                ele.style[attr]=val;
+                break;
+            default:
+                alert("参数有误");
+        }
+    }
+    oInput[0].onclick= function () {
+        alert("width:"+css(oBox,"width")+"\nheight:"+css(oBox,"height")+"\nbackground:"+css(oBox,"background-color"))
+    };
+    oInput[1].onclick= function () {
+        var attr={width:"300px",height:"150px",borderColor: "#0084ff", backgroundColor: "#eff8ff"};
+        css(oBox,attr);
+        for (var i = 0; i < oInput.length; i++)oInput[i].style.backgroundColor="#0084ff";
+    };
+    oInput[2].onclick= function () {
+        css(oBox, {width: "400px", height: "200px", borderColor: "#f60", backgroundColor: "#fef4eb"});
+        for (var i = 0; i < oInput.length; i++) css(oInput[i], "backgroundColor", "#f60")
+    }
+
+</script>
+</html>

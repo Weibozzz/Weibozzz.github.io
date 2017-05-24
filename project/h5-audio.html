@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html dir="ltr" lang="zh-CN">
+<head>
+    <title>HTML5 音乐播放器1</title>
+    <link rel="stylesheet" href="css/h5-audio.css"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+</head>
+<body>
+<div id="player">
+    <audio id="musicbox" src="music/薛之谦 - 绅士.mp3" ></audio>
+    <div id="controls" class="clearfix controls">
+        <div id="play" class="playing"></div>
+        <div id="next"></div>
+        <div id="progress">
+            <div id="cliPro"></div>
+            <p id="time">00:00 / 00:00</p>
+        </div>
+        <div id="volume">
+            <div id="vol"></div>
+        </div>
+    </div>
+    <div class="bar">
+        <button>重置列表</button>
+        <button>随机打乱</button>
+        <button>清空列表</button>
+    </div>
+    <ul id="musiclist"></ul>
+    <div class="bar bottom">
+        <span>播放模式：</span>
+        <span id="mode">全部</span>
+    </div>
+</div>
+<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="js/h5-audio.js"></script>
+
+</body>
+</html>

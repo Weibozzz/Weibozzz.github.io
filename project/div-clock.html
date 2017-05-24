@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #clock-box{
+            position: relative;
+            width: 600px;
+            height: 600px;
+            margin: 0 auto;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        #clock-box div{
+            position: absolute;
+        }
+        .out{
+            top: 100px;
+            left: 100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background:linear-gradient(#D1E6ED,#797978);
+        }
+        .in{
+            top: 115px;
+            left: 115px;
+            width: 370px;
+            height: 370px;
+            border-radius: 50%;
+            background:#fff;
+            box-shadow: 0 10px 10px #ccc inset;
+        }
+        .ss{
+            top: 130px;
+            left: 298px;
+            width: 4px;
+            height: 170px;
+            transform-origin: center bottom;
+            background-color: #FF7070;
+        }
+        .mm{
+            top: 150px;
+            left: 297px;
+            width: 6px;
+            height: 150px;
+            transform-origin: center bottom;
+            background-color: #B366B3;
+        }
+        .hh{
+            top: 180px;
+            left: 296px;
+            width: 8px;
+            height: 120px;
+            transform-origin: center bottom;
+            background-color: #666666;
+        }
+        .num{
+            top: 280px;
+            left: 125px;
+            width: 350px;
+            height: 30px;
+            text-align: center;
+        }
+        .num1{
+            transform: rotate(30deg);
+        }
+        .num1 .text1,.num1 .text2{
+            transform: rotate(-30deg);
+        }
+        .num2{
+            transform: rotate(60deg);
+        }
+        .num2 .text1,.num2 .text2{
+            transform: rotate(-60deg);
+        }
+        .num3{
+            transform: rotate(90deg);
+        }
+        .num3 .text1,.num3 .text2{
+            transform: rotate(-90deg);
+        }
+        .num4{
+            transform: rotate(120deg);
+        }
+        .num4 .text1,.num4 .text2{
+            transform: rotate(-120deg);
+        }
+        .num5{
+            transform: rotate(150deg);
+        }
+        .num5 .text1,.num5 .text2{
+            transform: rotate(-150deg);
+        }
+        .text1{
+            float: left;
+        }
+        .text2{
+            float: right;
+        }
+    </style>
+    <!--<link rel="stylesheet" href="css/index.css"/>-->
+</head>
+<body>
+    <div id="clock-box">
+        <div class="out"></div>
+        <div class="in"></div>
+        <div class="hh"></div>
+        <div class="mm"></div>
+        <div class="ss"></div>
+
+        <div class="num num12">
+            <span class="text1">9</span>
+            <span class="text2">3</span>
+        </div>
+        <div class="num num1">
+            <span class="text1">10</span>
+            <span class="text2">4</span>
+        </div>
+        <div class="num num2">
+            <span class="text1">11</span>
+            <span class="text2">5</span>
+        </div>
+        <div class="num num3">
+            <span class="text1">12</span>
+            <span class="text2">6</span>
+        </div>
+        <div class="num num4">
+            <span class="text1">1</span>
+            <span class="text2">7</span>
+        </div>
+        <div class="num num5">
+            <span class="text1">2</span>
+            <span class="text2">8</span>
+        </div>
+    </div>
+</body>
+<script>
+    var ss=document.getElementsByClassName("ss");
+    var mm=document.getElementsByClassName("mm");
+    var hh=document.getElementsByClassName("hh");
+    function run() {
+        var times=new Date();
+        var s=parseInt(times.getSeconds());
+        var s_deg=s*6;
+        ss[0].style.transform="rotate("+s_deg+"deg)";
+        var m=parseInt(times.getMinutes());
+        var m_deg=m*6+s/60*6;
+        mm[0].style.transform="rotate("+m_deg+"deg)";
+        var h=parseInt(times.getHours());
+        var h_deg=h*30+m/60*30+s/3600*60;
+        hh[0].style.transform="rotate("+h_deg+"deg)";
+    }
+    run();
+    setInterval(run,1000);
+</script>
+</html>
