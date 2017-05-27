@@ -6,6 +6,7 @@ $(function () {
         $("canvas").css("display","none");
         $("iframe").attr("src","");
         $(".myul").show();
+        $(".small").hide();
     });
     $(".my-container .btn").eq(1).click(function(){
         $("#page2Link").attr("href","css/page2.css")
@@ -13,6 +14,7 @@ $(function () {
         $("canvas").css("display","none");
         $("iframe").attr("src","");
         $(".myul").show();
+        $(".small").show();
     });
     $(".my-container .btn").eq(2).click(function(){
         $("#page2Link").attr("href","");
@@ -20,12 +22,14 @@ $(function () {
         $("canvas").css("display","inline-block");
         $("iframe").attr("src","");
         $(".myul").show();
+        $(".small").hide();
     });
     $(".my-container .btn").eq(3).click(function(){
         $("#page2Link").attr("href","")
         $(this).addClass("active").siblings("button").removeClass("active");
         $("canvas").css("display","none");
         $(".myul").hide();
+        $(".small").hide();
         $("iframe").attr("src","h5-audio.html");
     });
     $(".my-container .btn").eq(4).click(function(){
@@ -33,6 +37,7 @@ $(function () {
         $(this).addClass("active").siblings("button").removeClass("active");
         $("canvas").css("display","none");
         $(".myul").hide();
+        $(".small").hide();
         $("iframe").attr("src","H5-video.html");
     });
     /*canvas绘制下雨效果*/
