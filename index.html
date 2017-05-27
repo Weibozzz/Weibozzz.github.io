@@ -1,317 +1,497 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="刘伟波的个人博客"/>
-    <meta name="description" content="刘伟波的个人博客"/>
-
-    <title>实例索引</title>
-    <style>
-        body,div,dl,dt,dd{margin:0;padding:0;}
-        a:link,a:visited{color:#FFF;text-decoration:none;}
-        a:hover{text-decoration:underline;}
-        #wrap{width:350px;background:#FFF;border:12px solid #EEE;border-radius:10px;margin:10px auto 0;padding:5px 5px 4px;}
-        #wrap dl{color:#FFF;overflow:hidden;background:#7CF;}
-        #wrap dt,#wrap dd{padding-left:15px;border-bottom:1px solid #FFF;}
-        #wrap dt{cursor:pointer;font-size:14px;background:#9C0;line-height:30px;;}
-        #wrap dt.current{background:#09F;}
-        #wrap dd{background:#7CF;line-height:25px;font-size:12px;}
-        #copyright{color:#999;width:374px;text-align:right;font:12px/1.5 Tahoma;margin:5px auto 0;}
-    </style>
-    <script src="project/js/CreateList.js"></script>
-    <script>
-        window.onload = function() {
-            new CreateList([
-                {
-                    project: [{
-                        text: "第一课"
-                    },
-                        {
-                            text: "点击并控制属性操作",
-                            href: "project/ctrl_div_attr.html"
-                        },
-                        {
-                            text: "设置、读取属性",
-                            href: "project/css_function.html"
-                        },
-                        {
-                            text: "鼠标经过改变imgSrc",
-                            href: "project/change_imgSrc.html"
-                        },
-                        {
-                            text: "网易换肤功能",
-                            href: "project/change_skin.html"
-                        },
-                        {
-                            text: "面向对象小球碰撞",
-                            href: "project/circle-collision.html"
-                        },
-                        {
-                            text: "面向对象矩形碰撞",
-                            href: "project/rect-collision.html"
-                        },
-                        {
-                            text: "全选、反选",
-                            href: "project/checkbox.html"
-                        },
-                        {
-                            text: "传参改变Div属性",
-                            href: "project/change_Divbg.html"
-                        }]
-                },
-                {
-                    project: [{
-                        text: "第二课"
-                    },
-                        {
-                            text: "函数传参并弹出",
-                            href: "project/alert_val.html"
-                        },
-                        {
-                            text: "显示单击的坐标",
-                            href: "project/alert_clientX.html"
-                        },
-                        {
-                            text: "弹出层效果",
-                            href: "project/alert_layer.html"
-                        },
-                        {
-                            text: "循环改变三个Div颜色",
-                            href: "project/change_all_divbg.html"
-                        },
-                        {
-                            text: "各种数组操作",
-                            href: "project/arr_operate.html"
-                        }]
-                },
-                {
-                    project: [{
-                        text: "第三课"
-                    },
-                        {
-                            text: "点击Div，显示其innerHTML",
-                            href: "project/show_innerHtml.html"
-                        },
-                        {
-                            text: "按下键盘显示keycode",
-                            href: "project/show_keyup.html"
-                        },
-                        {
-                            text: "输入法",
-                            href: "project/typewriting.html"
-                        },
-                        {
-                            text: "简易选项卡",
-                            href: "project/tab_change.html"
-                        },
-                        {
-                            text: "arguement应用",
-                            href: "project/arguement.html"
-                        }]
-                },
-                {
-                    project: [{
-                        text: "第四课"
-                    },
-                        {
-                            text: "判断数字是否为两位数",
-                            href: "project/judge_times.html"
-                        },
-                        {
-                            text: "求出数组所有的和",
-                            href: "project/plus_arr_val.html"
-                        },
-                        {
-                            text: "Div闪烁",
-                            href: "project/div_active.html"
-                        },
-                        {
-                            text: "parseInt解析数字",
-                            href: "project/plus_number.html"
-                        }]
-                },
-                {
-                    project: [{
-                        text: "第五课"
-                    },
-                        {
-                            text: "鼠标移入移处改变样式",
-                            href: "project/mouseover_out.html"
-                        },
-                        {
-                            text: "省市区三级联动",
-                            href: "project/province-city-area.html"
-                        },
-                        {
-                            text: "简易的js年历",
-                            href: "project/simple_date.html"
-                        },
-                        {
-                            text: "滑动滑块改变Div颜色",
-                            href: "project/range.html"
-                        },
-                        {
-                            text: "累加按钮自加1",
-                            href: "project/continue_plus.html"
-                        },
-                        {
-                            text: "简易数字时钟",
-                            href: "project/num_clock.html"
-                        }]
-                },
-                {
-                    project: [{
-                        text: "第六课"
-                    },
-                        {
-                            text: "typeof输出数据类型",
-                            href: "project/typeof.html"
-                        },
-                        {
-                            text: "阻止右键操作",
-                            href: "project/prevent_right_click.html"
-                        }]
-                },
-                {
-                    project: [{
-                        text: "第七课"
-                    },
-                        {
-                            text: "键盘事件控制Div颜色",
-                            href: "project/keycode_ctrl_div.html"
-                        },
-                        {
-                            text: "随鼠标移动放大商品图片效果",
-                            href: "project/move_img.html"
-                        },
-                        {
-                            text: "显示隐藏功能",
-                            href: "project/toggle.html"
-                        }]
-                },
-                {
-                    project: [{
-                        text: "第八课"
-                    },
-                        {
-                            text: "绑定、解除事件",
-                            href: "project/event_operate.html"
-                        },
-                        {
-                            text: "拖拽事件",
-                            href: "project/drag.html"
-                        },
-                        {
-                            text: "自定义右键功能",
-                            href: "project/format_right_click.html"
-                        }]
-                },
-                {
-                    project: [{
-                        text: "第九课"
-                    },
-                        {
-                            text: "移动效果、鼠标轨迹",
-                            href: "project/move_path.html"
-                        },
-                        {
-                            text: "setTimeout应用",
-                            href: "project/setTimeout.html"
-                        },
-                        {
-                            text: "js淡入淡出幻灯片自动播放",
-                            href: "project/img_flash.html"
-                        },
-                        {
-                            text: "自动播放——幻灯片缓冲效果",
-                            href: "project/flash-autoplay.html"
-                        },{
-                            text: "新闻网站带title效果",
-                            href: "project/img_flash_title.html"
-                        }]
-                },
-                {
-                    project: [{
-                        text: "canvas和css3简单应用"
-                    },
-                        {
-                            text: "preserve-3d立方体",
-                            href: "project/css3-cube.html"
-                        },
-                        {
-                            text: "css3饿了么效果",
-                            href: "project/css3-elm.html"
-                        },
-                        {
-                            text: "canvas时钟",
-                            href: "project/canvas-clock.html"
-                        },
-                        {
-                            text: "下雨效果",
-                            href: "project/canvas-rain.html"
-                        },
-                        {
-                            text: "闪烁的方格子",
-                            href: "project/canvas-square.html"
-                        },
-                        {
-                            text: "meter简单应用",
-                            href: "project/meter.html"
-                        },
-                        {
-                            text: "响应式拖拽",
-                            href: "project/ondrop.html"
-                        },
-                        {
-                            text: "canvas进程",
-                            href: "project/canvas-progress.html"
-                        },
-                        {
-                            text: "canvas验证码",
-                            href: "project/img-code.html"
-                        }]
-                },
-                {
-                    project: [{
-                        text: "应用实例"
-                    },
-                        {
-                            text: "H5音乐播放器",
-                            href: "project/h5-audio.html"
-                        },
-                        {
-                            text: "倒计时时钟",
-                            href: "project/reverse_clock.html"
-                        },
-                        {
-                            text: "Div时钟",
-                            href: "project/div-clock.html"
-                        },
-                        {
-                            text: "模拟select控件",
-                            href: "project/select_control.html"
-                        },
-                        {
-                            text: "房贷计算器应用",
-                            href: "project/house-loan-calculate.html"
-                        },
-                        {
-                            text: "网页计算器",
-                            href: "project/Calculator.html"
-                        },
-                        {
-                            text: "H5form表单验证",
-                            href: "project/H5-form.html"
-                        },
-                        {
-                            text: "静态响应式布局",
-                            href: "project/phone5-7.html"
-                        }]
-                }
-            ]);
-        };
-    </script>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>个人网站</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/global.css" type="text/css">
+	<link rel="stylesheet" href="css/index.css">
+	<script src="js/index.js"></script>
+	<!--[if lt IE 9]>
+	<script src="./js/html5shiv.js"></script>
+	<script src="./js/respond.js"></script>
+	<![endif]-->
 </head>
 <body>
+	<!--头部导航-->
+	<nav class="navbar navbar-inverse my-top-navbar navbar-fixed-top">
+	<div class="container">
+		<div class="row">
+			<div class="navbar-header ">
+				<a href="index.html" class="navbar-brand">刘伟波的个人网站</a>
+				<button class="navbar-toggle" data-toggle="collapse" data-target="#my-con">
+					<i class="icon-bar"></i>
+					<i class="icon-bar"></i>
+					<i class="icon-bar"></i>
+				</button>
+			</div>
+			<div id="my-con" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="my-active"><a href="index.html">bootstrap</a></li>
+					<li><a href="page2.html">html5+css3</a></li>
+					<li><a href="page3.html">js实例</a></li>
+					<li><a href="page4.html">jQuery特效</a></li>
+					<li><a href="page5.html">angularJS</a></li>
+					<li><a href="page6.html">PHP+mysql</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+
+
+	<!--内容开始-->
+	<div class="container">
+		<div class="row">
+		<!--内容1开始-->
+			<!--右边-->
+			<div class="col-sm-8 col-xs-12 my-main-left">
+				<div class="row">
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+						<!-- 轮播切换的小按钮 -->
+						<ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+						</ol>
+
+						<!-- 轮播的图片 -->
+						<div class="carousel-inner my-carousel-parent" role="listbox">
+							<div class="item active">
+								<img src="img/01.jpg" class="img-thumbnail" alt="...">
+								<div class="carousel-caption my-carousel-trans">
+									<div class="col-xs-8 col-xs-offset-2">
+										渡人如渡己，渡已，亦是渡
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<img src="img/02.jpg" class="img-thumbnail" alt="">
+								<div class="carousel-caption my-carousel-trans">
+									<div class="col-xs-8 col-xs-offset-2">
+										当我们被误解时，会花很多时间去辩白。 但没有用，没人愿意听，
+										大家习惯按自己的所闻、理解做出判别，每个人其实都很固执。
+									</div>
+
+								</div>
+							</div>
+							<div class="item">
+								<img src="img/03.jpg" class="img-thumbnail" alt="">
+								<div class="carousel-caption my-carousel-trans">
+									<div class="col-xs-8 col-xs-offset-2">
+										与其努力且痛苦的试图扭转别人的评判，不如默默承受，
+										给大家多一点时间和空间去了解。
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<img src="img/04.jpg" class="img-thumbnail" alt="">
+								<div class="carousel-caption my-carousel-trans">
+									<div class="col-xs-8 col-xs-offset-2">
+										而我们省下辩解的功夫，去实现自身更久远的人生价值。
+										其实，渡人如渡己，渡已，亦是渡人。
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 控制切换图片 -->
+						<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!--左边-->
+			<div class="col-sm-3 col-sm-offset-1 hidden-xs my-main-right">
+				<div class="row">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="panel-title">个人简介</div>
+						</div>
+						<div class="panel-body bg-info">
+							<ul class="my-panel-ul text-success">
+								<li>姓 名：刘伟波</li>
+								<li>性 别：男</li>
+								<li>电 话：15691808595</li>
+								<li>email：739291780@qq.com</li>
+							</ul>
+						</div>
+						<div class="panel-footer my-panel-icon text-info">
+							<span class="col-xs-offset-1 fa fa-qq fa-2x"></span>
+							<span class="col-xs-offset-1 fa fa-comment fa-2x"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		<!--内容2开始-->
+			<!--左边-->
+			<div class="col-sm-8 my-con-left text-warning">
+				<div class="row clearfix">
+					<div class="col-xs-11">
+						<div class="row">
+							<div class="panel">
+								<div class="panel-heading">
+									<div class="panel-title">第一块</div>
+								</div>
+								<div class="panel-body my-con-panel1 clearfix">
+									<div class="col-xs-2 my-con-panel1-img"><img src="img/k01.jpg" alt=""></div>
+									<div class="col-xs-10">
+										常用正则：return a.toString().replace(/^(\d)$/, "0$1");$pattern = '/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,10}$/';
+										phone.replace(/(\d{3})\d{4}(\d{4})/,("$1****$2"));
+										/\w\.rar|zip|gz/.test(file);/^[a-zA-Z_0-9\.\-]+@[a-zA-Z_0-9\.\-]+\.[a-zA-Z]+$/;<br/>
+										Math 对象方法：abs(x);ceil(x);floor(x);random();round(x);sin(x);sqrt(x);pow(x,y);
+									</div>
+								</div>
+								<div class="panel-footer clearfix">
+									<div class="pull-left">
+										<span class="fa fa-clock-o"></span>
+										2017-1-28
+									</div>
+									<div class="pull-right">
+										<span class="fa fa-thumbs-up"></span>
+										点赞
+										<span class="fa fa-thumbs-down"></span>
+										踩
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pull-right col-sm-1 my-circle-caret">
+						<div class="my-caret"></div>
+						<div class="my-circle hidden-xs"></div>
+					</div>
+				</div>
+				<div class="row clearfix">
+					<div class="col-xs-11">
+						<div class="row">
+							<div class="panel">
+								<div class="panel-heading">
+									<div class="panel-title">第二块</div>
+								</div>
+								<div class="panei-body my-con-panel1 clearfix">
+									<div class="col-xs-2 my-con-panel1-img"><img src="img/k01.jpg" alt=""></div>
+									<div class="col-xs-10">
+										currentStyle;IE里面获取内部或者外部样式表. <br>
+										getComputedStyle();兼容火狐和GOOGLE; <br>
+										document.documentElement.scrollTop;document.documentElement.scrollLeft;
+										只兼容IE；在火狐和GOOGLE里面为0；
+									</div>
+								</div>
+								<div class="panel-footer clearfix">
+									<div class="pull-left">
+										<span class="fa fa-clock-o"></span>
+										2017-1-28
+									</div>
+									<div class="pull-right">
+										<span class="fa fa-thumbs-up"></span>
+										点赞
+										<span class="fa fa-thumbs-down"></span>
+										踩
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pull-right col-sm-1 my-circle-caret">
+						<div class="my-caret"></div>
+						<div class="my-circle hidden-xs"></div>
+					</div>
+				</div>
+				<div class="row clearfix">
+					<div class="col-xs-11">
+						<div class="row">
+							<div class="panel">
+								<div class="panel-heading">
+									<div class="panel-title">第三块</div>
+								</div>
+								<div class="panei-body my-con-panel1 clearfix">
+									<div class="col-xs-2 my-con-panel1-img"><img src="img/k01.jpg" alt=""></div>
+									<div class="col-xs-10">
+										数组和字符串的属性：1. length;2.constructor;3.prototype<br>
+										数组的方法：concat(),join(),toString(),pop(), push(), shift(), unshift(), indexOf(),
+										slice(), splice(), sort(), reverse();<br>
+										字符串的方法：charAt();concat();indexOf();lastIndexOf();replace();split()substring();
+										toLocaleLowerCase();<br>
+									</div>
+								</div>
+								<div class="panel-footer clearfix">
+									<div class="pull-left">
+										<span class="fa fa-clock-o"></span>
+										2017-1-28
+									</div>
+									<div class="pull-right">
+										<span class="fa fa-thumbs-up"></span>
+										点赞
+										<span class="fa fa-thumbs-down"></span>
+										踩
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pull-right col-sm-1 my-circle-caret">
+						<div class="my-caret"></div>
+						<div class="my-circle hidden-xs"></div>
+					</div>
+				</div>
+				<div class="row clearfix">
+					<div class="col-xs-11">
+						<div class="row">
+							<div class="panel">
+								<div class="panel-heading">
+									<div class="panel-title">第四块</div>
+								</div>
+								<div class="panei-body my-con-panel1 clearfix">
+									<div class="col-xs-2 my-con-panel1-img"><img src="img/k01.jpg" alt=""></div>
+									<div class="col-xs-10">
+										$(this).index()取得下标;
+										$('li').index(document.getElementById('bar'));传递一个DOM对象，
+										返回这个对象在原先集合中的索引位置 <br>
+										$('li').index($('#bar'));传递一个jQuery对象 <br>
+										$('li').index($('li:gt(0)')); 传递一组jQuery对象，
+										返回这个对象中第一个元素在原先集合中的索引位置 <br>
+										$('#bar').index('li'); 传递一个选择器，返回#bar在所有li中的做引位置 <br>
+										$('#bar').index(); 不传递参数，返回这个元素在同辈中的索引位置。
+									</div>
+								</div>
+								<div class="panel-footer clearfix">
+									<div class="pull-left">
+										<span class="fa fa-clock-o"></span>
+										2017-1-28
+									</div>
+									<div class="pull-right">
+										<span class="fa fa-thumbs-up"></span>
+										点赞
+										<span class="fa fa-thumbs-down"></span>
+										踩
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pull-right col-sm-1 my-circle-caret">
+						<div class="my-caret"></div>
+						<div class="my-circle hidden-xs"></div>
+					</div>
+				</div>
+				<div class="row clearfix">
+					<div class="col-xs-11">
+						<div class="row">
+							<div class="panel">
+								<div class="panel-heading">
+									<div class="panel-title">第五块</div>
+								</div>
+								<div class="panei-body my-con-panel1 clearfix">
+									<div class="col-xs-2 my-con-panel1-img"><img src="img/k01.jpg" alt=""></div>
+									<div class="col-xs-10">
+										系统函数：eval();isNaN();parseInt();parseFloat();encodeURI();decodeURI();<br>
+										window对象：①history back();forward();go(n) ② location属性 hostname pathname href 方法 reload();replace();
+										③ document对象属性 referrer(判断是否从登录页面进来) URL ④ window 方法prompt();alert();confirm();open();close();
+										setInterval();setTimeout()
+										<br>
+
+									</div>
+								</div>
+								<div class="panel-footer clearfix">
+									<div class="pull-left">
+										<span class="fa fa-clock-o"></span>
+										2017-1-28
+									</div>
+									<div class="pull-right">
+										<span class="fa fa-thumbs-up"></span>
+										点赞
+										<span class="fa fa-thumbs-down"></span>
+										踩
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pull-right col-sm-1 my-circle-caret">
+						<div class="my-caret"></div>
+						<div class="my-circle hidden-xs"></div>
+					</div>
+				</div>
+			</div>
+
+			<!--右边-->
+			<div class="my-con-right col-sm-3 col-sm-offset-1 hidden-xs">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="panel-title">
+								页面跳转
+							</div>
+						</div>
+						<div class="panel-body">
+							<ol>
+								<li><a href="index.html">bootstrap的页面搭建</a></li>
+								<li><a href="page2.html">html5+css3新特效</a></li>
+								<li><a href="page3.html">原生JS单个ul瀑布流实例</a></li>
+								<li><a href="page4.html">jquery简单概括</a></li>
+								<li><a href="page5.html">angularJS的小demo</a></li>
+								<li><a href="page6.html">后台php+mysql学习</a></li>
+							</ol>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="panel-title">
+								图文并茂
+							</div>
+						</div>
+						<div class="panel-body">
+							<ul>
+								<li class="row">
+									<div class="col-sm-5">
+										<a href="">
+											<img src="img/k01.jpg" alt="">
+										</a>
+									</div>
+									<div class="col-sm-7">
+										<a href="">
+											CSS可以大大提升网页开发的工作效率！
+										</a>
+									</div>
+								</li>
+								<li class="row">
+									<div class="col-sm-5">
+										<a href="">
+											<img src="img/k02.jpg" alt="">
+										</a>
+									</div>
+									<div class="col-sm-7">
+										<a href="">
+											JavaScript是Web的编程语言
+										</a>
+									</div>
+								</li>
+								<li class="row">
+									<div class="col-sm-5">
+										<a href="">
+											<img src="img/k03.jpg" alt="">
+										</a>
+									</div>
+									<div class="col-sm-7">
+										<a href="">
+											JavaScript 是 Web 的编程语言
+										</a>
+									</div>
+								</li>
+								<li class="row">
+									<div class="col-sm-5">
+										<a href="">
+											<img src="img/k02.jpg" alt="">
+										</a>
+									</div>
+									<div class="col-sm-7">
+										<a href="">
+											Bootstrap是基于HTML、CSS、JAVASCRIPT的
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="panel-title">
+								图文并茂
+							</div>
+						</div>
+						<div class="panel-body">
+							<ul>
+								<li class="row">
+									<div class="col-sm-5">
+										<a href="">
+											<img src="img/k01.jpg" alt="">
+										</a>
+									</div>
+									<div class="col-sm-7">
+										<a href="">
+											open方法(弹窗的url,"窗口名称","窗口特征")
+										</a>
+									</div>
+								</li>
+								<li class="row">
+									<div class="col-sm-5">
+										<a href="">
+											<img src="img/k02.jpg" alt="">
+										</a>
+									</div>
+									<div class="col-sm-7">
+										<a href="">
+											节点nodeName nodeValue nodeType(1,2,3,8,9)
+										</a>
+									</div>
+								</li>
+								<li class="row">
+									<div class="col-sm-5">
+										<a href="">
+											<img src="img/k03.jpg" alt="">
+										</a>
+									</div>
+									<div class="col-sm-7">
+										<a href="">
+											createElement appendChild cloneNode(true)
+										</a>
+									</div>
+								</li>
+								<li class="row">
+									<div class="col-sm-5">
+										<a href="">
+											<img src="img/k02.jpg" alt="">
+										</a>
+									</div>
+									<div class="col-sm-7">
+										<a href="">
+											city.add(new Option("",""),null)
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--尾部分页-->
+	<div class="container hidden-xs">
+		<div class="row">
+			<!--分页-->
+			<ul class="pagination pull-right">
+				<li><a href="index.html">首页</a></li>
+				<li><a href="#"><<</a></li>
+				<li class="active"><a href="index.html">1</a></li>
+				<li><a href="page2.html">2</a></li>
+				<li><a href="page3.html">3</a></li>
+				<li><a href="page4.html">4</a></li>
+				<li><a href="page5.html">5</a></li>
+				<li><a href="page6.html">6</a></li>
+				<li><a href="page2.html">>></a></li>
+				<li><a href="page6.html">尾页</a></li>
+			</ul>
+		</div>
+	</div>
 </body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 </html>

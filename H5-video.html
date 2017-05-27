@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视频播放器</title>
+    <link rel="stylesheet" href="css/h5-video.css">
+</head>
+<body>
+<div id="videoBox">
+    
+    <div class="wrap">
+        <video class="controller-video" width="100%"  autoplay >
+            <source src="video/63ab99df141f890e2e1476f0c3c9c5b7.mp4">
+        </video>
+        <a href="javascript:;" class="close">X</a>
+        <div class="controller">
+            <div class="progress">
+                <div class="orange"></div>
+                <div class="circle"></div>
+            </div>
+            <div class="stop" id="play"></div>
+            <div class="time">00:00 / 00:00</div>
+            <div class="icon-volume"></div>
+            <div class="volumeBox">
+                <div class="volume">
+                    <div class="vol-orange"></div>
+                    <div class="vol-circle"></div>
+                </div>
+            </div>
+            <div class="fullScreen"></div>
+        </div>
+        <div class="icon-play"></div>
+    </div>
+
+</div>
+<script src="js/h5-video.js"></script>
+</body>
+</html>

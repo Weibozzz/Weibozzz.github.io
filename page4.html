@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>个人网站</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/global.css" type="text/css">
+    <link rel="stylesheet" href="css/page4.css">
+    <!--[if lt IE 9]>
+    <script src="./js/html5shiv.js"></script>
+    <script src="./js/respond.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--头部导航-->
+<nav class="navbar navbar-inverse my-top-navbar navbar-fixed-top">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header ">
+                <a href="index.html" class="navbar-brand">刘伟波的个人网站</a>
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#my-con">
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                </button>
+            </div>
+            <div id="my-con" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">bootstrap</a></li>
+                    <li><a href="page2.html">html5+css3</a></li>
+                    <li><a href="page3.html">js实例</a></li>
+                    <li class="my-active"><a href="page4.html">jQuery特效</a></li>
+                    <li><a href="page5.html">angularJS</a></li>
+                    <li><a href="page6.html">PHP+mysql</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<!--内容开始-->
+<aside class="div"></aside>
+<main>
+    <div class="main-page clearfix">
+        <div class="left">
+            <div class="nav-back"></div>
+            <div class="nav">
+                <div class="on">jQuery</div>
+                <div>遍历</div>
+                <div>选择器</div>
+                <div>方法</div>
+                <div>ajax</div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="content-back"></div>
+            <div class="content">
+                <div>
+                    window.onload和$(document).ready()的区别:<br>
+                    1.执行时间<br>
+                    window.onload必须等到页面内包括图片的所有元素加载完毕后才能执行。
+                    $(document).ready()是DOM结构绘制完毕后就执行，不必等到加载完毕。<br>
+                    2.编写个数不同<br>
+                    window.onload不能同时编写多个，如果有多个window.onload方法，只会执行一个
+                    $(document).ready()可以同时编写多个，并且都可以得到执行<br>
+                </div>
+                <div>
+                    jq对象是一个数组集合；$("#div")[0]转化为js dom;<br>
+                    jq 遍历:parent(); parents(); parentsUntil(); <br>
+                    children(); find();<br>
+                    append(); prepend(); after(); brfore();<br>
+                    next(); nextAll(); nextUntil(); siblings(); prev(); prevAll();prevUntil();<br>
+                    first(); last(); eq();<br>
+                    filter(); not();replaceAll(); replaceWith()(可以使用函数替换);clone()(会将ID属性复制);
+                    index();
+                    remove(); detach()(绑定的事件和属性保留);empty();</div>
+                <div>
+                    jq选择器: <br>
+                    基本选择器:元素选择器；类选择器；ID选择器<br>
+                    子代选择器:$("dl>dd")<br>
+                    后代选择器:$("dl dd");<br>
+                    相邻选择器；$("dl+dl");<br>
+                    同辈选择器；$("dl~p");<br>
+                    属性选择器；$("input[type='button']")<br>
+                    伪类选择器: $("p:fist"); $("p:last"); $("p:even"); $("p:odd");
+                    $("p:gt(1)"); $("p:lt(2)");$("p:eq(2)");<br>
+                    基本过滤选择器：$("div").first();$("div").last();$("div").eq();$("div").filter();$("div").not()
+                </div>
+                <div>
+                    animate();hide();show();fadeIn();fadeOut();
+                    slideDown();slideUp();stop();css();addClass();removeClass();
+                    attr();removeAttr();html();text();width();height();innerWidth();innerHeight();
+                    outerWidth();outerHeight();
+                </div>
+                <div>
+                    1.创建XMLHttpRequest请求对象 (window.ActiveXObject)&lt;IE7<br>
+                    2.打开操作  xhr.open(method,url,sync)<br>
+                    3.监听xhr对象的状态xhr.onreadystatechange xhr.readyState==4<br>
+                    4.发送xhr请求 xhr.send(null);<br>
+                    $("p").load(url,data,function(response,status,xhr){}); <br>
+                    $.ajax({url:url,data:data,type:get/post,success:fn(),error:fn()}) <br>
+                    $("p").get(url:url,data:data,function(response,status,xhr){}) <br>
+                    $("p").get(url:url,data:data,function(response,status,xhr){})
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!--内容结束-->
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/page4.js"></script>
+</html>

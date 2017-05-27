@@ -1,0 +1,56 @@
+html,
+body,
+.container,
+.row{
+    height: 100%;
+}
+.row>.my-ul{
+    position: relative;
+    width: 100%;
+    height: 80%;
+    background: rgba(0,0,0,0.5);
+}
+.row>.my-ul>li{
+    width: 15%;
+    height: 100%;
+    opacity: 0.5;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px;
+    overflow: hidden;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+}
+.row>.my-ul>li:nth-child(1){
+    background: url("../img/01.jpg") no-repeat;
+    background-size: cover;
+}
+.row>.my-ul>li:nth-child(2){
+    background: url("../img/02.jpg") no-repeat;
+    background-size: cover;
+}
+.row>.my-ul>li:nth-child(3){
+    background: url("../img/03.jpg") no-repeat;
+    background-size: cover;
+}
+.row>.my-ul>li:nth-child(4){
+    background: url("../img/04.jpg") no-repeat;
+    background-size: cover;
+}
+.row>.my-ul>li:nth-child(5){
+    background: url("../img/01.jpg") no-repeat;
+    background-size: cover;
+    width: 40%;
+}
+.row>.my-ul:hover li{
+    width: 15%;
+}
+.row>.my-ul>li:hover{
+    width: 40%;
+    opacity: 1;
+    color: lawngreen;
+    font-size: 20px;
+}

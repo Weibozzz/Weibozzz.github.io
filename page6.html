@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>个人网站</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/global.css" type="text/css">
+    <link rel="stylesheet" href="css/page6.css">
+    <!--[if lt IE 9]>
+    <script src="./js/html5shiv.js"></script>
+    <script src="./js/respond.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--头部导航-->
+<nav class="navbar navbar-inverse my-top-navbar navbar-fixed-top">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header ">
+                <a href="index.html" class="navbar-brand">刘伟波的个人网站</a>
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#my-con">
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                </button>
+            </div>
+            <div id="my-con" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">bootstrap</a></li>
+                    <li><a href="page2.html">html5+css3</a></li>
+                    <li><a href="page3.html">js实例</a></li>
+                    <li><a href="page4.html">jQuery特效</a></li>
+                    <li><a href="page5.html">angularJS</a></li>
+                    <li class="my-active"><a href="page6.html">PHP+mysql</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<!--内容开始-->
+<div class="container">
+    <div class="row">
+        <ul class="clearfix my-ul">
+            <li class="pull-left">
+                <p>1.PHP 脚本在服务器上执行，然后向浏览器发送回纯 HTML 结果。</p>
+                <p>
+                    2.PHP 变量规则：<br/>
+                    变量以 $ 符号开头，其后是变量的名称<br/>
+                    变量名称必须以字母或下划线开头<br/>
+                    变量名称不能以数字开头<br/>
+                    变量名称只能包含字母数字字符和下划线（A-z、0-9 以及 _）<br/>
+                    变量名称对大小写敏感（$y 与 $Y 是两个不同的变量）
+                </p>
+            </li>
+            <li class="pull-left">
+                <p>
+                    1.PHP 变量作用域<br/>
+                    在 PHP 中，可以在脚本的任意位置对变量进行声明。<br/>
+                    变量的作用域指的是变量能够被引用/使用的那部分脚本。<br/>
+                    PHP 有三种不同的变量作用域：<br/>
+                    local（局部）<br/>
+                    global（全局）<br/>
+                    static（静态）
+                </p>
+                <p>
+                    2.echo 和 print 之间的差异：<br/>
+                    echo - 能够输出一个以上的字符串<br/>
+                    print - 只能输出一个字符串，并始终返回 1
+                </p>
+            </li>
+            <li class="pull-left">
+                <p>1.字符串、整数、浮点数、逻辑、数组、对象、NULL。</p>
+                <p>
+                    2.php条件语句:<br/>
+                    if 语句 - 如果指定条件为真，则执行代码<br/>
+                    if...else 语句 - 如果条件为 true，则执行代码；如果条件为 false，则执行另一端代码<br/>
+                    if...elseif....else 语句 - 选择若干段代码块之一来执行<br/>
+                    switch 语句 - 语句多个代码块之一来执行
+                </p>
+            </li>
+            <li class="pull-left">
+                <p>
+                    1.PHP 中，有三种数组类型：<br/>
+                    索引数组 - 带有数字索引的数组<br/>
+                    关联数组 - 带有指定键的数组<br/>
+                    多维数组 - 包含一个或多个数组的数组
+                </p>
+                <p>
+                    2.php连接数据库的语法:<br/>
+                    1.mysqli_connect($connect);连接数据库;<br/>
+                    2,mysqli_query($connect,"SQL语句");执行数据库命令<br/>
+                    3.mysqli_select_db($connect,dbname);选择数据库名称;<br/>
+                    4.mysqli_close();关闭数据库；<br/>
+                    5.mysqli_fetch_array()；函数从结果集中取得一行作为关联数组，或数字数组，或二者兼有
+                </p>
+            </li>
+            <li class="pull-left">
+                1.mysql -u -root -p123 --tee=c/...(登录mysql)<br/>
+                create database yy;(创建数据库)<br/>
+                show databases;(查询数据库)<br/>
+                use test;(切换到test数据库)<br/>
+                drop database t62；(删除数据库)<br/>
+                create table user(id int,name varchar(30),pass varchar(30));(创建表user)<br/>
+                select * from user; select * from user where id=2; (查询表user)<br/>
+                insert into user (id,name,pass) values(1,"name","pass");(添加)<br/>
+                delete from user where id=2;(删除表)<br/>
+                update user set name="ll" where id=2;(修改表)<br/>
+                desc user;(查询表记录)<br/>
+                rename table user to user2;（修改表名称）
+            </li>
+        </ul>
+    </div>
+</div>
+<!--内容结束-->
+<!--尾部分页-->
+<div class="container">
+    <div class="row">
+        <!--分页-->
+        <ul class="pagination pull-right hidden-xs">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="#"><<</a></li>
+            <li><a href="index.html">1</a></li>
+            <li><a href="page2.html">2</a></li>
+            <li><a href="page3.html">3</a></li>
+            <li><a href="page4.html">4</a></li>
+            <li><a href="page5.html">5</a></li>
+            <li class="active"><a href="page6.html">6</a></li>
+            <li><a href="page6.html">>></a></li>
+            <li><a href="page6.html">尾页</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/page6.js"></script>
+</html>

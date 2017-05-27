@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>个人网站</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/global.css" type="text/css">
+    <link rel="stylesheet" href="css/page5.css">
+    <!--[if lt IE 9]>
+    <script src="./js/html5shiv.js"></script>
+    <script src="./js/respond.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/angular.min.js"></script>
+</head>
+<body>
+<!--头部导航-->
+<nav class="navbar navbar-inverse my-top-navbar navbar-fixed-top">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header ">
+                <a href="index.html" class="navbar-brand">刘伟波的个人网站</a>
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#my-con">
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                </button>
+            </div>
+            <div id="my-con" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">bootstrap</a></li>
+                    <li><a href="page2.html">html5+css3</a></li>
+                    <li><a href="page3.html">js实例</a></li>
+                    <li><a href="page4.html">jQuery特效</a></li>
+                    <li class="my-active"><a href="page5.html">angularJS</a></li>
+                    <li><a href="page6.html">PHP+mysql</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<!--内容开始-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="page5.html" class="list-group-item active">内容管理</a>
+                <a href="page55.html" class="list-group-item">添加内容</a>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="page-header">
+                <h1>内容管理</h1>
+            </div>
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="page5.html">内容管理</a>
+                </li>
+                <li>
+                    <a href="page55.html">添加内容</a>
+                </li>
+            </ul>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>文章标题</th>
+                    <th>作者</th>
+                    <th>发布时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                    <th scope="row" class="my-tr">angularJS 优势</th>
+                    <td>刘伟波</td>
+                    <td>2017.02</td>
+                    <td>
+                        <div role="presentation" class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                操作<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li class="my-remove"><a href="#">删除</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="my-show">
+                    <td colspan="4" style="height: 50px;">
+                        B/S结构  前后端分离：前端负责 C 和 V 后端负责 M 　
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="my-tr">angularJS常用内置指令</th>
+                    <td>刘伟波</td>
+                    <td>2017.02</td>
+                    <td>
+                        <div role="presentation" class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                操作<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li class="my-remove"><a href="#">删除</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="my-show">
+                    <td colspan="4" style="height: 50px;">
+                        ng-app;  ng-bind;  ng-model;  ng-repeat;  ng-valid;  ng-dirty;
+                        ng-controller;ng-init;ng-if;ng-disabled; ng-hide;ng-show;ng-click;
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="my-tr">angularJS过滤</th>
+                    <td>刘伟波</td>
+                    <td>2017.02</td>
+                    <td>
+                        <div role="presentation" class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                操作<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li class="my-remove"><a href="#">删除</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="my-show">
+                    <td colspan="4" style="height: 50px;">
+                        uppercase:大写，lowercase:小写 	oderBy：排序； filter:字符匹配，查找子集；
+                        currency:货币；date:格式化日期； number：浮点型； limitTo:选取；
+                        自定义过滤器：filter（“name”,function(){return function(name,char,..)}）
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="my-tr">angularJS自定义指令</th>
+                    <td>刘伟波</td>
+                    <td>2017.02</td>
+                    <td>
+                        <div role="presentation" class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                操作<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li class="my-remove"><a href="#">删除</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="my-show">
+                    <td colspan="4" style="height: 50px;">
+                        app.directive("name",function(){return{}});<br/>
+                        restrict(包括：EACM);templace(输出，可以使字符串也可以是函数function(elem,attr){});<br/>
+                        replace(是否替换，默认为false在元素中插入节点,为true时，将元素替换)；<br/>
+                        templaceUrl(和templace类似，但是是连接一个地址作为输出的内容);<br/>
+                        transclude(是否保留原来内部所有的节点，与ng-transclude配合使用，可以是布尔值或者对象，对象里面的
+                        值为已经自定义过的自定义的元素或者属性或者类或者注释)<br/>
+                        link(值是一个函数形式，负责执行DOM 操作和注册事件监听器,包含的参数function(scope,elem,attr){});<br/>
+                        scope(默认为false，是继承父级作用域，true是开辟自己的作用域并继承父级的作用域，对象是
+                        开辟自己独立的作用域，可通过“@”“=”“&”来获取到父级的值绑定到自己的作用域中)<br/>
+                        controller(自定义一个控制器，并在link里面输出,名字可由controllerAs确定)<br/>
+                        controllerAs(确定controller的名字)
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="my-tr">angularJS常用服务service</th>
+                    <td>刘伟波</td>
+                    <td>2017.02</td>
+                    <td>
+                        <div role="presentation" class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                操作<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li class="my-remove"><a href="#">删除</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="my-show">
+                    <td colspan="4" style="height: 50px;">
+                        $location;$timeout; $interval; $http({method:"GET",url:".."}).then(funsuccss(),fn())<br/>
+                        ng-options和ng-repeat：ng-options选择的值ng-model为对象；<br/>
+                        ng-repeat选择的值ng-model为字符串；<br/>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="my-tr">angularJS 的高级功能</th>
+                    <td>刘伟波</td>
+                    <td>2017.02</td>
+                    <td>
+                        <div role="presentation" class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                操作<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li class="my-remove"><a href="#">删除</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="my-show">
+                    <td colspan="4" style="height: 50px;">
+                        ① MVC ② 服务 ③ 依赖注入 ④ 路由 ⑤ 指令
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--内容结束-->
+<!--尾部分页-->
+<div class="container">
+    <div class="row">
+        <!--分页-->
+        <ul class="pagination pull-right hidden-xs">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="#"><<</a></li>
+            <li><a href="index.html">1</a></li>
+            <li><a href="page2.html">2</a></li>
+            <li><a href="page3.html">3</a></li>
+            <li><a href="page4.html">4</a></li>
+            <li class="active"><a href="page5.html">5</a></li>
+            <li><a href="page6.html">6</a></li>
+            <li><a href="page6.html">>></a></li>
+            <li><a href="page6.html">尾页</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/page5.js"></script>
+<script type="text/javascript" src="js/holder.min.js"></script>
+</html>

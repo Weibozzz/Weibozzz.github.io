@@ -1,0 +1,18 @@
+body{
+    color: lightskyblue;
+}
+.my-tr{
+    cursor: pointer;
+}
+.my-show{
+    display: none;
+}
+tbody td,tbody th{
+    transition: .8s;
+}
+tbody tr:hover th{
+    font-size: 16px;
+}
+.table-hover>tbody>tr:hover{
+    background-color:#111;
+}

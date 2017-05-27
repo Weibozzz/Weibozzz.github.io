@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>个人网站</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/global.css" type="text/css">
+    <link rel="stylesheet" href="css/page5.css">
+    <!--[if lt IE 9]>
+    <script src="./js/html5shiv.js"></script>
+    <script src="./js/respond.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/angular.min.js"></script>
+</head>
+<body ng-controller="con">
+<!--头部导航-->
+<nav class="navbar navbar-inverse my-top-navbar navbar-fixed-top">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header ">
+                <a href="index.html" class="navbar-brand">刘伟波的个人网站</a>
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#my-con">
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                </button>
+            </div>
+            <div id="my-con" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">bootstrap</a></li>
+                    <li><a href="page2.html">html5+css3</a></li>
+                    <li><a href="page3.html">js实例</a></li>
+                    <li><a href="page4.html">jQuery特效</a></li>
+                    <li class="my-active"><a href="page55.html">angularJS</a></li>
+                    <li><a href="page6.html">PHP+mysql</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!--内容开始-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="page5.html" class="list-group-item">内容管理</a>
+                <a href="page55.html" class="list-group-item active">添加内容</a>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="page-header">
+                <h1>内容管理</h1>
+            </div>
+            <ul class="nav nav-tabs">
+                <li>
+                    <a href="page5.html">内容管理</a>
+                </li>
+                <li class="active">
+                    <a href="page55.html">添加内容</a>
+                </li>
+            </ul>
+            <div class="media" ng-repeat="con in content">
+                <div class="media-left"><img class="img-circle" src={{con.src}} alt=""></div>
+                <div class="media-body">
+                    <div class="media-heading"><b>{{con.title}}</b></div>
+                    <p class="text-muted">{{con.text}}</p>
+                    <p class="small">
+                        <span class="pull-left">发布者：刘伟波</span>
+                        <span class="pull-right">发布时间：{{nowtime|date:"yyyy-MM-dd hh:mm:ss"}}</span>
+                    </p>
+                </div>
+            </div>
+            <form action="#" class="mar_t15">
+                <div class="form-group">
+                    <label for="title">标题</label>
+                    <input type="text" id="title" ng-model="title" class="form-control" placeholder="请输入文章标题">
+                </div>
+                <div class="form-group">
+                    <label for="content">内容</label>
+                    <textarea id="content" ng-model="text" class="form-control" rows="5" cols="10" placeholder="请输入文章正文部分"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="button" ng-click="cli()" class="btn btn-warning pull-right" data-toggle="modal" data-target="#mym">发布文章</button>
+                    <div class="modal fade" id="mym">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    确定要提交吗？
+                                    <span class="close" data-dismiss="modal">x</span>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        <b>标题：</b>
+                                        {{title}}
+                                    </p>
+                                    <p>
+                                        <b>内容：</b>
+                                        {{text}}
+                                    </p>
+                                    <p>
+                                        <b>发布者：</b>刘伟波
+                                        <span class="pull-right"><b>发布时间: </b>{{nowtime|date:"yyyy-MM-dd hh:mm:ss"}}</span>
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-success" ng-click="sub()" data-dismiss="modal">确定</button>
+                                    <button class="btn btn-danger"  data-dismiss="modal" >取消</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<!--内容结束-->
+<!--尾部分页-->
+<div class="container">
+    <div class="row">
+        <!--分页-->
+        <ul class="pagination pull-right hidden-xs">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="#"><<</a></li>
+            <li><a href="index.html">1</a></li>
+            <li><a href="page2.html">2</a></li>
+            <li><a href="page3.html">3</a></li>
+            <li><a href="page4.html">4</a></li>
+            <li class="active"><a href="page5.html">5</a></li>
+            <li><a href="page6.html">6</a></li>
+            <li><a href="page6.html">>></a></li>
+            <li><a href="page6.html">尾页</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/page55.js"></script>
+<script type="text/javascript" src="js/holder.min.js"></script>
+</html>
