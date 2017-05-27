@@ -28,8 +28,8 @@
 }
 .icon-pause,.icon-play{
     position: absolute;
-    top: 215px;
-    left: 355px;
+    top: 142px;
+    left: 255px;
     width: 90px;
     height: 90px;
     background-image: url("../img/big_play_btn.png");
