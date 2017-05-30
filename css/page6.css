@@ -13,8 +13,8 @@ body,
 .row>.my-ul>li{
     width: 15%;
     height: 100%;
-    opacity: 0.5;
-    color: #fff;
+    opacity: 1;
+    color: rgba(0,0,0,.3);
     font-size: 14px;
     padding: 10px;
     overflow: hidden;
@@ -51,6 +51,9 @@ body,
 .row>.my-ul>li:hover{
     width: 40%;
     opacity: 1;
-    color: lawngreen;
-    font-size: 20px;
+    color: #000;
+    background:#fff;
+    line-height: 25px;
+    font-weight: bold;
+    font-size: 16px;
 }
