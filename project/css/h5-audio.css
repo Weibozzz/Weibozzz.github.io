@@ -1,0 +1,152 @@
+body {
+    background-color: #5C83B7;
+    user-select: none;
+}
+
+#player {
+    overflow: hidden;
+    max-width: 290px;
+    margin: 0 auto;
+    border-radius: 8px;
+    background-color: #4e6e8d;
+}
+
+#controls {
+    margin: 10px 15px 10px;
+}
+
+#controls div {
+    float: left;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#play, #next {
+    height: 40px;
+    margin-top: 6px;
+    background-image: url("../images/ctrl.png");
+}
+
+.stop {
+    width: 40px;
+    background-position: 0 -10px;
+}
+
+.stop:hover {
+    background-position: 0 -68px;
+}
+
+.playing {
+    width: 40px;
+    background-position: -60px -10px;
+}
+
+.playing:hover {
+    background-position: -60px -66px;
+}
+
+#next {
+    width: 30px;
+    margin-left: 10px;
+    background-position: -104px -10px;
+}
+#next:hover{
+    background-position: -104px -68px;
+}
+#progress {
+    position: relative;
+    width: 100px;
+    height: 20px;
+    margin-left: 15px;
+    margin-top: 15px;
+    color: white;
+    border-radius: 4px;
+    background-color: #1a2630;
+}
+#cliPro{
+    width: 0;
+    height: 20px;
+    border-radius: 4px 0 0 4px;
+    background-color: #374D62;
+}
+#time {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    margin: 0;
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+}
+
+#volume {
+    position: relative;
+    width: 50px;
+    height: 16px;
+    margin-left: 15px;
+    margin-top: 17px;
+    background: url("../images/vol.png");
+    cursor: pointer;
+}
+
+#vol{
+    position: absolute;
+    left: 36px;
+    top:0;
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    background: white url("../images/vol2.png") no-repeat;
+}
+
+.bar {
+    padding-left: 10px;
+    line-height: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: #46627e;
+}
+
+.bar button {
+    margin-left: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #2a3a4c;
+    color: #5c83b7;
+    background-color: #d5dfe9;
+    border-radius: 2px;
+}
+.bar button:hover{
+    background-color: greenyellow;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    height: 250px;
+    background: white;
+}
+
+
+#musiclist li {
+    font-size: 12px;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+#musiclist li:hover {
+    line-height: 25px;
+    font-size: 12px;
+    background-color: #ffd132;
+}
+.yel{
+    background-color: #ffd132;
+}
+#mode{
+    cursor: pointer;
+}

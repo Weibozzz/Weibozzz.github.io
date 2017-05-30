@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="400" height="500" style="background-color: #ccc;"></canvas>
+</body>
+<!--<script src="js/jquery-1.8.3.min.js"></script>-->
+<script>
+    var canvas=document.getElementById("canvas");
+    var ctx=canvas.getContext("2d");
+    function run(){
+        ctx.clearRect(0,0,400,500);
+        for(var i=1;i<100;i++){
+            ctx.beginPath();
+            var x=Math.random()*400;
+            var y=Math.random()*500;
+            var h=Math.random()*40;
+            ctx.strokeStyle="#fff";
+            ctx.moveTo(x,y);
+            ctx.lineTo(x,y+h);
+            ctx.lineWidth=3;
+            ctx.stroke();
+        }
+    }
+    setInterval(run,100);
+</script>
+</html>

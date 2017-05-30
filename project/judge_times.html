@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>判断数字是否为两位数</title>
+    <style>
+        body {
+            font: 12px/1.5 arial;
+            text-align: center;
+        }
+
+        .f-text {
+            width: 50px;
+            border: 1px solid #ccc;
+            background: #f0f0f0;
+            font-family: inherit;
+            padding: 3px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" class="f-text"/><input type="button" value="是否为两位数"/>
+</body>
+<script>
+    var oInput=document.getElementsByTagName("input");
+    oInput[0].onkeyup= function () {
+        this.value=this.value.replace(/\D/,"")
+    };
+    oInput[1].onclick= function () {
+        (oInput[0].value=="") ?
+                alert("请输入数字") :
+                alert(/^\d{2}$/.test(parseInt(oInput[0].value))? "√ 这是两位数" : "这是"+oInput[0].value.length+"位数")
+    }
+</script>
+</html>

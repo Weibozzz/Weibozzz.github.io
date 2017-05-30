@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>三级联动</title>
+	<style>
+		body{
+			text-align: center;
+		}
+	</style>
+<script type="text/javascript">
+  var arr=[
+    {name:"四川省",cityList:[
+	   {name:"成都市",areaList:["金牛区","青羊区","武侯区"]},
+	   {name:"内江市",areaList:["东兴区","市中区"]},
+	   {name:"乐山市",areaList:["乐山一区","乐山二区"]}
+	]},
+	{name:"江苏省",cityList:[
+	   {name:"苏州市",areaList:["吴中区","吴江区"]},
+	   {name:"常州市",areaList:["常州一区","常州二区"]}
+	]}
+  ];
+  window.onload=function(){
+	var province=document.getElementById("province");
+	for(var i in arr){
+	  province.add(new Option(arr[i].name,arr[i].name),null);
+	}  
+  };
+  function province(){
+	var provincex=document.getElementById("province").value;
+	var city=document.getElementById("city");
+	var area=document.getElementById("area");
+	area.options.length=1;
+	city.options.length=1;
+	for(var i in arr){
+	  if(provincex==arr[i].name){
+		for(var j in arr[i].cityList){
+		  city.add(new Option(arr[i].cityList[j].name,arr[i].cityList[j].name),null);
+		} 
+	  }	
+	}  
+  }
+  function city(){
+	 var provincex=document.getElementById("province").value;
+	 var cityx=document.getElementById("city").value;
+	 var area=document.getElementById("area");
+	 area.options.length=1;
+	 for(var i in arr){
+	    if(provincex==arr[i].name){
+		  for(var j in arr[i].cityList){
+			 if(cityx==arr[i].cityList[j].name){
+			    for(var z in arr[i].cityList[j].areaList){
+				   var val=arr[i].cityList[j].areaList[z];
+				   area.add(new Option(val,val),null);
+				}	 
+			 }  
+		  }	
+		}	 
+	 }  
+  }
+</script>
+</head>
+
+<body>
+  <select id="province" onChange="province()">
+    <option value="请选择省">请选择省</option>
+  </select>
+  <select id="city" onChange="city()">
+    <option value="请选择市">请选择市</option>
+  </select>
+  <select id="area">
+    <option value="请选择区">请选择区</option>
+  </select>
+</body>
+</html>

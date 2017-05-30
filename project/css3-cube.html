@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--<link rel="stylesheet" href="css/index.css"/>-->
+    <style>
+        main{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 100px auto;
+            transform-style: preserve-3d;
+            animation: rot 8s linear 0s infinite;
+        }
+        @keyframes rot {
+            from{
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to{
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+        main div{
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            font-size: 40px;
+            text-align: center;
+            line-height: 400px;
+            font-weight: bold;
+            background-color: black;
+            opacity: .6;
+            transition: all 1s;
+        }
+        .right{
+            background-color: red;
+            transform: rotateY(90deg) translateZ(200px);
+        }
+        .left{
+            background-color: green;
+            transform: rotateY(90deg) translateZ(-200px);
+        }
+        .back{
+            background-color: yellow;
+            transform: rotateY(180deg) translateZ(200px);
+        }
+        .font{
+            background-color: gold;
+            transform: rotateY(180deg) translateZ(-200px);
+        }
+        .top{
+            background-color: orange;
+            transform: rotateX(90deg) translateZ(200px);
+        }
+        .bottom{
+            background-color: crimson;
+            transform: rotateX(90deg) translateZ(-200px);
+        }
+
+        main section{
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: 200px;
+            height: 200px;
+            background-color: black;
+            opacity: .6;
+        }
+
+        .right1{
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        .left1{
+            transform: rotateY(90deg) translateZ(-100px);
+        }
+        .back1{
+            transform: rotateY(180deg) translateZ(100px);
+        }
+        .font1{
+            transform: rotateY(180deg) translateZ(-100px);
+        }
+        .top1{
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .bottom1{
+            transform: rotateX(90deg) translateZ(-100px);
+        }
+
+        main:hover .right{
+            transform: rotateY(90deg)  translateZ(300px) rotateZ(180deg);
+        }
+        main:hover .left{
+            transform: rotateY(90deg)  translateZ(-300px) rotateZ(180deg);
+        }
+        main:hover .back{
+            transform: rotateY(180deg)  translateZ(300px) rotateZ(180deg);
+        }
+        main:hover .font{
+            transform: rotateY(180deg)  translateZ(-300px) rotateZ(180deg);
+        }
+        main:hover .top{
+            transform: rotateX(90deg)  translateZ(300px) rotateZ(180deg);
+        }
+        main:hover .bottom{
+            transform: rotateX(90deg)  translateZ(-300px) rotateZ(180deg);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="right">right</div>
+        <div class="back">back</div>
+        <div class="left">left</div>
+        <div class="font">font</div>
+        <div class="top">top</div>
+        <div class="bottom">bottom</div>
+
+        <section class="right1"></section>
+        <section class="back1"></section>
+        <section class="left1"></section>
+        <section class="font1"></section>
+        <section class="top1"></section>
+        <section class="bottom1">bottom</section>
+    </main>
+</body>
+<script>
+
+
+
+    
+    
+</script>
+</html>

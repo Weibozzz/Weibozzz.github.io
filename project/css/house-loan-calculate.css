@@ -1,0 +1,27 @@
+.wrong{
+    font-size: 14px;
+    padding-left:25px;
+    padding-right:5px;
+    border: 1px solid red;
+    background: pink url("../images/li_err.gif") no-repeat 5px center;
+}
+.correct{
+    font-size: 14px;
+    padding-left:25px;
+    padding-right:5px;
+    border: 1px solid green;
+    background: lightseagreen url("../images/li_ok.gif") no-repeat 5px center;
+}
+.prompt{
+    font-size: 14px;
+    padding:0 5px;
+    border: 1px solid orange;
+    background: lightsalmon;
+}
+input{
+    outline: none;
+}
+.title{
+    font-weight: bold;
+    font-size: 40px;
+}

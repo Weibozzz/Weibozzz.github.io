@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    function rand(min,max){
+        return parseInt((max-min+1)*Math.random()+min);
+    }
+
+    var canvasW = canvas.width;
+    var canvasH = canvas.height;
+    var deg = Math.PI/180;
+    function circle(x,y,r,speedx,speedy){
+        this.r =r|| rand(10,30);
+        this.x =x|| rand(this.r,canvasW - this.r);
+        this.y =y||rand(this.r,canvasH - this.r);
+        this.speedx =speedx|| rand(3,7);
+        this.speedy =speedy|| rand(3,7);
+
+        this.draw = function(){
+            ctx.beginPath();
+            ctx.arc(this.x,this.y,this.r,0,360*deg);
+            ctx.closePath();
+            ctx.fillStyle = "red";
+            ctx.fill();
+        };
+        this.move = function(){
+            this.x += this.speedx;
+            this.y += this.speedy;
+            if(this.x>=canvasW - this.r || this.x<= this.r){
+                this.speedx = -this.speedx;
+            }
+            if(this.y>=canvasH - this.r || this.y<= this.r){
+                this.speedy = -this.speedy;
+            }
+            this.draw();
+        }
+
+    }
+
+    function collision(obj1,obj2){
+        var x = obj1.x - obj2.x;
+        var y = obj1.y - obj2.y;
+        var distence = Math.sqrt(x*x + y*y);
+        if(distence<obj1.r +obj2.r){
+            obj1.speedx = -obj1.speedx;
+            obj1.speedy = -obj1.speedy;
+            obj2.speedx = -obj2.speedx;
+            obj2.speedy = -obj2.speedy;
+        }
+
+    }
+    var circle01 = new circle();
+    var circle02 = new circle();
+
+    setInterval(function(){
+        ctx.clearRect(0,0,canvasW,canvasH);
+        collision(circle01,circle02);
+        circle01.move();
+        circle02.move();
+    },20)
+
+</script>
+</html>

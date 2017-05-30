@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>数组练习：各种数组方法的使用</title>
+    <style>
+        div {
+            color: green;
+            padding: 10px 15px;
+            margin: 12px 0;
+            background: #f0f0f0;
+            border: 1px dotted #333;
+            font: 12px/1.5 Courier New;
+            word-wrap: break-word;
+        }
+    </style>
+
+</head>
+<body>
+<div>
+    January(1),February(2),March(3),April(4),May(5),June(6),July(7),Aguest(8),September(9),October(10),November(11),December(12)
+</div>
+<input type="button" value="删除January(1)"/>
+<input type="button" value="删除December(12)"/>
+
+<div>0,1,2,3,4,5,6,7,8,9</div>
+<input type="button" value="复制"/>
+<input type="button" value="还原"/>
+
+<div>red,green,blue,white,yellow,black,brown</div>
+<input type="button" value="还原"/>
+<input type="button" value="删除前三项"/>
+<input type="button" value="删除第二至三项"/>
+<input type="button" value="在第二项后插入(orange, purple)"/>
+<input type="button" value="替换第二项和第三项"/>
+</body>
+<script>
+    var oDiv = document.getElementsByTagName("div");
+    var oBtn = document.getElementsByTagName("input");
+    var arr = [];
+    var oS1 = oS2 = true;
+    //获得div的内容转化为数组
+    function getArr(str) {
+        arr.length = 0;
+        str = str.split(",");
+        for (var i in str)arr.push(str[i]);
+        return arr;
+    }
+    oBtn[0].onclick = function () {
+        arr = getArr(oDiv[0].innerHTML);
+        oS1 ?
+                (arr.shift(), this.value = this.value.replace("删除", "增加"), oS1 = false) :
+                (arr.unshift("January(1)"), this.value = this.value.replace("增加", "删除"), oS1 = true);
+        oDiv[0].innerHTML = arr.join();
+    };
+    oBtn[1].onclick = function () {
+        arr = getArr(oDiv[0].innerHTML);
+        oS2 ?
+                (arr.pop(), this.value = this.value.replace("删除", "增加"), oS2 = false) :
+                (arr.push("January(12)"), this.value = this.value.replace("增加", "删除"), oS2 = true);
+        oDiv[0].innerHTML = arr.join();
+    };
+    oBtn[2].onclick = function () {
+        arr = getArr(oDiv[1].innerHTML);
+        oDiv[1].innerHTML = arr.concat(arr).join();
+    };
+    oBtn[3].onclick = function () {
+        arr = getArr((oDiv[1].innerHTML));
+        arr.length = 10;
+        oDiv[1].innerHTML = arr.join()
+    };
+    oBtn[4].onclick = function () {
+        oDiv[2].innerHTML = "red,green,blue,white,yellow,black,brown";
+    };
+    oBtn[5].onclick = function () {
+        arr = getArr(oDiv[2].innerHTML);
+        arr.splice(0, 2);
+        oDiv[2].innerHTML = arr.join()
+    };
+    oBtn[6].onclick = function () {
+        arr = getArr(oDiv[2].innerHTML);
+        arr.splice(1, 2);
+        oDiv[2].innerHTML = arr.join()
+    };
+    oBtn[7].onclick = function () {
+        arr = getArr(oDiv[2].innerHTML);
+        arr.splice(1, 0, "orange", "purple");
+        oDiv[2].innerHTML = arr.join()
+    };
+    oBtn[8].onclick = function () {
+        arr = getArr(oDiv[2].innerHTML);
+        arr.splice(1, 2, "#234345", "#242432");
+        oDiv[2].innerHTML = arr.join()
+    }
+</script>
+</html>

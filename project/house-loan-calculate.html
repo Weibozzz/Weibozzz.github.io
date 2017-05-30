@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>房贷计算器</title>
+    <link rel="stylesheet" href="css/house-loan-calculate.css"/>
+    <style>
+            table{
+                border: 1px solid #ccc;;
+            }
+    </style>
+</head>
+<body>
+<table cellpadding="5" cellspacing="0"  width="800" align="center" >
+    <form>
+        <tr>
+            <td colspan="3" class="title">房贷计算器</td>
+        </tr>
+        <tr>
+            <td width="15%"><strong>平米单价：</strong></td>
+            <td width="45%"><input type="text" id="unitPrice" value="70000"/>元/平方米</td>
+            <td><strong id="unitPriceMsg"></strong></td>
+        </tr>
+        <tr>
+            <td><strong>租金：</strong></td>
+            <td><input type="text" id="rent" value="382.50"/>元/平方米</td>
+            <td><strong id="rentMsg"></strong></td>
+        </tr>
+        <tr>
+            <td><strong>物业费：</strong></td>
+            <td><input type="text" id="cost" value="50.50"/>元/平方米</td>
+            <td><strong id="costMsg"></strong></td>
+        </tr>
+        <tr>
+            <td><strong>面积：</strong></td>
+            <td><input type="text" id="area" value="200"/>元/平方米</td>
+            <td><strong id="areaMsg"></strong></td>
+        </tr>
+        <tr>
+            <td><strong>首付：</strong></td>
+            <td>
+                <select name="" id="first">
+                    <option value="1">1成</option>
+                    <option value="2">2成</option>
+                    <option value="3">3成</option>
+                    <option value="4" selected="selected">4成</option>
+                    <option value="5">5成</option>
+                    <option value="6">6成</option>
+                    <option value="7">7成</option>
+                    <option value="8">8成</option>
+                    <option value="9">9成</option>
+                </select>
+            </td>
+            <td><strong id="firstMsg"></strong></td>
+        </tr>
+        <tr>
+            <td><strong>贷款利息：</strong></td>
+            <td><input type="text" id="interest" value="4"/>%</td>
+            <td><strong id="interestMsg"></strong></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input type="button" value="计算" id="result"/>
+                <input type="reset" value="重置" id="reset"/>
+            </td>
+        </tr>
+    </form>
+        <table cellspacing="0" cellpadding="5"  width="300" align="center">
+            <tr>
+                <td colspan="2">计算结果</td>
+            </tr>
+            <tr>
+                <td width="50%"><strong>首付金额：</strong></td>
+                <td><span id="firstResult"></span></td>
+            </tr>
+            <tr>
+                <td><strong>贷款金额：</strong></td>
+                <td><span id="totalResult"></span></td>
+            </tr>
+            <tr>
+                <td><strong>每月支付利息：</strong></td>
+                <td><span id="interestResult"></span></td>
+            </tr>
+            <tr>
+                <td><strong>每月租金：</strong></td>
+                <td><span id="rentResult"></span></td>
+            </tr>
+            <tr>
+                <td><strong>每月物业费：</strong></td>
+                <td><span id="costResult"></span></td>
+            </tr>
+        </table>
+</table>
+</body>
+<script src="js/public-house-loan-calculate.js"></script>
+<script src="js/house-loan-calculate.js"></script>
+</html>
