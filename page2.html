@@ -14,11 +14,14 @@
     <script src="./js/respond.js"></script>
     <![endif]-->
     <!--引用高德地图API-->
-    <script src="http://webapi.amap.com/maps?v=1.3&key="></script>
-    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <!--<script src="http://webapi.amap.com/maps?v=1.3&key="></script>-->
+    <!--<script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>-->
     <style type="text/css">
         .small{display: none}
+        .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+        .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
     </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
 </head>
 <body style="overflow: hidden;">
 <!--头部导航-->
@@ -92,7 +95,7 @@
 </div>
 
 <!--高德地图容器-->
-<div id="dituContent" style="width:900px;height:300px;margin: 20px auto; border:#ccc solid 1px;"></div>
+<div style="width:697px;height:550px;border:#ccc solid 1px;" id="dituContent"></div>
 <canvas style="display: none; margin-left: 5%;" class="center-block"></canvas>
 <iframe style="width: 100%;height: 600px;" src="" frameborder="0"></iframe>
 <!--尾部分页-->
@@ -115,19 +118,45 @@
 </div>
 </body>
 
-<script>
-    var map = new AMap.Map('dituContent', {
-        resizeEnable: true
-    });
-
-    map.on('moveend', getCity);
-    function getCity() {
-        map.getCity(function(data) {
-            if (data['province'] && typeof data['province'] === 'string') {
-                document.getElementById('info').innerHTML = '城市：' + (data['city'] || data['province']);
-            }
-        });
+<script type="text/javascript">
+    //�����ͳ�ʼ����ͼ������
+    function initMap(){
+        createMap();//������ͼ
+        setMapEvent();//���õ�ͼ�¼�
+        addMapControl();//���ͼ���ӿؼ�
     }
+
+    //������ͼ������
+    function createMap(){
+        var map = new BMap.Map("dituContent");//�ڰٶȵ�ͼ�����д���һ����ͼ
+        var point = new BMap.Point(113.911991,22.575442);//����һ�����ĵ�����
+        map.centerAndZoom(point,17);//�趨��ͼ�����ĵ�����겢����ͼ��ʾ�ڵ�ͼ������
+        window.map = map;//��map�����洢��ȫ��
+    }
+
+    //��ͼ�¼����ú�����
+    function setMapEvent(){
+        map.enableDragging();//���õ�ͼ��ק�¼���Ĭ������(�ɲ�д)
+        map.enableScrollWheelZoom();//���õ�ͼ���ַŴ���С
+        map.enableDoubleClickZoom();//�������˫���Ŵ�Ĭ������(�ɲ�д)
+        map.enableKeyboard();//���ü����������Ҽ��ƶ���ͼ
+    }
+
+    //��ͼ�ؼ����Ӻ�����
+    function addMapControl(){
+        //���ͼ���������ſؼ�
+        var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+        map.addControl(ctrl_nav);
+        //���ͼ����������ͼ�ؼ�
+        var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+        map.addControl(ctrl_ove);
+        //���ͼ�����ӱ����߿ؼ�
+        var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+        map.addControl(ctrl_sca);
+    }
+
+
+    initMap();//�����ͳ�ʼ����ͼ
 </script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
