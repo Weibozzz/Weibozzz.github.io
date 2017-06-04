@@ -5,7 +5,7 @@
     <title>Document</title>
     <style>
         *{margin: 0;padding: 0;}
-        #div1{position: relative;margin: 20px auto;}
+        #div1{position: relative;margin: 20px auto;overflow: hidden}
         .pos1{width: 50px;height: 50px;background-color:grey;float: left}
         .pos2{width: 50px;height: 50px;background:url("images/wall.png") no-repeat 0 0;float: left}
         .pos3{width: 50px;height: 50px;background-color:blue;float: left}
@@ -17,6 +17,7 @@
 </head>
 <body>
     <div id="div1"></div>
+    <p style="color: #ccc;text-align: center;font-size: 14px">把箱子推入红色区域可以进入下一关......</p>
 </body>
 <script src="js/jquery-1.8.3.min.js"></script>
 <script>
@@ -179,6 +180,7 @@
                 },this))
             },this));
             if(iNum==$(".box").size()){
+                alert("恭喜进入下一关！！");
                 this.createMap(1);
             }
 
