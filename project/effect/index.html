@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+        *{padding: 0;margin: 0;}
+        body{background-color: #ccc;}
+        .container{width: 1120px;margin: 30px auto;}
+        h2{text-align: center;padding-bottom: 15px;border-bottom: 1px solid #fff;}
+        #addList{margin-top: 50px;}
+        #addList:after{content: "";display: block;clear: both}
+        li{position: relative;height: 160px ;width: 540px;float: left;margin:10px;overflow-y: hidden}
+        li img{width: 540px}
+        li a{display: block; position: absolute;left: 0;top:0;}
+        li div{position: absolute;left: 0;bottom:-50px;z-index: 2;height: 50px;width:540px;line-height: 50px;font-size: 25px; background-color: orange;opacity: .8;filter: alpha(opacity=80); text-align: center;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 >开发特效</h2>
+    <ul id="addList">
+        <!--<li>-->
+        <!--<a href="http://www.xwcms.net/webAnnexImages/fileAnnex/201703/40712/index.html" target="_blank"><img src="images/64984984988498.png" alt=""/></a>-->
+        <!--<div>-->
+        <!--jquery焦点图插件 左右循环轮番切换效果-->
+        <!--</div>-->
+        <!--</li>-->
+    </ul>
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="js/jquery.tmpl.js"></script>
+
+<!--遍历模板-->
+<script id="demo" type="text/x-jquery-tmpl">
+    <li>
+        <a href="${url}" target="_blank"><img src="${path}" alt=" ${title}"/></a>
+        <div>
+            ${title}
+        </div>
+    </li>
+</script>
+
+<script>
+    var obj=[
+        {title:"jquery焦点图插件 左右循环轮番切换效果",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201703/40712/index.html",path:"images/64984984988498.png"},
+        {title:"图片翻转效果",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201610/70874/index.html",path:"images/20170616090541 2017-6-16  9_5_44 2017-6-16  9_5_44.png"},
+        {title:"jQuery弧形焦点图片播放自动切换插件-焦点图",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201701/45625/index.html",path:"images/20170616091048 2017-6-16  9_10_50 2017-6-16  9_10_50.png"},
+        {title:"jQuery背景无限循环缩放特效",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201508/94376/xwcms.html",path:"images/4573676867.png"},
+        {title:"web全屏页面滚动切换",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201504/58595/xwcms.html",path:"images/20170616133945 2017-6-16  13_39_46 2017-6-16  13_39_46.png"},
+        {title:"jQuery不规则动画全屏幻灯片切换可嵌入图片视频",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201504/26414/xwcms.html",path:"images/20170616134512 2017-6-16  13_45_13 2017-6-16  13_45_13.png"},
+        {title:"jquery插件web网页全屏Banner图片切换带有动画效果",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201610/22960/xwcms.html",path:"images/20170616135004 2017-6-16  13_50_6 2017-6-16  13_50_6.png"},
+        {title:"jQuery实现图片背景全屏铺满效果",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201505/81960/xwcms.html",path:"images/20170616135413 2017-6-16  13_54_15 2017-6-16  13_54_15.png"},
+        {title:"jQuery夜空流星划过动画效果",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201505/55053/xwcms.html",path:"images/20170616135752 2017-6-16  13_57_53 2017-6-16  13_57_53.png"},
+        {title:"js制作凤凰网图片相册展示幻灯片",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/20140710/59147/xwcms.html#p=5",path:"images/20170616140800 2017-6-16  14_8_1 2017-6-16  14_8_1.png"},
+        {title:"css3+jquery制作全屏幻灯片自动切换插件Bootslider",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/20140503/86014/xwcms.html",path:"images/20170616141220 2017-6-16  14_12_22 2017-6-16  14_12_22.png"},
+        {title:"js图片全屏放大浏览插件baguettebox相册代码",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201507/68731/xwcms.html",path:"images/20170616142331 2017-6-16  14_23_32 2017-6-16  14_23_32.png"},
+        {title:"jQuery向下滑动页面获取页面相关信息并以动画形式展现",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201507/24613/xwcms.html",path:"images/20170616142753 2017-6-16  14_27_54 2017-6-16  14_27_54.png"},
+        {title:"jquery仿新浪微博用户图文混排左右切换效果",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/20140810/33564/xwcms.html",path:"images/20170616143835 2017-6-16  14_38_36 2017-6-16  14_38_36.png"},
+        {title:"js实现文字内容无缝滚动动画效果",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/20140616/47183/xwcms.html",path:"images/20170616145158 2017-6-16  14_51_59 2017-6-16  14_51_59.png"},
+        {title:"jQuery文字由下往上无缝滚动代码鼠标悬停停止滚动",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/20140109/93607/index.html",path:"images/20170616145456 2017-6-16  14_54_58 2017-6-16  14_54_58.png"},
+        {title:"jquery实现单行文字循环滚动特效",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/20131122/41911/xwcms.html",path:"images/20170616151136 2017-6-16  15_11_37 2017-6-16  15_11_37.png"},
+        {title:"jquery制作用户评论滚动特效",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/20140618/26341/xwcms.html",path:"images/20170616174839 2017-6-16  17_48_40 2017-6-16  17_48_40.png"},
+        {title:"百度知道 变形金刚 js特效",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/20140320/75610/xwcms.html",path:"images/20170616150419 2017-6-16  15_4_20 2017-6-16  15_4_20.png"},
+        {title:"jquery实现叠层3D立体文字左右摆动特效",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/20140306/53921/xwcms.html",path:"images/20170616172600 2017-6-16  17_26_1 2017-6-16  17_26_1.png"},
+        {title:"jQuery制作文章内容滑动展开特效",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/20140222/96392/xwcms.html",path:"images/20170616173249 2017-6-16  17_32_50 2017-6-16  17_32_50.png"},
+        {title:"原生js鼠标滑过文字淡入淡出效果",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/20130918/90997/xwcms.html",path:"images/20170619090539 2017-6-19  9_5_44 2017-6-19  9_5_44.png"},
+        {title:"jQuery点击按钮弹出用户登录窗口带二维码扫描",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201701/76055/xwcms.html",path:"images/20170619091000 2017-6-19  9_10_3 2017-6-19  9_10_3.png"},
+        {title:"jQuery网页底部鼠标悬停弹出二维码窗口特效",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201609/30005/index.html",path:"images/20170619091138 2017-6-19  9_11_39 2017-6-19  9_11_39.png"},
+        {title:"Jquery页面视差效果点击导航页面滚动切换",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201504/93503/index.html",path:"images/20170619092200 2017-6-19  9_22_0 2017-6-19  9_22_0.png"},
+        {title:"js实现橙色垂直导航栏上下滑动动画效果",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/20140610/35624/index.html",path:"images/20170619092521 2017-6-19  9_25_22 2017-6-19  9_25_22.png"},
+        {title:"jquery制作彩色光环旋转导航展示特效",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/20140513/47320/index.html",path:"images/20170619092916 2017-6-19  9_29_17 2017-6-19  9_29_17.png"},
+        {title:"jquery插件用户星级评分打分效果",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201610/38227/index.html",path:"images/20170619093718 2017-6-19  9_37_19 2017-6-19  9_37_19.png"},
+        {title:"jquery插件时间刻度轴记录历史发展效果",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201610/93689/index.html",path:"images/20170619093848 2017-6-19  9_38_49 2017-6-19  9_38_49.png"},
+        {title:"jquery柱状垂直数据统计图表",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201605/74475/xwcms.html",path:"images/20170619094103 2017-6-19  9_41_4 2017-6-19  9_41_4.png"},
+        {title:"jQuery+html5实现柱形统计图与曲线统计图插件",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201506/75492/xwcms.html",path:"images/20170619094339 2017-6-19  9_43_40 2017-6-19  9_43_40.png"},
+        {title:"jQuery实现饼状图比例分布数据统计插件",url:"http://www.xwcms.net/webAnnexImages/fileAnnex/201504/86190/xwcms.html",path:"images/20170619094447 2017-6-19  9_44_48 2017-6-19  9_44_48.png"}
+    ];
+    $("#demo").tmpl(obj).appendTo('#addList');
+
+    $("#addList li").hover(function(){
+        $(this).find("div").animate({"bottom":0},300)
+    },function () {
+        $(this).find("div").animate({"bottom":-50},300)
+    })
+</script>
+
+</body>
+</html>

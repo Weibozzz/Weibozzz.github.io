@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标移入上标线展开动画</title>
+
+    <style type="text/css">
+        #underline{width:200px;
+            height:50px;
+            background:#ddd;
+            margin:1px;
+            position:relative;
+            font-family:"微软雅黑";
+            color:#333333;
+            text-align:center;
+            line-height:50px;
+            float:left;}
+
+        #underline:after{content: "";
+            width:0;
+            height:1px;
+            background:blue;
+            position:absolute;
+            top:0%; left:50%;
+            transition:all .8s;}
+
+        #underline:hover:after{ left:0%; width:100%;}
+    </style>
+</head>
+<body>
+<div id="underline">
+    51rgb在线教育
+</div>
+
+<!--<div id="underline">-->
+    <!--web前端开发-->
+<!--</div>-->
+
+<!--<div id="underline">-->
+    <!--万晨曦老师授课-->
+<!--</div>-->
+</body>
+</html>
