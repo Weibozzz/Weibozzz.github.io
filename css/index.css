@@ -111,3 +111,7 @@
     padding-top: 10px;
     font-size: 12px;
 }
+.my-panel-icon a{
+    text-decoration: none;
+    color: #31708F;
+}
