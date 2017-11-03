@@ -13,16 +13,34 @@
 
         .box{width: 50px;height: 50px;background:url("images/jq_box.png") no-repeat;position: absolute;}
         .person{width: 50px;height: 50px;background:url("images/person.png") no-repeat -100px 0;position: absolute;}
+
+        button{
+            width: 100px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div id="div1"></div>
     <p style="color: #ccc;text-align: center;font-size: 14px">把箱子推入红色区域可以进入下一关......</p>
+    <p>选择关卡：
+        <button>1</button>
+        <button>2</button>
+    </p>
+    <div>
+
+    </div>
 </body>
 <script src="js/jquery-1.8.3.min.js"></script>
 <script>
     $(function () {
         Game.init($("#div1"));//游戏开始！！
+    });
+    var num=0;
+    $("button").click(function () {
+        console.log($(this).text());
+        num=Number($(this).text())-1;
+        Game.createMap(num)
     });
     var Game={
         gk:[
