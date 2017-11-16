@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+<h1>
+
+</h1>
+<script>
+    var str='RdRUddrr' +
+        'uuLrddll' +
+        'uRuruulD' +
+        'ullDRDul' +
+        'ldRdRUdd' +
+        'rrUULrdd' +
+        'lluRdrUl' +
+        'lluuurrD' +
+        'DLdlUdrd' +
+        'rruruLLr' +
+        'ddlluRuu' +
+        'ullDRDul' +
+        'ldR';
+    var arr=str.split('');
+    var newArr=[];
+    for(var i in arr){
+        switch (arr[i]){
+            case 'U':
+            case 'u':
+                arr[i]='上';
+                break;
+            case 'l':
+            case 'L':
+                arr[i]='左';
+                break;
+            case 'R':
+            case 'r':
+                arr[i]='右';
+                break;
+            case 'd':
+            case 'D':
+                arr[i]='下';
+                break;
+        }
+    }
+    console.log(arr.length);
+
+    var h=document.getElementsByTagName('h1')[0];
+    var html='';
+    for(var j in arr){
+        if(j%5==4){
+            html+=arr[j]+'<br/>'
+            if(j%10==9){
+                html+='<br/>'
+            }
+        }else {
+            html+=arr[j];
+        }
+    }
+    h.innerHTML=html;
+    console.log(html);
+</script>
+</body>
+
+</html>
