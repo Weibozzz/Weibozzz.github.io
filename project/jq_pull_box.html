@@ -29,6 +29,7 @@
         <button>3</button>
         <button>4</button>
         <button>5</button>
+        <button>6</button>
     </p>
     <div>
 
@@ -154,11 +155,31 @@
                     {x:3,y:4}
                 ],
                 person:{x:1,y:3}
-            }
+            },
+            {
+                map:[
+                    1,1,2,2,2,2,2,1,1,
+                    1,2,2,3,3,3,2,2,2,
+                    1,2,3,3,3,3,3,3,2,
+                    1,2,0,2,0,2,0,3,2,
+                    1,2,3,2,3,3,3,2,2,
+                    2,2,3,2,3,2,0,2,1,
+                    2,3,3,3,3,3,3,2,1,
+                    2,3,3,3,2,3,3,2,1,
+                    2,2,2,2,2,2,2,2,1
+                ],
+                box:[
+                    {x:2,y:3},
+                    {x:4,y:3},
+                    {x:6,y:3},
+                    {x:6,y:5}
+                ],
+                person:{x:4,y:4}
+            },
         ],
         init: function (oParent) {  //初始化
             this.oParent=oParent;
-            this.createMap(0);
+            this.createMap(5);
         },
         createMap: function (iNow) {   //创建地图
 
