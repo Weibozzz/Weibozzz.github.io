@@ -7,6 +7,7 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 </head>
 <body>
   <div id="app"></div>
@@ -17,5 +18,21 @@
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    const clientID = 'fbfef63c7f3c97946ba9'
+    const clientSecret = 'f1e611280ba43d6f2d2a18f67c91e491b2869fd6'
+    const gitalk = new Gitalk({
+      clientID,
+      clientSecret,
+      repo: 'weibozzz.github.io',
+      owner: 'weibozzz',
+      admin: ['weibozzz'],
+      id: location.pathname,      // Ensure uniqueness and length less than 50
+      distractionFreeMode: false  // Facebook-like distraction free mode
+    })
+
+    gitalk.render('app')
+  </script>
 </body>
 </html>
