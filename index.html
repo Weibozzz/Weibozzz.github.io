@@ -5,34 +5,37 @@
   <title>Document</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 </head>
 <body>
-  <div id="app"></div>
-  <script src="./js/md5.min.js"></script>
-  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
-  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-  <script>
-    window.$docsify = {
-      name: '前端知识体系',
-      repo: 'https://github.com/Weibozzz/Weibozzz.github.io'
-    }
-    const clientID = '3fcb62f9fde9f38f16fb'
-    const clientSecret = '3aeb8d5e057103a9b5f63a83c2c722bc0b10fb4e'
-    const gitalk = new Gitalk({
-      clientID,
-      clientSecret,
-      repo: 'weibozzz.github.io',
-      owner: 'weibozzz',
-      admin: ['weibozzz'],
-      id: md5(location.pathname.hash),      // Ensure uniqueness and length less than 50
-      distractionFreeMode: false  // Facebook-like distraction free mode
-    })
+<div id="app"></div>
+<script>
+  window.$docsify = {
+    name: '前端知识体系',
+    repo: 'https://github.com/Weibozzz/Weibozzz.github.io'
+  }
+</script>
+<script src="./js/md5.min.js"></script>
+<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
 
-    gitalk.render('app')
-  </script>
+  const clientID = '3fcb62f9fde9f38f16fb'
+  const clientSecret = '3aeb8d5e057103a9b5f63a83c2c722bc0b10fb4e'
+  const gitalk = new Gitalk({
+    clientID,
+    clientSecret,
+    repo: 'weibozzz.github.io',
+    owner: 'weibozzz',
+    admin: ['weibozzz'],
+    id: md5(location.pathname.hash),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+  gitalk.render('app')
+</script>
 </body>
 </html>
