@@ -30,7 +30,7 @@
   const clientSecret = '3aeb8d5e057103a9b5f63a83c2c722bc0b10fb4e'
   window.addEventListener('hashchange', function() {
     console.log('The hash has changed!')
-    const gitalk = new Gitalk({
+    window.gitalk = new Gitalk({
       clientID,
       clientSecret,
       title: decodeURIComponent(location.hash.replace('#/./docs/', '')) || '前端知识体系',
