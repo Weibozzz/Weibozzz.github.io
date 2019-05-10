@@ -28,8 +28,12 @@
 
   const clientID = '3fcb62f9fde9f38f16fb'
   const clientSecret = '3aeb8d5e057103a9b5f63a83c2c722bc0b10fb4e'
-  window.addEventListener('hashchange', function() {
+  window.addEventListener('hashchange', function () {
     console.log('The hash has changed!')
+    gitalkInit()
+  }, false)
+  gitalkInit()
+  function gitalkInit () {
     window.gitalk = new Gitalk({
       clientID,
       clientSecret,
@@ -41,7 +45,7 @@
       distractionFreeMode: false  // Facebook-like distraction free mode
     })
     gitalk.render('app')
-  }, false);
+  }
 </script>
 </body>
 </html>
