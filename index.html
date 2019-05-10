@@ -31,7 +31,7 @@
   const gitalk = new Gitalk({
     clientID,
     clientSecret,
-    title: location.hash,
+    title: decodeURIComponent(location.hash.replace('#/./docs/', '')) || '前端知识体系',
     repo: 'weibozzz.github.io',
     owner: 'weibozzz',
     admin: ['weibozzz'],
