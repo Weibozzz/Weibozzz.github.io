@@ -240,3 +240,6 @@ git提交前会验证lint命令
 更多查看[https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md)
 
 在线学习git使用 [https://learngitbranching.js.org/](https://learngitbranching.js.org/)
+
+## 今日图
+![16a8d22958e71066.png](../images/16a8d22958e71066.png)
