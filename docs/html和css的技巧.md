@@ -714,6 +714,82 @@ input:-webkit-autofill {
 }
 ```
 
+## cursor
+`zoom-in` | `zoom-out` 放大缩小 `grab` | `grabbing`  手型抓取
+
+
+## CSS3 greyscale 滤镜实现
+图片转为黑白，每逢大的灾难的时候，很多网站变成了灰色
+```css
+.gray {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+
+    filter: grayscale(100%);  //chrome18+
+
+    filter: gray;
+}
+```
+
+## CSS3 blur滤镜实现  图片模糊化
+```css
+.blur {
+    -webkit-filter: blur(10px); /* Chrome, Opera */
+       -moz-filter: blur(10px);
+        -ms-filter: blur(10px);
+            filter: blur(10px);
+}
+```
+## 优化显示文本
+有时，字体并不能在所有设备上都达到最佳的显示，所以可以让设备浏览器来帮助你：·
+
+//code from http://caibaojian.com/useful-css-tips.html
+```css
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+```
+## 使用属性选择器用于空链接
+当a元素没有文本值，但 href 属性有链接的时候显示链接：·
+```css
+//code from http://caibaojian.com/useful-css-tips.html
+a[href^="http"]:empty::before {
+  content: attr(href);
+}
+```
+相当方便。
+
+## 给input的placeholder设置颜色
+```css
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #999;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #999;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #999;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #999;
+}
+```
+
+
+
+
+## DIV可编辑
+就是让一个div变成一个类似input输入框的效果。
+```html
+<div id="div1" contentEditable="true"  ></div>
+<div contenteditable="plaintext-only" placeholder="请输入内容"></div>
+```
+
+
 ## 今日图 - 扎心了，老铁
 ![16a8663a5c60e3cd.png](../images/16a8663a5c60e3cd.png)
 
