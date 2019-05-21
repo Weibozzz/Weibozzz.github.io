@@ -96,8 +96,8 @@ large_client_header_buffers默认值 ：large_client_header_buffers 4 4k/8k
 
 ## 参考
 
-[GET传参最大长度的理解误区](https://github.com/zhongxia245/blog/issues/35)
-[rfc2616](https://tools.ietf.org/html/rfc2616)
+- [GET传参最大长度的理解误区](https://github.com/zhongxia245/blog/issues/35)
+- [rfc2616](https://tools.ietf.org/html/rfc2616)
 
 ## 配图 521-扎心了 老铁
 
