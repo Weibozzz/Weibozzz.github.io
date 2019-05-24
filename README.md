@@ -22,6 +22,7 @@
 ## 前端技巧
 
 + [前端有趣技巧网站](./docs/前端有趣技巧网站.md)
++ [ES7-Decorator-装饰者模式](./docs/ES7-Decorator-装饰者模式.md)
 
 ## GIT
 
