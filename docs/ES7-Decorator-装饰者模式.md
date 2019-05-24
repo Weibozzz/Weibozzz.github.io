@@ -127,6 +127,168 @@ console.log(`当前状态 ===> ${tony}`);
 
 ### 【Demo 3】对类的装饰：增加飞行能力
 
+装饰模式有两种：纯粹的装饰模式 和 半透明的装饰模式。
+
+上述的两个 `demo` 中所使用的应该是 纯粹的装饰模式，它并不增加对原有类的接口；下面要讲 `demo` 是给普通人增加“飞行”能力，相当于给类新增一个方法，属于 半透明的装饰模式，有点儿像适配器模式的样子。
+
+```js
+
+...
+
+// 3
+function addFly(canFly){
+  return function(target){
+    target.canFly = canFly;
+    let extra = canFly ? '(技能加成:飞行能力)' : '';
+    let method = target.prototype.toString;
+    target.prototype.toString = (...args)=>{
+      return method.apply(target.prototype,args) + extra;
+    }
+    return target;
+  }
+}
+
+@addFly(true)
+class Man{
+  constructor(def = 2,atk = 3,hp = 3){
+    this.init(def,atk,hp);
+  }
+
+  @decorateArmour
+  @decorateLight
+  init(def,atk,hp){
+    this.def = def; // 防御值
+    this.atk = atk;  // 攻击力
+    this.hp = hp;  // 血量
+  }
+  ...
+}
+...
+
+console.log(`当前状态 ===> ${tony}`);
+// 输出：当前状态 ===> 防御力:102,攻击力:53,血量:3(技能加成:飞行能力)
+```
+
+作用在方法上的 `decorator` 接收的第一个参数（`target` ）是类的 `prototype`；如果把一个 `decorator` 作用到类上，则它的第一个参数 `target` 是 类本身。
+
+## 使用原生 JS 实现装饰器模式
+
+- Man 是具体的类，`Decorator` 是针对 `Man` 的装饰器基类
+- 具体的装饰类 `DecorateArmour` 典型地使用 `prototype` 继承方式 继承自 `Decorator` 基类；
+- 基于 `IOC`（控制反转）思想 ，`Decorator` 是接受 `Man` 类，而不是自己创建 `Man` 类；
+
+```js
+// 首先我们要创建一个基类
+function Man(){
+
+  this.def = 2;
+  this.atk = 3;
+  this.hp = 3;
+}
+
+// 装饰者也需要实现这些方法，遵守 Man 的接口
+Man.prototype={
+  toString:function(){
+    return `防御力:${this.def},攻击力:${this.atk},血量:${this.hp}`;
+  }
+}
+// 创建装饰器，接收 Man 对象作为参数。
+var Decorator = function(man){
+  this.man = man;
+}
+
+// 装饰者要实现这些相同的方法
+Decorator.prototype.toString = function(){
+    return this.man.toString();
+}
+
+// 继承自装饰器对象
+// 创建具体的装饰器，也是接收 Man 作对参数
+var DecorateArmour = function(man){
+
+  var moreDef = 100;
+  man.def += moreDef;
+  Decorator.call(this,man);
+
+}
+DecorateArmour.prototype = new Decorator();
+
+// 接下来我们要为每一个功能创建一个装饰者对象，重写父级方法，添加我们想要的功能。
+DecorateArmour.prototype.toString = function(){
+  return this.man.toString();
+}
+
+// 注意这里的调用方式
+// 构造器相当于“过滤器”，面向切面的
+var tony = new Man();
+tony = new DecorateArmour(tony);
+console.log(`当前状态 ===> ${tony}`);
+// 输出：当前状态 ===> 防御力:102,攻击力:3,血量:3
+```
+
+## 经典实现：Logger
+
+经典应用就是 日志系统 了，那么我们也用 `ES7` 的语法给钢铁侠打造一个日志系统吧。
+
+```js
+/**
+ * Created by jscon on 15/10/16.
+ */
+let log = (type) => {
+
+  return (target, name, descriptor) => {
+    const method = descriptor.value;
+    descriptor.value =  (...args) => {
+      console.info(`(${type}) 正在执行: ${name}(${args}) = ?`);
+      let ret;
+      try {
+        ret = method.apply(target, args);
+        console.info(`(${type}) 成功 : ${name}(${args}) => ${ret}`);
+      } catch (error) {
+        console.error(`(${type}) 失败: ${name}(${args}) => ${error}`);
+      }
+      return ret;
+    }
+  }
+}
+class IronMan {
+  @log('IronMan 自检阶段')
+  check(){
+    return '检查完毕';
+  }
+  @log('IronMan 攻击阶段')
+  attack(){
+    return '击倒敌人';
+  }
+  @log('IronMan 机体报错')
+  error(){
+    throw 'Something is wrong!';
+  }
+}
+
+var tony = new IronMan();
+tony.check();
+tony.attack();
+tony.error();
+
+// 输出：
+// (IronMan 自检阶段) 正在执行: check() = ?
+// (IronMan 自检阶段) 成功 : check() => 检查完毕
+// (IronMan 攻击阶段) 正在执行: attack() = ?
+// (IronMan 攻击阶段) 成功 : attack() => 击倒敌人
+// (IronMan 机体报错) 正在执行: error() = ?
+// (IronMan 机体报错) 失败: error() => Something is wrong!
+```
+
+Logger 方法的关键在于：
+
+- 首先使用 `const method = descriptor.value;` 将原有方法提取出来，保障原有方法的纯净；
+- 在 `try..catch` 语句是 调用 `ret = method.apply(target, args);`在调用之前之后分别进行日志汇报；
+- 最后返回 `return ret;` 原始的调用结果
+
+### 相关库
+
+- https://github.com/jayphelps/core-decorators
 
 ## vue中使用装饰器实现AOP编程
 在`JavaScript`中实现`AOP`，是把一个函数“动态织入”到另一个函数之中。
