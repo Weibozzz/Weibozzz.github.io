@@ -1,5 +1,6 @@
 const fs = require('fs')
 const getPath = require('./util').getPath
+const createBlog = require('../.config/deploy').createBlog
 const updateReadme = require('./update').updateReadme
 function createDoc (fileName) {
   const file = `${fileName}.md`
@@ -25,4 +26,7 @@ function createDoc (fileName) {
     })
   })
 }
-createDoc(process.argv[2],process.argv[3])
+createDoc(process.argv[2], process.argv[3])
+if (process.argv[4] === 'y') {
+  createBlog(process.argv[2])
+}
