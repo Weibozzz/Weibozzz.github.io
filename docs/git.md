@@ -71,7 +71,11 @@ $ git checkout –- readme.txt
 $ git reset HEAD readme.txt
 ```
 `git reset`命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用`HEAD`时，表示最新的版本。
-
+### 丢弃文件命令
+- `git checkout .` # 丢弃所有修改或删除，不影响新增或未跟踪的文件。会递归下级目录
+- `git clean -nxdf` # dry-run，先看下即将删除那些文件，再执行下面的危险命令
+- `git clean -df` # 删除所有未跟踪的文件和目录（不包含.gitignore的文件），危险命令
+- `git clean -xdf` # 删除所有未跟踪的文件和目录（同时包含.gitignore的文件），危险命令
 ###  将当前提交撤回到commitB_hash
 ```bash
 git reset –-hard commitB_hash
