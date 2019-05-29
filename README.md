@@ -34,7 +34,7 @@
 
 ## GIT
 
-+ [git命令](./docs/git.md)
++ [你想要的git都有](./docs/你想要的git都有.md)
 
 ## 正则表达式
 
