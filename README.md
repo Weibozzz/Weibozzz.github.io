@@ -15,6 +15,10 @@
 ## CSS
 + [权威分析浏览器clientWidth-offsetWidth-getBoundingClientRect](./docs/权威分析浏览器clientWidth-offsetWidth-getBoundingClientRect.md)
 
+## JS
++ [ES7-Decorator-装饰者模式](./docs/ES7-Decorator-装饰者模式.md)
++ [新特性proxy-管道操作符](./docs/新特性proxy-管道操作符.md)
+
 ## React
 + [10分钟了解react新特性hooks](./docs/10分钟了解react新特性hooks.md)
 
@@ -29,7 +33,6 @@
 ## 前端技巧
 
 + [前端有趣技巧网站](./docs/前端有趣技巧网站.md)
-+ [ES7-Decorator-装饰者模式](./docs/ES7-Decorator-装饰者模式.md)
 + [Map使用-你本可以少写些if-else](./docs/Map使用-你本可以少写些if-else.md)
 
 ## GIT
