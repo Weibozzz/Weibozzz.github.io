@@ -109,5 +109,5 @@ person.age = 300;
 - [Proxy-MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 
 
-## 今日图
+## 今日图 - 詹姆斯和史蒂芬森相爱相杀
 ![rereere.gif](../images/rereere.gif)
