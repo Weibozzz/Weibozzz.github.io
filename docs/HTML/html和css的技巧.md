@@ -789,6 +789,25 @@ a[href^="http"]:empty::before {
 <div contenteditable="plaintext-only" placeholder="请输入内容"></div>
 ```
 
+## CSS3 Filter的十种特效
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="zQMZmw" src="//codepen.io/weibozzz/embed/zQMZmw/?height=265&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/weibozzz/pen/zQMZmw/'>zQMZmw</a> by 刘伟波
+  (<a href='https://codepen.io/weibozzz'>@weibozzz</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## 使用纯css实现波浪效果
+
+有时候我们需要实现水晃动的效果，其实我们可以通过 `css` 旋转动画和圆角来实现。
+
+首先来2个`div`,外层div相对定位，内层div绝对定位，内层div大致位于外层div上半部分。外层div设置一个颜色较深的背景色（水的颜色）;内层div颜色设置为白色，加上圆角，圆角建议30%-45%之间，然后加上无限循环的旋转动画，通过内层div的旋转来实现波浪效果。
+
+参考代码如下：
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="ZNmevW" src="//codepen.io/weibozzz/embed/ZNmevW/?height=265&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/weibozzz/pen/ZNmevW/'>ZNmevW</a> by 刘伟波
+  (<a href='https://codepen.io/weibozzz'>@weibozzz</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## 今日图 - 扎心了，老铁
 ![16a8663a5c60e3cd.png](../../images/16a8663a5c60e3cd.png)
