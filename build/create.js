@@ -2,9 +2,9 @@ const fs = require('fs')
 const getPath = require('./util').getPath
 const createBlog = require('../.config/deploy').createBlog
 const updateReadme = require('./update').updateReadme
-function createDoc (fileName) {
+function createDoc (fileName, title) {
   const file = `${fileName}.md`
-  const path = getPath('../docs', file)
+  const path = getPath(`../docs/${title}`, file)
   if (!fileName) {
     console.log('创建文件的文件名不能为空')
     return
@@ -16,7 +16,7 @@ function createDoc (fileName) {
     }
     const addImage = `
 ## 今日图
-![](../images/)
+![](../../images/)
     `
     const data = new Uint8Array(Buffer.from(addImage.trim()))
     fs.writeFile(path, data, (err) => {

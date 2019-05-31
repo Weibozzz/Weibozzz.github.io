@@ -17,7 +17,7 @@ function updateReadme (fileName = process.argv[3], title = process.argv[2]) {
       return
     }
     const nowMdTextData = fileText.replace(reg, (...args) => {
-      return `${args[1].trimEnd()}\n+ [${fileName}](./docs/${fileName}.md)\n\n`
+      return `${args[1].trimEnd()}\n+ [${fileName}](./docs/${title}/${fileName}.md)\n\n`
     })
     const nowMdText = new Uint8Array(Buffer.from(nowMdTextData))
     fs.writeFile(file, nowMdText, (err) => {
