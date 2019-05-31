@@ -196,4 +196,4 @@ function Counter() {
 - https://zh-hans.reactjs.org/docs/hooks-intro.html
 
 ## 今日图 - 我喜欢你 React
-![pkpjg.gif](../images/pkpjg.gif)
+![pkpjg.gif](../../images/pkpjg.gif)

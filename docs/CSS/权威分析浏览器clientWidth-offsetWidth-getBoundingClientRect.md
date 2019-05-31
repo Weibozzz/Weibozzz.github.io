@@ -16,4 +16,4 @@
 
 
 ## 今日图 - 你不知道的暗网
-![resize.jpg](../images/resize.jpg)
+![resize.jpg](../../images/resize.jpg)

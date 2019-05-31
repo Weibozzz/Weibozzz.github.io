@@ -791,5 +791,5 @@ a[href^="http"]:empty::before {
 
 
 ## 今日图 - 扎心了，老铁
-![16a8663a5c60e3cd.png](../images/16a8663a5c60e3cd.png)
+![16a8663a5c60e3cd.png](../../images/16a8663a5c60e3cd.png)
 

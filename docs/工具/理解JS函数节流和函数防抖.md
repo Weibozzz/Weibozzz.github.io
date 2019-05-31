@@ -7,7 +7,7 @@
 
 二者与普通回调函数调用的可视化对比如下：
 
-![38978809-fe601d98-43ea-11e8-9b67-491b52b2b76c.PNG](../images/38978809-fe601d98-43ea-11e8-9b67-491b52b2b76c.PNG)
+![38978809-fe601d98-43ea-11e8-9b67-491b52b2b76c.PNG](../../images/38978809-fe601d98-43ea-11e8-9b67-491b52b2b76c.PNG)
 
 ## throttle 应用场景
 函数节流有哪些应用场景？哪些时候我们需要间隔一定时间触发回调来控制函数调用频率？
@@ -85,4 +85,4 @@ function throttle (fn, period=200) {
 
 
 ## 今日图
-![gdgf.gif](../images/gdgf.gif)
+![gdgf.gif](../../images/gdgf.gif)

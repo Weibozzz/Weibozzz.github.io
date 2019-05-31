@@ -216,4 +216,4 @@ console.log(process.env.npm_package_version); // 1.2.5
 摘自：[http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html](http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html)
 
 ## 今日图 - 老板画饼
-![16ac3747430c8cd7.gif](../images/16ac3747430c8cd7.gif)
+![16ac3747430c8cd7.gif](../../images/16ac3747430c8cd7.gif)

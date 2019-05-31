@@ -9,7 +9,7 @@
 
 以钢铁侠为例，钢铁侠本质是一个人，只是“装饰”了很多武器方才变得那么 `NB`，不过再怎么装饰他还是一个人。
 
-![TB1ex47KXXXXXbmXXXXXXXXXXXX-1024-768.jpg](../images/TB1ex47KXXXXXbmXXXXXXXXXXXX-1024-768.jpg)
+![TB1ex47KXXXXXbmXXXXXXXXXXXX-1024-768.jpg](../../images/TB1ex47KXXXXXbmXXXXXXXXXXXX-1024-768.jpg)
 
 我们的示例场景是这样的
 
@@ -388,4 +388,4 @@ export default {
 - https://www.jianshu.com/p/208904b34d8f
 
 ## 今日图 羞羞哒
-![gdfs.gif](../images/gdfs.gif)
+![gdfs.gif](../../images/gdfs.gif)

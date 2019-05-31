@@ -246,4 +246,4 @@ git提交前会验证lint命令
 在线学习git使用 [https://learngitbranching.js.org/](https://learngitbranching.js.org/)
 
 ## 今日图
-![16a8d22958e71066.png](../images/16a8d22958e71066.png)
+![16a8d22958e71066.png](../../images/16a8d22958e71066.png)

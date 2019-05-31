@@ -101,4 +101,4 @@ large_client_header_buffers默认值 ：large_client_header_buffers 4 4k/8k
 
 ## 配图 521-扎心了 老铁
 
-![111_20190521103105.jpg](../images/111_20190521103105.jpg)
+![111_20190521103105.jpg](../../images/111_20190521103105.jpg)
