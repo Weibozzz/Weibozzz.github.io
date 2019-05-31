@@ -18,6 +18,7 @@
 ## JS
 + [ES7-Decorator-装饰者模式](./docs/JS/ES7-Decorator-装饰者模式.md)
 + [新特性proxy-管道操作符](./docs/JS/新特性proxy-管道操作符.md)
++ [fetch使用的常见问题及其解决办法](./docs/JS/fetch使用的常见问题及其解决办法.md)
 
 ## React
 + [10分钟了解react新特性hooks](./docs/React/10分钟了解react新特性hooks.md)
