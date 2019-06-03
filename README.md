@@ -55,6 +55,7 @@
 + [git历史和原理](./docs/工具/git历史和原理.md)
 + [你想要的git都有](./docs/工具/你想要的git都有.md)
 + [postman中form-data等的区别](./docs/工具/postman中form-data等的区别.md)
++ [使用PS批量修改图片大小](./docs/工具/使用PS批量修改图片大小.md)
 
 ## 其他
 + [线程和进程的区别是什么](./docs/其他/线程和进程的区别是什么.md)
