@@ -54,6 +54,7 @@
 + [理解JS函数节流和函数防抖](./docs/工具/理解JS函数节流和函数防抖.md)
 + [git历史和原理](./docs/工具/git历史和原理.md)
 + [你想要的git都有](./docs/工具/你想要的git都有.md)
++ [postman中form-data等的区别](./docs/工具/postman中form-data等的区别.md)
 
 ## 其他
 + [线程和进程的区别是什么](./docs/其他/线程和进程的区别是什么.md)
