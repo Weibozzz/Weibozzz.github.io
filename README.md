@@ -57,6 +57,7 @@
 + [你想要的git都有](./docs/工具/你想要的git都有.md)
 + [postman中form-data等的区别](./docs/工具/postman中form-data等的区别.md)
 + [使用PS批量修改图片大小](./docs/工具/使用PS批量修改图片大小.md)
++ [webstorm-技巧](./docs/工具/webstorm-技巧.md)
 
 ## 其他
 + [线程和进程的区别是什么](./docs/其他/线程和进程的区别是什么.md)
