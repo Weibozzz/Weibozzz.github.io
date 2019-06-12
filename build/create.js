@@ -15,7 +15,7 @@ function createDoc (fileName, title) {
       return
     }
     const addImage = `
-## 今日图
+## 今日图 - 
 ![](../../images/)
     `
     const data = new Uint8Array(Buffer.from(addImage.trim()))
