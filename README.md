@@ -22,6 +22,7 @@
 + [js实现webSocket客户端](./docs/JS/js实现webSocket客户端.md)
 + [JavaScript深入之call和apply的模拟实现](./docs/JS/JavaScript深入之call和apply的模拟实现.md)
 + [JavaScript深入之bind和new的模拟实现](./docs/JS/JavaScript深入之bind和new的模拟实现.md)
++ [JavaScript专题之函数记忆](./docs/JS/JavaScript专题之函数记忆.md)
 
 ## React
 + [10分钟了解react新特性hooks](./docs/React/10分钟了解react新特性hooks.md)

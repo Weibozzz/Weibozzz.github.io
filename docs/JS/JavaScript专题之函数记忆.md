@@ -1,0 +1,76 @@
+## 定义
+函数记忆是指将上次的计算结果缓存起来，当下次调用时，如果遇到相同的参数，就直接返回缓存中的数据。
+
+举个例子：
+```js
+function add(a, b) {
+    return a + b;
+}
+
+// 假设 memoize 可以实现函数记忆
+var memoizedAdd = memoize(add);
+
+memoizedAdd(1, 2) // 3
+memoizedAdd(1, 2) // 相同的参数，第二次调用时，从缓存中取出数据，而非重新计算一次
+```
+
+## 原理
+实现这样一个 `memoize` 函数很简单，原理上只用把参数和对应的结果数据存到一个对象中，调用时，判断参数对应的数据是否存在，存在就返回对应的结果数据。
+
+## 实现
+
+看看 `underscore` 的 `memoize` 函数是如何实现的：
+```js
+var memoize = function(func, hasher) {
+    var memoize = function(key) {
+        var cache = memoize.cache;
+        var address = '' + (hasher ? hasher.apply(this, arguments) : key);
+        if (!cache[address]) {
+            cache[address] = func.apply(this, arguments);
+        }
+        return cache[address];
+    };
+    memoize.cache = {};
+    return memoize;
+};
+```
+从这个实现可以看出，`underscore` 默认使用 `function` 的第一个参数作为 key，所以如果直接使用
+
+```js
+var add = function(a, b, c) {
+  return a + b + c
+}
+
+var memoizedAdd = memoize(add)
+
+memoizedAdd(1, 2, 3) // 6
+memoizedAdd(1, 2, 4) // 6
+```
+
+肯定是有问题的，如果要支持多参数，我们就需要传入 `hasher` 函数，自定义存储的 `key` 值。所以我们考虑使用 `JSON.stringify`：
+
+```js
+var memoizedAdd = memoize(add, function(){
+    var args = Array.prototype.slice.call(arguments)
+    return JSON.stringify(args)
+})
+
+console.log(memoizedAdd(1, 2, 3)) // 6
+console.log(memoizedAdd(1, 2, 4)) // 7
+```
+如果使用 `JSON.stringify`，参数是对象的问题也可以得到解决，因为存储的是对象序列化后的字符串。
+
+## 注意
+函数记忆只是一种编程技巧，本质上是牺牲算法的空间复杂度以换取更优的时间复杂度，在客户端 JavaScript 中代码的执行时间复杂度往往成为瓶颈，因此在大多数场景下，这种牺牲空间换取时间的做法以提升程序执行效率的做法是非常可取的。
+
+
+## 使用的场景
+
+如果需要大量重复的计算，或者大量计算又依赖于之前的结果，便可以考虑使用函数记忆。而这种场景，当你遇到的时候，你就会知道的。
+
+## 参考
+
+- https://github.com/mqyqingfeng/Blog/issues/46
+
+## 今日图 - 工作的我 VS 下班的我
+![16b4ae46b859bdbf.png](../../images/16b4ae46b859bdbf.png)
