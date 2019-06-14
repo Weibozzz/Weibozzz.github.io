@@ -27,6 +27,7 @@
 + [JavaScript深入之call和apply的模拟实现](./docs/JS/JavaScript深入之call和apply的模拟实现.md)
 + [JavaScript深入之bind和new的模拟实现](./docs/JS/JavaScript深入之bind和new的模拟实现.md)
 + [JavaScript专题之函数记忆](./docs/JS/JavaScript专题之函数记忆.md)
++ [JavaScript专题之深浅拷贝](./docs/JS/JavaScript专题之深浅拷贝.md)
 
 ## React
 + [10分钟了解react新特性hooks](./docs/React/10分钟了解react新特性hooks.md)
