@@ -29,6 +29,9 @@
 + [JavaScript专题之函数记忆](./docs/JS/JavaScript专题之函数记忆.md)
 + [JavaScript专题之深浅拷贝](./docs/JS/JavaScript专题之深浅拷贝.md)
 
+## Vue
++ [vue你应该知道的知识点](./docs/Vue/vue你应该知道的知识点.md)
+
 ## React
 + [10分钟了解react新特性hooks](./docs/React/10分钟了解react新特性hooks.md)
 
