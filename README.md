@@ -29,6 +29,7 @@
 + [JavaScript专题之函数记忆](./docs/JS/JavaScript专题之函数记忆.md)
 + [JavaScript专题之深浅拷贝](./docs/JS/JavaScript专题之深浅拷贝.md)
 + [分享好用的js方法](./docs/JS/分享好用的js方法.md)
++ [JavaScript深入之继承的多种方式和优缺点](./docs/JS/JavaScript深入之继承的多种方式和优缺点.md)
 
 ## Vue
 + [vue你应该知道的知识点](./docs/Vue/vue你应该知道的知识点.md)
