@@ -165,7 +165,8 @@ git remote prune origin
 
 - 合并某分支到当前分支：`git merge `
 
-- 删除分支：`git branch -D `
+- 删除本地分支：`git branch -D 分支名`
+- 删除远程分支：` git push origin --delete 分支名`
 - 提交：`git branch origin 远程分支名称`
 
 
