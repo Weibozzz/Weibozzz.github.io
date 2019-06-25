@@ -3,7 +3,7 @@
 这些在 `shell` 脚本中会很有用
 - 获取当前用户名：`git config user.name`
 - 获取当前分支: `git symbolic-ref --short HEAD`
-- git获取最近一次提交的 `commit id ` :`git rev-parse HEAD`
+- git获取最近一次提交的commit id:`git rev-parse HEAD`
 ## 正常提交
 ```bash
 git add .
