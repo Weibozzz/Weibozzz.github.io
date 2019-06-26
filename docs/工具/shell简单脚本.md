@@ -64,10 +64,25 @@ read y_name
 echo "Hello,${y_name}" > f_users.txt
 
 ```
+## alias
+下面这几个命令，可能是你天天都在敲的。所以，你应该设置成 `alias` 来提高效率
+
+```sh
+alias nis="npm install --save "
+alias svim='sudo vim'
+alias mkcd='foo(){ mkdir -p "$1"; cd "$1" }; foo '
+alias install='sudo apt get install'
+alias update='sudo apt-get update; sudo apt-get upgrade'
+alias ..="cd .."
+alias ...="cd ..; cd .."
+alias www='python -m SimpleHTTPServer 8000'
+alias sock5='ssh -D 8080 -q -C -N -f user@your.server'
+```
 
 ## 参考
 
 - [read](https://www.runoob.com/linux/linux-comm-read.html)
+- https://coolshell.cn/articles/19219.html
 
 ## 今日图 - 我写的代码到可运行的代码
 ![16b873fd487172ba.gif](../../images/16b873fd487172ba.gif)
