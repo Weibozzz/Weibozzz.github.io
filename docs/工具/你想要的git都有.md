@@ -189,6 +189,8 @@ $ git config --global alias.st status
 之前上传过的文件夹想要忽略怎么办？这行这个，然后正常提交ok
 `git rm -r --cached .`
 
+查看某一段代码谁写的 `git blame file.js -L 1,2`
+
 ## 撤销远程操作
 已经提交到远程了，不想要了，怎么办？
 
