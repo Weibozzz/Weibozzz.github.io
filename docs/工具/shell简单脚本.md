@@ -64,6 +64,19 @@ read y_name
 echo "Hello,${y_name}" > f_users.txt
 
 ```
+## 读文件
+
+```sh
+#!/bin/bash
+
+cat file(待读取的文件) | while read line
+do
+    echo $line
+done
+
+```
+
+
 ## alias
 下面这几个命令，可能是你天天都在敲的。所以，你应该设置成 `alias` 来提高效率
 
@@ -82,7 +95,8 @@ alias sock5='ssh -D 8080 -q -C -N -f user@your.server'
 ## 参考
 
 - [read](https://www.runoob.com/linux/linux-comm-read.html)
-- https://coolshell.cn/articles/19219.html
+- [shell](https://coolshell.cn/articles/19219.html)
+- [读文件](https://www.cnblogs.com/iloveyoucc/archive/2012/07/10/2585529.html)
 
 ## 今日图 - 我写的代码到可运行的代码
 ![16b873fd487172ba.gif](../../images/16b873fd487172ba.gif)
