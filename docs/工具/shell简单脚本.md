@@ -93,6 +93,16 @@ alias www='python -m SimpleHTTPServer 8000'
 alias sock5='ssh -D 8080 -q -C -N -f user@your.server'
 ```
 
+关闭命令行，发现失效了
+### 让其永久生效
+
+`vim ～/.bashrc`
+
+将别名添加进去，保存退出
+
+紧接着执行`source`使其生效
+`source ~/.bashrc`
+
 ## 参考
 
 - [read](https://www.runoob.com/linux/linux-comm-read.html)
