@@ -73,6 +73,9 @@
 + [使用PS批量修改图片大小](./docs/工具/使用PS批量修改图片大小.md)
 + [webstorm-技巧](./docs/工具/webstorm-技巧.md)
 + [shell简单脚本](./docs/工具/shell简单脚本.md)
++ [vim使用](./docs/工具/vim使用.md)
++ [mac使用](./docs/工具/mac使用.md)
++ [homebrew使用](./docs/工具/homebrew使用.md)
 
 ## 其他
 + [线程和进程的区别是什么](./docs/其他/线程和进程的区别是什么.md)
