@@ -50,6 +50,23 @@ var shallowCopy = function(obj) {
     return newObj;
 }
 ```
+
+### 正则对象拷贝
+
+```js
+
+function isRegExp (pattern) {
+  var flags = ''
+  flags += pattern.global ? 'g' : ''
+  flags += pattern.ignoreCase ? 'i' : ''
+  flags += pattern.multiline ? 'm' : ''
+  return new RegExp(pattern.source, flags)
+}
+
+var reg=new RegExp('/111/');
+var newReg=isRegExp(reg);
+```
+
 ## 深拷贝的实现
 
 第一种就是 `JSON.stringify` 这个对于，函数就不适用了。
@@ -73,6 +90,8 @@ var deepCopy = function(obj) {
 ## 参考
 
 - https://github.com/mqyqingfeng/Blog/issues/32
+- https://blog.csdn.net/liwusen/article/details/78759373
+- https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp
 
 ## 今日图 - 灵魂一米八
 ![16b4040ec7c834f6.gif](../../images/16b4040ec7c834f6.gif)
