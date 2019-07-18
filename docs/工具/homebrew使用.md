@@ -74,6 +74,18 @@ FLUSH PRIVILEGES; #刷新权限
 
 ```
 
+报错 `1130 - Host XXX is not allowed to connect to this MySQL server`
+
+解决
+
+```bash
+mysql -u root -p
+use mysq;
+select host from user where user='root';
+update user set host = '%' where user ='root' #将Host设置为通配符%
+flush privilegs #刷新权限
+
+```
 
 ## 安装java
 ```sh
