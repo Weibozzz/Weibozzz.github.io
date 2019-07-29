@@ -57,5 +57,14 @@ formData = new FormData(myForm);
 **缺点：兼容ie10+**
 
 摘自：https://developer.mozilla.org/zh-CN/docs/Web/API/FormData/FormData
+
+## js浮点数解决办法
+
+```js
+function strip(num, precision = 12) {
+  return +parseFloat(num.toPrecision(precision));
+}
+```
+- https://github.com/camsong/blog/issues/9
 ## 今日图 - 一波操作后
 ![16b55dd6cf188092.gif](../../images/16b55dd6cf188092.gif)
