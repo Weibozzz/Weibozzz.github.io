@@ -1,4 +1,11 @@
 # git命令
+## 在Mac上配置全局的Git忽略文件
+
+```sh
+vim ~/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
+```
+
 ## 获取
 这些在 `shell` 脚本中会很有用
 - 获取当前用户名：`git config user.name`
