@@ -157,12 +157,18 @@ var deepCopy = function(obj,parent) {
 ## 性能问题
 尽管使用深拷贝会完全的克隆一个新对象，不会产生副作用，但是深拷贝因为使用递归，性能会不如浅拷贝，在开发中，还是要根据实际情况进行选择。
 
+## 总结
+
+另外在掘金看到有这么一篇总结的不错，推荐一下 [如何写出一个惊艳面试官的深拷贝?](https://juejin.im/post/5d6aa4f96fb9a06b112ad5b1)
+源码[点这里](https://github.com/ConardLi/ConardLi.github.io/blob/master/demo/deepClone/src/clone_6.js)
+
 ## 参考
 
 - https://github.com/mqyqingfeng/Blog/issues/32
 - https://blog.csdn.net/liwusen/article/details/78759373
 - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp
 - https://segmentfault.com/q/1010000019806573?_ea=15209539
+- https://juejin.im/post/5d6aa4f96fb9a06b112ad5b1
 
 ## 今日图 - 灵魂一米八
 ![16b4040ec7c834f6.gif](../../images/16b4040ec7c834f6.gif)
