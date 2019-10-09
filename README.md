@@ -40,6 +40,9 @@
 + [10分钟了解react新特性hooks](./docs/React/10分钟了解react新特性hooks.md)
 + [hooks之memo和useCallback](./docs/React/hooks之memo和useCallback.md)
 
+## Redux
++ [redux v3.7.2源码详细解读与学习之compose](./docs/Redux/redux v3.7.2源码详细解读与学习之compose.md)
+
 ## HTTP
 + [HTTP协议](./docs/HTTP/HTTP协议.md)
 + [url长度的误区](./docs/HTTP/url长度的误区.md)
