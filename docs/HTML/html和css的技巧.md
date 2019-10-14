@@ -476,6 +476,12 @@ label[class*=-btn].loading::before {
     background: #e6e6e6;
 }
 ```
+```
+/*隐藏滚动条*/
+::-webkit-scrollbar {
+        display:none
+      }
+```
 
 ## 十六 当页面有position:fixed的置顶悬浮菜单时，如何调整锚定位的时候不被悬浮菜单挡住？
 
