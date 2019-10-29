@@ -198,6 +198,11 @@ $ git config --global alias.st status
 
 查看某一段代码谁写的 `git blame file.js -L 1,2`
 
+
+## 安全重命名
+
+`git mv <old-name> <new-name>`
+
 ## 并入你最近的一次 commit
 
 `git commit --amend --no-edit`
