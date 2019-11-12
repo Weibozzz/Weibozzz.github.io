@@ -1,4 +1,11 @@
 # git命令
+## 在Mac上配置全局的Git忽略文件
+
+```sh
+vim ~/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
+```
+
 ## 获取
 这些在 `shell` 脚本中会很有用
 - 获取当前用户名：`git config user.name`
@@ -190,6 +197,21 @@ $ git config --global alias.st status
 `git rm -r --cached .`
 
 查看某一段代码谁写的 `git blame file.js -L 1,2`
+
+
+## 安全重命名
+
+`git mv <old-name> <new-name>`
+
+## 并入你最近的一次 commit
+
+`git commit --amend --no-edit`
+
+这条命令会把你暂存的修改并入你最近的一次 commit，并且不会修改这次 commit 的信息（
+这样 Git 也就不会打开一个文件编辑界面了。
+它最经常的用途是修改刚刚提交的 commit。也许我太粗心了，
+总是在刚提交完一条 commit 还不到 30 秒，就发现一个拼写错误或者忘了删除了调式信息了
+
 
 ## 撤销远程操作
 已经提交到远程了，不想要了，怎么办？

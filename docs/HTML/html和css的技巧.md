@@ -476,6 +476,12 @@ label[class*=-btn].loading::before {
     background: #e6e6e6;
 }
 ```
+```
+/*隐藏滚动条*/
+::-webkit-scrollbar {
+        display:none
+      }
+```
 
 ## 十六 当页面有position:fixed的置顶悬浮菜单时，如何调整锚定位的时候不被悬浮菜单挡住？
 
@@ -808,6 +814,27 @@ a[href^="http"]:empty::before {
   See the Pen <a href='https://codepen.io/weibozzz/pen/ZNmevW/'>ZNmevW</a> by 刘伟波
   (<a href='https://codepen.io/weibozzz'>@weibozzz</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+
+## 移动端1px边框解决方案
+
+```css
+div:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            transform: scale(0.5);
+            transform-origin: left top;
+            box-sizing: border-box;
+            z-index: 990;
+            border: 1px solid #e5e5e5;
+        }
+```
+
+- https://juejin.im/post/5d8470e1518825554673e1c0
 
 ## 今日图 - 扎心了，老铁
 ![16a8663a5c60e3cd.png](../../images/16a8663a5c60e3cd.png)

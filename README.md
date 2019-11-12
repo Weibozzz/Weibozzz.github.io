@@ -3,6 +3,8 @@
 这里可以让你寻找到使用或者是学习作者建立的前端知识体系,
 每天一更，遇到的新知识，记录并分享
 
+另外也可以来我开的[直播间](http://live.bilibili.com/21660572)提问和互动哦～
+
 ## 说明
 
 部分文章是作者经过工作实战一点点积累下来的文章；部分文章借鉴网上的（有参考链接），这里对他们进行一个整理加上我自己的见解，并且更正他们
@@ -43,6 +45,9 @@
 ## Webpack
 + [写一个loader](./docs/Webpack/loader.md)
 + [写一个plugin](./docs/Webpack/plugin.md)
+
+## Redux
++ [redux v3.7.2源码详细解读与学习之compose](./docs/Redux/redux v3.7.2源码详细解读与学习之compose.md)
 
 ## HTTP
 + [HTTP协议](./docs/HTTP/HTTP协议.md)
