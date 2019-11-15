@@ -148,6 +148,18 @@ if ( webpackVersion=='4' ) {
 为什么有这个 `cmd` 文件，因为 `windows` 平台没有 `shebang`，那么 `command-name.cmd` 
 就模拟了 `#!/usr/bin/env node` 的功能，调用 `C:\Users\username\AppData\Roaming\npm\node_modules\my-cli\ jsfile`
 
+### 本地开发 cli 测试
+在没有发布到 `npm` 平台，我们在 `package.json` 可以添加
+
+```json
+{
+   "bin": {
+      "command-name": "jsfile"
+    }
+}
+```
+
+安装一来后然后执行 `npm init` ,即可本地使用这个命令
 
 ## 引用
 - [npm包来制作命令行工具的原理](https://segmentfault.com/a/1190000015218126)
