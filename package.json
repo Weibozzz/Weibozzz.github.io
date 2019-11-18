@@ -1,0 +1,30 @@
+{
+  "name": "Weibozzz.github.io",
+  "version": "1.0.0",
+  "description": "![icon.jpg](./icon.jpg)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "search": "node ./build/search.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Weibozzz/Weibozzz.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Weibozzz/Weibozzz.github.io/issues"
+  },
+  "homepage": "https://github.com/Weibozzz/Weibozzz.github.io#readme",
+  "pre-push": [
+    "search"
+  ],
+  "dependencies": {
+    "pre-commit": "^1.2.2"
+  }
+}
