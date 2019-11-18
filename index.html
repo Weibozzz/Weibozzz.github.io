@@ -16,14 +16,30 @@
 <script>
   window.$docsify = {
     name: '前端知识体系',
-    repo: 'https://github.com/Weibozzz/Weibozzz.github.io'
+    repo: 'https://github.com/Weibozzz/Weibozzz.github.io',
+    // 完整配置参数
+    search: {
+      maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+      paths: 'auto',
+      placeholder: '搜索',
+
+      noData: '没有结果!',
+
+    }
   }
 </script>
 <script src="./js/md5.min.js"></script>
 <script src="//unpkg.com/docsify-copy-code"></script>
-<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+<script src="//unpkg.com/docsify"></script>
+<!--gitalk一个现代化的，基于Preact和Github Issue的评论系统。-->
 <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<!--全文搜索 - Search-->
+<script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+<!--图片缩放 - Zoom image-->
+<script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
+<!--emoji-->
+<script src="//unpkg.com/docsify/lib/plugins/emoji.js"></script>
 <script>
 
   const clientID = '3fcb62f9fde9f38f16fb'
