@@ -13,21 +13,12 @@ const filesArr = ["/README"]
 fileDisplay(filePath);
 
 // console.log(filesArr)
-indexStr().then(res => {
-  fs.writeFileSync(resolvePath('../index.html'), res)
-})
+indexStr()
 function indexStr () {
-  return new Promise((resolve, reject) => {
-    fs.readFile(resolvePath('../template.html'), (err, data) => {
-      if (err) throw err;
-      const strFiles =
-      resolve(
-        data.toString()
-          .replace("['自定义path']", JSON.stringify(filesArr)
-        )
-      )
-    })
-  });
+  const data = fs.readFileSync(resolvePath('../template.html'))
+  const str =  data.toString()
+    .replace("['自定义path']", JSON.stringify(filesArr))
+  fs.writeFileSync(resolvePath('../index.html'), str)
 }
 /**
  * 文件遍历方法
