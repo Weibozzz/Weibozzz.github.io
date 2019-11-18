@@ -21,7 +21,7 @@
     "url": "https://github.com/Weibozzz/Weibozzz.github.io/issues"
   },
   "homepage": "https://github.com/Weibozzz/Weibozzz.github.io#readme",
-  "pre-push": [
+  "pre-commit": [
     "search"
   ],
   "dependencies": {
