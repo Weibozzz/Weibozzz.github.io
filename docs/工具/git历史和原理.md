@@ -34,5 +34,5 @@ Linus一直痛恨的CVS及SVN都是集中式的版本控制系统，而Git是分
 
 ## git命令
 
-- [你想要的git都有](./你想要的git都有.md)
+- [你想要的git都有](./docs/工具/你想要的git都有.md)
 - [廖雪峰官方git学习](https://www.liaoxuefeng.com/wiki/896043488029600)

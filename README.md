@@ -49,7 +49,7 @@
 + [写一个plugin](./docs/Webpack/plugin.md)
 
 ## Redux
-+ [redux v3.7.2源码详细解读与学习之compose](./docs/Redux/redux v3.7.2源码详细解读与学习之compose.md)
++ [redux v3.7.2源码详细解读与学习之compose](./docs/Redux/redux_v3.7.2源码详细解读与学习之compose.md)
 
 ## HTTP
 + [HTTP协议](./docs/HTTP/HTTP协议.md)
