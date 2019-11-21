@@ -50,6 +50,7 @@
 
 ## Redux
 + [redux v3.7.2源码详细解读与学习之compose](./docs/Redux/redux_v3.7.2源码详细解读与学习之compose.md)
++ [从零实现一个redux](./docs/Redux/从零实现一个redux.md)
 
 ## HTTP
 + [HTTP协议](./docs/HTTP/HTTP协议.md)
