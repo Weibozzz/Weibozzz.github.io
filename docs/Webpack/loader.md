@@ -101,4 +101,4 @@ module.exports = {
 
 ## 结语
 
-分享别人写的 `loader` (async-catch-loader)[https://github.com/yeyan1996/async-catch-loader]
+分享别人写的 `loader` [async-catch-loader](https://github.com/yeyan1996/async-catch-loader)
