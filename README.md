@@ -93,6 +93,7 @@
 + [用docker部署一个项目](./docs/工具/用docker部署一个项目.md)
 + [调试node](./docs/工具/调试node.md)
 + [node版本切换](./docs/工具/node版本切换.md)
++ [babel插件开发](./docs/工具/babel插件开发.md)
 
 ## 其他
 + [线程和进程的区别是什么](./docs/其他/线程和进程的区别是什么.md)
