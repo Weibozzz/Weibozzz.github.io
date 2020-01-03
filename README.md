@@ -1,7 +1,7 @@
 ![icon.jpg](./icon.jpg)
 
 这里可以让你寻找到使用或者是学习作者建立的前端知识体系,
-每天一更，遇到的新知识，记录并分享
+不定期更新，遇到的新知识、技巧，记录并分享
 
 另外也可以来我开的[直播间](http://live.bilibili.com/21660572)提问和互动哦～
 
@@ -49,7 +49,8 @@
 + [写一个plugin](./docs/Webpack/plugin.md)
 
 ## Redux
-+ [redux v3.7.2源码详细解读与学习之compose](./docs/Redux/redux v3.7.2源码详细解读与学习之compose.md)
++ [redux v3.7.2源码详细解读与学习之compose](./docs/Redux/redux_v3.7.2源码详细解读与学习之compose.md)
++ [从零实现一个redux](./docs/Redux/从零实现一个redux.md)
 
 ## HTTP
 + [HTTP协议](./docs/HTTP/HTTP协议.md)
