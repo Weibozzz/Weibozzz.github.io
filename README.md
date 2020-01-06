@@ -43,6 +43,8 @@
 ## React
 + [10分钟了解react新特性hooks](./docs/React/10分钟了解react新特性hooks.md)
 + [hooks之memo和useCallback](./docs/React/hooks之memo和useCallback.md)
++ [useRequest封装](./docs/React/useRequest封装.md)
++ [权限管理](./docs/React/权限管理.md)
 
 ## Webpack
 + [写一个loader](./docs/Webpack/loader.md)
