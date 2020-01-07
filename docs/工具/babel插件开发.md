@@ -29,3 +29,9 @@
 - [Babel 插件手册](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/zh-Hans/plugin-handbook.md#toc-basics)
 - [babel插件开发心得](https://juejin.im/post/5b15f43fe51d4506b26e9638)
 - [一个自动给 async 函数注入 try/catch 的 webpack loader](https://github.com/yeyan1996/async-catch-loader)
+
+## babel官网例子
+由容易到难，从别人写的例子去学习
+
+- [babel-plugin-transform-remove-debugger](https://github.com/babel/minify/blob/master/packages/babel-plugin-transform-remove-debugger/src/index.js)
+- https://github.com/babel/minify/tree/master/packages
