@@ -8,6 +8,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vuepress dev .",
+    "start": "npm run build && cd .vuepress/dist && serve",
+    "build": "vuepress build .",
     "search": "node ./build/search.js"
   },
   "repository": {
@@ -26,5 +29,9 @@
   ],
   "dependencies": {
     "pre-commit": "^1.2.2"
+  },
+  "devDependencies": {
+    "file-loader": "^5.0.2",
+    "webp-loader": "^0.6.0"
   }
 }
