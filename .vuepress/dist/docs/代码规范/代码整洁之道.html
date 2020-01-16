@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>避免条件 | 前端知识体系</title>
+    <meta name="description" content="个人总结的前端知识体系">
+    
+    
+    <link rel="preload" href="/assets/css/24.styles.1d6cbc9d.css" as="style"><link rel="preload" href="/assets/js/app.687d257c.js" as="script"><link rel="preload" href="/assets/js/34.5cabc593.js" as="script"><link rel="preload" href="/assets/js/63.8264c7fc.js" as="script"><link rel="prefetch" href="/assets/js/0.66d21b61.js"><link rel="prefetch" href="/assets/js/1.5f0c34b5.js"><link rel="prefetch" href="/assets/js/10.1d045e0c.js"><link rel="prefetch" href="/assets/js/11.7bffae9e.js"><link rel="prefetch" href="/assets/js/12.232c1e2b.js"><link rel="prefetch" href="/assets/js/13.1c0b4d07.js"><link rel="prefetch" href="/assets/js/14.b2db16ad.js"><link rel="prefetch" href="/assets/js/15.774f4b58.js"><link rel="prefetch" href="/assets/js/16.a34c6090.js"><link rel="prefetch" href="/assets/js/17.c8ddf23e.js"><link rel="prefetch" href="/assets/js/18.8a7aa0dd.js"><link rel="prefetch" href="/assets/js/19.ad6651a0.js"><link rel="prefetch" href="/assets/js/2.57577040.js"><link rel="prefetch" href="/assets/js/20.515ab810.js"><link rel="prefetch" href="/assets/js/21.283de1ff.js"><link rel="prefetch" href="/assets/js/22.a5d510b1.js"><link rel="prefetch" href="/assets/js/23.122ab535.js"><link rel="prefetch" href="/assets/js/25.5d18e673.js"><link rel="prefetch" href="/assets/js/26.aabe3be5.js"><link rel="prefetch" href="/assets/js/27.a21f5f67.js"><link rel="prefetch" href="/assets/js/28.08a43f23.js"><link rel="prefetch" href="/assets/js/29.f90e2886.js"><link rel="prefetch" href="/assets/js/3.f6b34011.js"><link rel="prefetch" href="/assets/js/30.e1abee41.js"><link rel="prefetch" href="/assets/js/31.568eb1c3.js"><link rel="prefetch" href="/assets/js/32.426650aa.js"><link rel="prefetch" href="/assets/js/35.45176416.js"><link rel="prefetch" href="/assets/js/36.f4dd6052.js"><link rel="prefetch" href="/assets/js/37.0a574988.js"><link rel="prefetch" href="/assets/js/38.86c3548d.js"><link rel="prefetch" href="/assets/js/39.c87d2529.js"><link rel="prefetch" href="/assets/js/4.938062f0.js"><link rel="prefetch" href="/assets/js/40.27ae5466.js"><link rel="prefetch" href="/assets/js/41.e0a2d784.js"><link rel="prefetch" href="/assets/js/42.2a58f128.js"><link rel="prefetch" href="/assets/js/43.a3d26ec1.js"><link rel="prefetch" href="/assets/js/44.46069162.js"><link rel="prefetch" href="/assets/js/45.0718ba34.js"><link rel="prefetch" href="/assets/js/46.b96b1272.js"><link rel="prefetch" href="/assets/js/47.04ec8ce0.js"><link rel="prefetch" href="/assets/js/48.c322c277.js"><link rel="prefetch" href="/assets/js/49.0e537941.js"><link rel="prefetch" href="/assets/js/5.ac18ecdc.js"><link rel="prefetch" href="/assets/js/50.2026f6c8.js"><link rel="prefetch" href="/assets/js/51.fb4674e9.js"><link rel="prefetch" href="/assets/js/52.0dd2d685.js"><link rel="prefetch" href="/assets/js/53.bec36a33.js"><link rel="prefetch" href="/assets/js/54.73b1f450.js"><link rel="prefetch" href="/assets/js/55.e32a138d.js"><link rel="prefetch" href="/assets/js/56.ad621d83.js"><link rel="prefetch" href="/assets/js/57.732d6759.js"><link rel="prefetch" href="/assets/js/58.c19e3528.js"><link rel="prefetch" href="/assets/js/59.ce3b0a84.js"><link rel="prefetch" href="/assets/js/6.88abfe95.js"><link rel="prefetch" href="/assets/js/60.3df27eb7.js"><link rel="prefetch" href="/assets/js/61.cd07d819.js"><link rel="prefetch" href="/assets/js/62.66e17fa3.js"><link rel="prefetch" href="/assets/js/64.2ad9411f.js"><link rel="prefetch" href="/assets/js/65.19408c2b.js"><link rel="prefetch" href="/assets/js/66.0357f244.js"><link rel="prefetch" href="/assets/js/67.82af712b.js"><link rel="prefetch" href="/assets/js/68.edb951d5.js"><link rel="prefetch" href="/assets/js/69.c4ec197c.js"><link rel="prefetch" href="/assets/js/7.d74c60bf.js"><link rel="prefetch" href="/assets/js/70.1570dce0.js"><link rel="prefetch" href="/assets/js/71.2dacf0fc.js"><link rel="prefetch" href="/assets/js/72.2882c60a.js"><link rel="prefetch" href="/assets/js/73.0cacfd68.js"><link rel="prefetch" href="/assets/js/74.568e8c6a.js"><link rel="prefetch" href="/assets/js/75.5ad28ea4.js"><link rel="prefetch" href="/assets/js/76.e40497f8.js"><link rel="prefetch" href="/assets/js/77.43bd9103.js"><link rel="prefetch" href="/assets/js/78.eeba4517.js"><link rel="prefetch" href="/assets/js/79.40bb5355.js"><link rel="prefetch" href="/assets/js/8.6dd596f0.js"><link rel="prefetch" href="/assets/js/80.f53522dc.js"><link rel="prefetch" href="/assets/js/81.5a0eaa48.js"><link rel="prefetch" href="/assets/js/82.e5e5bcbf.js"><link rel="prefetch" href="/assets/js/83.7afaa11a.js"><link rel="prefetch" href="/assets/js/84.a3251f37.js"><link rel="prefetch" href="/assets/js/85.407ccdbe.js"><link rel="prefetch" href="/assets/js/86.f8427e50.js"><link rel="prefetch" href="/assets/js/87.697c07bc.js"><link rel="prefetch" href="/assets/js/88.18bf070e.js"><link rel="prefetch" href="/assets/js/89.fef89fcb.js"><link rel="prefetch" href="/assets/js/9.f4a71fa1.js"><link rel="prefetch" href="/assets/js/90.d517fd74.js"><link rel="prefetch" href="/assets/js/91.bcbc0d28.js"><link rel="prefetch" href="/assets/js/92.ab5c50d1.js"><link rel="prefetch" href="/assets/js/93.d4363614.js"><link rel="prefetch" href="/assets/js/94.48704c37.js"><link rel="prefetch" href="/assets/js/95.1236d3e1.js"><link rel="prefetch" href="/assets/js/96.4b51afcc.js"><link rel="prefetch" href="/assets/js/97.899f8f02.js"><link rel="prefetch" href="/assets/js/98.6fcb1375.js"><link rel="prefetch" href="/assets/js/99.d79fe1a2.js">
+    <link rel="stylesheet" href="/assets/css/24.styles.1d6cbc9d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">前端知识体系</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="http://www.liuweibo.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  个人博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <a href="https://github.com/Weibozzz/Weibozzz.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="http://www.liuweibo.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  个人博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <a href="https://github.com/Weibozzz/Weibozzz.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>避免条件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/docs/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93.html#避免条件" class="sidebar-link">避免条件</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/docs/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93.html#不要过度优化" class="sidebar-link">不要过度优化</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/docs/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93.html#用-object-assign-设置默认对象" class="sidebar-link">用 Object.assign 设置默认对象</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/docs/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93.html#不要写入全局函数" class="sidebar-link">不要写入全局函数</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/docs/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93.html#避免否定条件" class="sidebar-link">避免否定条件</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/docs/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93.html#删除不用的代码" class="sidebar-link">删除不用的代码</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/docs/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93.html#不需要日志式的注释" class="sidebar-link">不需要日志式的注释</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/docs/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93.html#今日图-中国已做好全面应对的准备" class="sidebar-link">今日图 - 中国已做好全面应对的准备</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="避免条件"><a href="#避免条件" class="header-anchor">#</a> 避免条件</h2> <p>这似乎是个不可能完成的任务。大多数人第一次听到这个的时候会说，“没有 if 语句我该怎么办？”回答是在多数情况下都可以使用多态来实现相同的任务。第二个问题通常是，“那太好了，不过我为什么要这么做呢？”答案在于我们之前了解过整洁的概念：一个函数应该只做一件事情。如果你的类和函数有 if 语句，就意味着你的函数做了更多的事。记住，只做一件事。</p> <p><strong>不好</strong></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">Airplane</span> <span class="token punctuation">{</span>
+  <span class="token comment">//...</span>
+  <span class="token function">getCruisingAltitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">case</span> <span class="token string">'777'</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token function">getMaxAltitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">getPassengerCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">case</span> <span class="token string">'Air Force One'</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token function">getMaxAltitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">case</span> <span class="token string">'Cessna'</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token function">getMaxAltitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">getFuelExpenditure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p><strong>好</strong></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">Airplane</span> <span class="token punctuation">{</span>
+  <span class="token comment">//...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Boeing777</span> <span class="token keyword">extends</span> <span class="token class-name">Airplane</span> <span class="token punctuation">{</span>
+  <span class="token comment">//...</span>
+  <span class="token function">getCruisingAltitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">getMaxAltitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">getPassengerCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AirForceOne</span> <span class="token keyword">extends</span> <span class="token class-name">Airplane</span> <span class="token punctuation">{</span>
+  <span class="token comment">//...</span>
+  <span class="token function">getCruisingAltitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">getMaxAltitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Cessna</span> <span class="token keyword">extends</span> <span class="token class-name">Airplane</span> <span class="token punctuation">{</span>
+  <span class="token comment">//...</span>
+  <span class="token function">getCruisingAltitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">getMaxAltitude</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">getFuelExpenditure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="不要过度优化"><a href="#不要过度优化" class="header-anchor">#</a> 不要过度优化</h2> <p>现在浏览器在运行时悄悄地做了很多优化工作。很多时候你的优化都是在浪费时间。这里有<a href="https://github.com/petkaantonov/bluebird/wiki/Optimization-killers" target="_blank" rel="noopener noreferrer">很好的资源<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 可以看看哪些优化比较缺乏。把它们作为目标，直到他们能固定下来的时候。</p> <p><strong>不好</strong>:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 在旧浏览器中，每次循环的成本都比较高，因为每次都会重算 `len`。</span>
+<span class="token comment">// 现在浏览器中，这已经被优化了。</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> list<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>好</strong>:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> list<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="用-object-assign-设置默认对象"><a href="#用-object-assign-设置默认对象" class="header-anchor">#</a> 用 Object.assign 设置默认对象</h2> <p><strong>不好</strong>:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> menuConfig <span class="token operator">=</span> <span class="token punctuation">{</span>
+  title<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  body<span class="token punctuation">:</span> <span class="token string">'Bar'</span><span class="token punctuation">,</span>
+  buttonText<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  cancellable<span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">createMenu</span><span class="token punctuation">(</span><span class="token parameter">config</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  config<span class="token punctuation">.</span>title <span class="token operator">=</span> config<span class="token punctuation">.</span>title <span class="token operator">||</span> <span class="token string">'Foo'</span>
+  config<span class="token punctuation">.</span>body <span class="token operator">=</span> config<span class="token punctuation">.</span>body <span class="token operator">||</span> <span class="token string">'Bar'</span>
+  config<span class="token punctuation">.</span>buttonText <span class="token operator">=</span> config<span class="token punctuation">.</span>buttonText <span class="token operator">||</span> <span class="token string">'Baz'</span>
+  config<span class="token punctuation">.</span>cancellable <span class="token operator">=</span> config<span class="token punctuation">.</span>cancellable <span class="token operator">===</span> <span class="token keyword">undefined</span> <span class="token operator">?</span> config<span class="token punctuation">.</span>cancellable <span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token function">createMenu</span><span class="token punctuation">(</span>menuConfig<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><strong>好</strong>:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> menuConfig <span class="token operator">=</span> <span class="token punctuation">{</span>
+  title<span class="token punctuation">:</span> <span class="token string">'Order'</span><span class="token punctuation">,</span>
+  <span class="token comment">// User did not include 'body' key</span>
+  buttonText<span class="token punctuation">:</span> <span class="token string">'Send'</span><span class="token punctuation">,</span>
+  cancellable<span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">createMenu</span><span class="token punctuation">(</span><span class="token parameter">config</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  config <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    title<span class="token punctuation">:</span> <span class="token string">'Foo'</span><span class="token punctuation">,</span>
+    body<span class="token punctuation">:</span> <span class="token string">'Bar'</span><span class="token punctuation">,</span>
+    buttonText<span class="token punctuation">:</span> <span class="token string">'Baz'</span><span class="token punctuation">,</span>
+    cancellable<span class="token punctuation">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> config<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 现在 config 等于: {title: &quot;Foo&quot;, body: &quot;Bar&quot;, buttonText: &quot;Baz&quot;, cancellable: true}</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">createMenu</span><span class="token punctuation">(</span>menuConfig<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="不要写入全局函数"><a href="#不要写入全局函数" class="header-anchor">#</a> 不要写入全局函数</h2> <p>JavaScript 中全局污染是一件糟糕的事情，因为它可能和另外库发生冲突，然而使用你 API 的用户却不会知道——直到他们在生产中遇到一个异常。来思考一个例子：你想扩展 JavaScript 的原生 Array，使之拥有一个 diff 方法，用来展示两数据之前的区别，这时你会怎么做？你可以给 Array.prototype 添加一个新的函数，但它可能会与其它想做同样事情的库发生冲突。如果那个库实现的 diff 只是比如数组中第一个元素和最后一个元素的异同会发生什么事情呢？这就是为什么最好是使用 ES6 的类语法从全局的 Array 派生一个类来做这件事。</p> <p><strong>不好</strong>:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token class-name">Array</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">diff</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">comparisonArray</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> hash <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token keyword">of</span> comparisonArray<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    hash<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>hash<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      values<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> values<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>好</strong>:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">SuperArray</span> <span class="token keyword">extends</span> <span class="token class-name">Array</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">diff</span><span class="token punctuation">(</span><span class="token parameter">comparisonArray</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> hash <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token keyword">of</span> comparisonArray<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      hash<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token keyword">of</span> <span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>hash<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        values<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> values<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="避免否定条件"><a href="#避免否定条件" class="header-anchor">#</a> 避免否定条件</h2> <p><strong>不好</strong>:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">isDOMNodeNotPresent</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isDOMNodeNotPresent</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>好</strong>:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">isDOMNodePresent</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isDOMNodePresent</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="删除不用的代码"><a href="#删除不用的代码" class="header-anchor">#</a> 删除不用的代码</h2> <p>不用的代码和重复的代码一样糟糕。在代码库中保留无用的代码是毫无道理的事情。如果某段代码用不到，那就删掉它！如果你以后需要它，仍然可以从代码库的历史版本中找出来。</p> <p><strong>不好</strong>:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">oldRequestModule</span><span class="token punctuation">(</span><span class="token parameter">url</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">newRequestModule</span><span class="token punctuation">(</span><span class="token parameter">url</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> req <span class="token operator">=</span> newRequestModule<span class="token punctuation">;</span>
+<span class="token function">inventoryTracker</span><span class="token punctuation">(</span><span class="token string">'apples'</span><span class="token punctuation">,</span> req<span class="token punctuation">,</span> <span class="token string">'www.inventory-awesome.io'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><strong>好</strong>:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">newRequestModule</span><span class="token punctuation">(</span><span class="token parameter">url</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> req <span class="token operator">=</span> newRequestModule<span class="token punctuation">;</span>
+<span class="token function">inventoryTracker</span><span class="token punctuation">(</span><span class="token string">'apples'</span><span class="token punctuation">,</span> req<span class="token punctuation">,</span> <span class="token string">'www.inventory-awesome.io'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre></div><h2 id="不需要日志式的注释"><a href="#不需要日志式的注释" class="header-anchor">#</a> 不需要日志式的注释</h2> <p>记住，使用版本控制！没用的代码、注释掉的代码，尤其是日志式的注释。用 git log 来获取历史信息！</p> <p><strong>不好</strong>:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * 2016-12-20: Removed monads, didn't understand them (RM)
+ * 2016-10-01: Improved using special monads (JP)
+ * 2016-02-03: Removed type-checking (LI)
+ * 2015-03-14: Added combine with type-checking (JR)
+ */</span>
+<span class="token keyword">function</span> <span class="token function">combine</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>好</strong>:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">combine</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>更多查看：<a href="https://www.zcfy.cc/article/clean-code-javascript-readme-md-at-master-ryanmcdermott-clean-code-javascript-github-2273.html" target="_blank" rel="noopener noreferrer">https://www.zcfy.cc/article/clean-code-javascript-readme-md-at-master-ryanmcdermott-clean-code-javascript-github-2273.html<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h2 id="今日图-中国已做好全面应对的准备"><a href="#今日图-中国已做好全面应对的准备" class="header-anchor">#</a> 今日图 - 中国已做好全面应对的准备</h2> <p><img src="/assets/img/ac6eddc451da81cbcfd46f596b050112082431d8.00799e32.png" alt="ac6eddc451da81cbcfd46f596b050112082431d8.png"></p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/Weibozzz/Weibozzz.github.io/edit/master/docs/代码规范/代码整洁之道.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">5/31/2019, 9:20:51 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.687d257c.js" defer></script><script src="/assets/js/34.5cabc593.js" defer></script><script src="/assets/js/63.8264c7fc.js" defer></script>
+  </body>
+</html>
