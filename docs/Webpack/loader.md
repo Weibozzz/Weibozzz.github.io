@@ -57,6 +57,7 @@ Hey [name]!
 ```
 ### src/loader.js
 ```js
+// loader-utils(不需要特地安装，装了webpack一套就自带)
 const getOptions = require('loader-utils').getOptions
 
 module.exports = function(source) {
@@ -70,7 +71,7 @@ module.exports = function(source) {
 
 ```
 ### webpack.config.js
-
+1. 常规方法
 ```js
 const path = require('path')
 module.exports = {
@@ -95,8 +96,40 @@ module.exports = {
 }
 
 ``` 
+
+2. 第二种引用方式
+
+`loadername`! 前缀方式 比如有一个txt文件，
+我们想通过`raw-loader`来获取整个`txt`文件里面的字符串内容。除了使用统一
+`webpack config`配置的方式之外，
+我们还可以在引入的时候，用这样的语法来引入：
+
+```js
+import txt from "raw-loader!./1.txt";
+// txt就是这个文件里面所有的内容
+```
+
+其实使用`webpack.config`文件统一配置loader后，最终也是会转成这
+种方式使用loader再引入的。支持多个loader，语法: `loader1!loader2!yourfilename`
+
+`query`替代`options`
+
+使用`loadername!` 前缀语法：`raw-loader?a=1&b=2!./1.txt`，等价于`webpack`配置：
+```
+ {
+        test: /^1\.txt$/,
+        exclude: /node_modules/,
+        use: [
+          { loader: "raw-loader", options: { a: '1', b: '2' } },
+        ]
+ },
+```
+     
+
+
 ## 引用
 - https://webpack.docschina.org/contribute/writing-a-loader/
+- https://juejin.im/post/5e3389436fb9a02fef3a707a?utm_source=gold_browser_extension
 - [webpack之loader和plugin简介](https://zhuanlan.zhihu.com/p/28245984)
 
 ## 结语
