@@ -845,6 +845,7 @@ li span{
     width: 60px;
     text-align: justify;
     vertical-align: top;
+    height: 20px;
     &::after {
       content: "";
       display: inline-block;
