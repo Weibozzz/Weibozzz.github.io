@@ -836,6 +836,23 @@ div:after {
 
 - https://juejin.im/post/5d8470e1518825554673e1c0
 
+## CSS实现文字两端对齐
+![](../../images/WX20200330-165922@2x.png)
+
+```less
+li span{
+    display: inline-block;
+    width: 60px;
+    text-align: justify;
+    vertical-align: top;
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+    }
+  }
+```
+
 ## 今日图 - 扎心了，老铁
 ![16a8663a5c60e3cd.png](../../images/16a8663a5c60e3cd.png)
 
