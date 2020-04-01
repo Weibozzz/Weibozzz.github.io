@@ -172,6 +172,38 @@ brew search tomcat
 /usr/local/Cellar/nginx/1.8.0 #（安装路径)
 ```
 
+## python
+
+### 管理 python 版本工具 pyenv
+`brew install pyenv`
+-  安装pyenv
+`brew install pyenv`
+- 修改`~/.zshrc`，在尾部追加
+注：这一点很重要
+  ```
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+  ```
+- 在当前shell进程中执行`~/.zshrc`，使修改生效
+  `source ~/.zshrc`
+
+- 安装Python
+  `pyenv install <version> # version为版本号`
+-  使用pyenv安装指定版本的python
+`pyenv install 3.6.1`
+- 查看已安装Python版本
+`pyenv versions`
+- 查看可安装的Python版本
+`pyenv install -l`
+- 切换并查看版本
+shell > local > global
+```
+pyenv global <version>  # 全局设置python版本为指定版本，设置全局的 Python 版本，通过将版本号写入 ~/.pyenv/version 文件的方式。
+pyenv local <version>   # 设置当前路径下python版本为指定版本，设置 Python 本地版本，通过将版本号写入当前目录下的 .python-version 文件的方式。通过这种方式设置的 Python 版本优先级较 global 高。
+pyenv shell <version>   # 设置当前shell窗口使用的python版本为指定版本，设置面向 shell 的 Python 版本，通过设置当前 shell 的 PYENV_VERSION 环境变量的方式。这个版本的优先级比 local 和 global 都要高。–unset 参数可以用于取消当前 shell 设定的版本。
+```
+
 
 
 
