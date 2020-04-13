@@ -865,6 +865,28 @@ Put `es6.xml` inside of the following directory:
 ```bash
 ~/Library/Preferences/<intellij-product-install>/templates
 ```
+## webstorm 支持 alias 功能
+根目录新建 `webstorm.onfig.js`
+
+```js
+// webstorm.onfig.js
+const path = require('path')
+
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
+
+module.exports = {
+  context: path.resolve(__dicrname, './'),
+  resolve: {
+    extensions: ['.js', '.less', '.json'],
+    alias: {
+      '@': resolve('./'),
+    }
+  },
+}
+
+```
 
 ## 今日图 - 为高考的学子点赞
 ![20190606091845.jpg](../../images/20190606091845.jpg)
