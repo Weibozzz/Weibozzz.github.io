@@ -866,7 +866,7 @@ Put `es6.xml` inside of the following directory:
 ~/Library/Preferences/<intellij-product-install>/templates
 ```
 ## webstorm 支持 alias 功能
-根目录新建 `webstorm.onfig.js`
+根目录新建 `webstorm.onfig.js` 然后在设置里面搜索 webpack ，然后指向当前的配置文件
 
 ```js
 // webstorm.onfig.js
