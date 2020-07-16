@@ -40,6 +40,7 @@
 
 ## Vue
 + [vue你应该知道的知识点](./docs/Vue/vue你应该知道的知识点.md)
++ [vue-配置按需加载](./docs/Vue/vue-配置按需加载.md)
 
 ## React
 + [10分钟了解react新特性hooks](./docs/React/10分钟了解react新特性hooks.md)
