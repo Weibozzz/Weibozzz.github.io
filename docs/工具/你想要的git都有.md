@@ -11,6 +11,8 @@ git config --global core.excludesfile ~/.gitignore_global
 - 获取当前用户名：`git config user.name`
 - 获取当前分支: `git symbolic-ref --short HEAD`
 - git获取最近一次提交的commit id:`git rev-parse HEAD`
+- git获取tag最大值:'git describe --tags `git rev-list --tags --max-count=1`'
+- git获取所有tag(包括提交信息-n):`git tag -l -n`
 ## 正常提交
 ```bash
 git add .
