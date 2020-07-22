@@ -41,6 +41,13 @@ gitc onfig --list
 第一步：`git add .`
 第二步：`git commit -m "写改动的注释"`
 
+### 移仓库，同时保留原有的提交记录和分支
+https://github.com/haizlin/fe-interview/issues/2150
+```
+git clone --bare 旧库地址
+git push --mirror 新库地址
+```
+
 ## 版本回退
 通过`git log`来查看版本（加上`--pretty=oneline`参数查看关键信息）：
 `git`中，用`HEAD`表示当前版本，上一个版本就是`HEAD^`，上上一个版本就是`HEAD^^`，当然往上100个版本写100个^比较容易数不过来，所以写成`HEAD~100`。
