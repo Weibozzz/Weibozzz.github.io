@@ -62,6 +62,9 @@ var ws = new WebSocket("ws://localhost:8080/msg");
 关闭当前链接
 - WebSocket.send(data)
 向服务器发送数据
+  
+## 相关推荐
+- [SSE服务端推送](./docs/JS/SSE服务端推送.md)
 
 ## 今日图
 ![16b1c4ddef5d24dc.gif](../../images/16b1c4ddef5d24dc.gif)

@@ -3,8 +3,6 @@
 这里可以让你寻找到使用或者是学习作者建立的前端知识体系,
 不定期更新，遇到的新知识、技巧，记录并分享
 
-另外也可以来我开的[直播间](http://live.bilibili.com/21660572)提问和互动哦～
-
 ## 说明
 
 部分文章是作者经过工作实战一点点积累下来的文章；部分文章借鉴网上的（有参考链接），这里对他们进行一个整理加上我自己的见解，并且更正他们
@@ -37,6 +35,7 @@
 + [微任务_宏任务与Event-Loop](./docs/JS/微任务_宏任务与Event-Loop.md)
 + [RAF替代setTimeout_setInterval](./docs/JS/RAF替代setTimeout_setInterval.md)
 + [Iterator-Generate](./docs/JS/Iterator-Generate.md)
++ [SSE服务端推送](./docs/JS/SSE服务端推送.md)
 
 ## Vue
 + [vue你应该知道的知识点](./docs/Vue/vue你应该知道的知识点.md)
