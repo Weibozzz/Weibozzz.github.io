@@ -32,7 +32,7 @@ Linus一直痛恨的CVS及SVN都是集中式的版本控制系统，而Git是分
 
 分布式版本控制系统除了Git以及促使Git诞生的BitKeeper外，还有类似Git的Mercurial和Bazaar等。这些分布式版本控制系统各有特点，但最快、最简单也最流行的依然是Git！
 
-## git命令
+## git相关
 
 - [你想要的git都有](./docs/工具/你想要的git都有.md)
 - [廖雪峰官方git学习](https://www.liaoxuefeng.com/wiki/896043488029600)
