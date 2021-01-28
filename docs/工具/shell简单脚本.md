@@ -102,6 +102,12 @@ alias sock5='ssh -D 8080 -q -C -N -f user@your.server'
 
 紧接着执行`source`使其生效
 `source ~/.zshrc`
+## shell简单命令
+
+- 重命名文件 `mv oldPath newPath`
+- 复制文件 `cp -r file targetToPath`
+- 删除文件 `rm -rf file`
+- 打开文件,支持excel等 `start filePath`
 
 ## 参考
 
