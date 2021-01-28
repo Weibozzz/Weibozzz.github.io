@@ -18,7 +18,7 @@ ws.onopen = function(evt) {
 };
 
 ws.onmessage = function(evt) {
-	console.log("Received Message: "   evt.data);
+	console.log("Received Message: ", evt.data);
 	ws.close();
 };
 
@@ -26,6 +26,22 @@ ws.onclose = function(evt) {
 	console.log("Connection closed.");
 };
 
+```
+
+### node服务端
+
+```js
+const WebSocket = require('ws')
+const WebSocketServer = WebSocket.Server
+const wss = new WebSocketServer({
+  port: 8080
+})
+wss.on('connection', function (ws) {
+  ws.on('message', function (message) {
+  // message 接收到的参数
+    ws.send('已接受到')
+  });
+})
 ```
 
 ## api
