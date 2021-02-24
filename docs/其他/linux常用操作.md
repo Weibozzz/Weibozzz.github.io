@@ -1,3 +1,15 @@
+## 进入 linux 服务器
+```shell script
+# 用户名@ip地址
+ssh -p 22 root@xx.xx.xx.xx
+```
+## 上传下载
+```shell script
+# 上传到服务器
+scp /Users/xx/xx.zip root@xx.xx.xx.xx:/opt/xx
+# 从服务器下载文件到本地当前文件夹 并命名为test.sql
+scp -r root@xx.xx.xx.xx:/root/xx.sql test.sql
+```
 ## 文件操作
 ren *.png *.jpg  重命名文件
 
@@ -97,7 +109,10 @@ poweroff 立即关机
 reboot立即重启
 
 ## 文件归档
-
+```shell script
+#安装unzip
+yum install -y unzip zip
+```
 
 zip test 文件名     压缩文件
 
