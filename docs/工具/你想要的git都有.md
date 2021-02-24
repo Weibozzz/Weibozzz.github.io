@@ -268,6 +268,15 @@ git submodule update --init --recursive
 最后在主模块提交
 ### 添加ssh
 - https://juejin.im/post/5ac0a382f265da238533012d
+#### linux 
+一般在根目录有
+```shell script
+cd /root 
+# 查看是否已经存在SSH-Key【其实就是查看.ssh这个隐藏目录是否存在】
+ls -al ~/.ssh
+#如果存在直接查看
+cat id_rsa.pub
+```
 ### git 钩子
 `pre-commit` 钩子在键入提交信息前运行。 它用于检查即将提交的快照，例如，检查是否有所遗漏，确保测试运行，以及核查代码。 如果该钩子以非零值退出，Git 将放弃此次提交，不过你可以用 `git commit --no-verify `来绕过这个环节。 你可以利用该钩子，来检查代码风格是否一致（运行类似 lint 的程序）、尾随空白字符是否存在（自带的钩子就是这么做的），或新方法的文档是否适当。
 
