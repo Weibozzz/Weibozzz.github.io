@@ -197,12 +197,20 @@ git remote prune origin
 如果敲`git st`就表示`git status`那就简单多了，当然这种偷懒的办法我们是极力赞成的。
 我们只需要敲一行命令，告诉`Git`，以后`st`就表示`status`：
 ```bash
-$ git config --global alias.st status
+git config --global alias.st status
+git config --global alias.pl pull
+git config --global alias.ps push
+git config --global alias.ci commit
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.cp cherry-pick
+git config --global alias.ss stash
 ```
 当然还有别的命令可以简写，很多人都用`co`表示`checkout`，`ci`表示`commit`，`br`表示`branch`
 
 ## 其它技巧
-之前上传过的文件夹想要忽略怎么办？这行这个，然后正常提交ok
+之前上传过的文件夹已经提交过了，新加的 `.ignore`不起作用，
+ 想要忽略怎么办？执行这个，然后正常提交ok
 `git rm -r --cached .`
 
 查看某一段代码谁写的 `git blame file.js -L 1,2`
