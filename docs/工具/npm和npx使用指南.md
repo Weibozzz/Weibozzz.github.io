@@ -214,6 +214,10 @@ console.log(process.env.npm_package_version); // 1.2.5
 上面代码中，我们通过环境变量`process.env`对象，拿到`package.json`的字段值。如果是` Bash `脚本，可以用`$npm_package_name和$npm_package_version`取到这两个值。
 
 摘自：[http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html](http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html)
-
+## 其他
+有时候我们 `npm install` 安装报错信息奇怪，已经找过原因，我们可以试试清楚缓存
+```shell script
+npm cache clean --force
+```
 ## 今日图 - 老板画饼
 ![16ac3747430c8cd7.gif](../../images/16ac3747430c8cd7.gif)
