@@ -126,7 +126,27 @@ import txt from "raw-loader!./1.txt";
 ```
      
 
+## 使用场景
+### px 转化 rpx
+> 一次很粗心，因为很久没写过小程序，把 rpx 都写成 px,
+> 写了好多，一个一个改太麻烦了，关键还要乘2，我这暴脾气
+> 受不了这种苦力活，就写了个核心如下
 
+```js
+const fs = require('fs')
+fs.readFile('./index.scss', (err,data) => {
+  const reg = /:(.+[^r])px/g
+  const str =  data.toString().replace(reg,(a,b)=>{
+    return ': ' + b * 2 + 'rpx';
+  })
+  const strdata = new Uint8Array(Buffer.from(str));
+  fs.writeFile('index2.scss', strdata, (err) => {
+    if (err) throw err;
+    console.log('文件已被保存');
+  });
+})
+
+```
 ## 引用
 - https://webpack.docschina.org/contribute/writing-a-loader/
 - https://juejin.im/post/5e3389436fb9a02fef3a707a?utm_source=gold_browser_extension
