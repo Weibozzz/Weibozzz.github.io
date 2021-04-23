@@ -141,8 +141,8 @@ function addFly(canFly){
     target.canFly = canFly;
     let extra = canFly ? '(技能加成:飞行能力)' : '';
     let method = target.prototype.toString;
-    target.prototype.toString = (...args)=>{
-      return method.apply(target.prototype,args) + extra;
+    target.prototype.toString = function (...args){
+      return method.apply(this, args) + extra;
     }
     return target;
   }
