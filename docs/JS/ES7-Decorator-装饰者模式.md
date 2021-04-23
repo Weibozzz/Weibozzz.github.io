@@ -382,7 +382,7 @@ export default {
   ]
 }
 ```
-### vue中 debounce 和 打点 应用
+### vue中 debounce 和 打点, logger 应用
 - [理解JS函数节流和函数防抖](../工具/理解JS函数节流和函数防抖.md)
 
 ```js
@@ -422,6 +422,37 @@ export function goTrack(point){
     return descriptor;
   };
 }
+// 写一个 promise
+export function pro(){
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve()
+    }, 500);
+  });
+}
+
+export function logger(isAsync = false){
+  return function (target, key, descriptor){
+    const method = descriptor.value
+    let ret = true;
+    descriptor.value = function (...args) {
+      ret = method.apply(this, args)
+      if(isAsync){
+        // 是异步
+        ret.then(() => {
+          console.warn('logger success')
+        }).catch(() => {
+          console.error('logger fail')
+        })
+      }else {
+        console.warn('logger success')
+      }
+      return ret;
+    }
+    return descriptor;
+  };
+}
+
 // vue 中引入
 {
   methods: {
@@ -435,6 +466,15 @@ export function goTrack(point){
         return false;
       }
       console.log('开始打点')
+    },
+    @logger(true)
+    btnClick2 () {
+      return new Promise((resolve, reject) => {
+        pro().then(() => {
+          console.log('我是异步完成')
+          resolve()
+        })
+      });
     }
   }
 }
