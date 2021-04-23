@@ -382,7 +382,63 @@ export default {
   ]
 }
 ```
+### vue中 debounce 和 打点 应用
+- [理解JS函数节流和函数防抖](../工具/理解JS函数节流和函数防抖.md)
 
+```js
+// 理解JS函数节流和函数防抖 中节流 修改如下
+export function debounce(wait = 800, now = true) {
+  let __timer = null;
+  let isFirst = now;
+  return function(target, key, descriptor) {
+    const method = descriptor.value;
+    descriptor.value = (...args) => {
+      if (__timer) clearTimeout(__timer);
+      if (isFirst) {
+        method.apply(target, args);
+        isFirst = false;
+      } else {
+        __timer = setTimeout(() => {
+          method.apply(target, args);
+        }, wait);
+      }
+    };
+    return descriptor;
+  };
+}
+
+export function goTrack(point){
+  return function (target, key, descriptor){
+    const method = descriptor.value
+    let ret = true;
+    descriptor.value = function (...args) {
+      ret = method.apply(this, args)
+      if (ret !== false){
+      //  条件 返回 false 不执行
+        console.warn('已经打点', point)
+      }
+      return ret;
+    }
+    return descriptor;
+  };
+}
+// vue 中引入
+{
+  methods: {
+    @debounce(1000, true)
+    outputFn (e) {
+      console.warn('输出', e.target.value)
+    },
+    @goTrack('#23856')
+    btnClick () {
+      if(!this.list.length){
+        return false;
+      }
+      console.log('开始打点')
+    }
+  }
+}
+```
 ## 摘自
 - [淘宝前端团队](http://taobaofed.org/blog/2015/11/16/es7-decorator/)
 - https://www.jianshu.com/p/208904b34d8f
