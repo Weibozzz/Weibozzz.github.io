@@ -56,10 +56,13 @@
 如`note thatthis is the case`或者`this is the case, not that`等。只要灵活运用这几个断言，就很容易解决：
 
 ```js
-^(.(?<!that))*this(.(?<!that))*$
-^(.(?<!that))*this((?!that).)*$
-^((?!that).)*this(.(?<!that))*$
-^((?!that).)*this((?!that).)*$
+/^(.(?<!that))*this(.(?<!that))*$/
+
+/^(.(?<!that))*this((?!that).)*$/
+
+/^((?!that).)*this(.(?<!that))*$/
+
+/^((?!that).)*this((?!that).)*$/
 ```
 
 这4个正则表达式测试上述的几句话，结果都能够满足要求。
