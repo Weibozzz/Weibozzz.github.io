@@ -219,5 +219,14 @@ console.log(process.env.npm_package_version); // 1.2.5
 ```shell script
 npm cache clean --force
 ```
+
+### node_modules
+有时候需要对 `npm(node_modules)` 包,做修改？
+如何做到修改了 `node_module` 中的包，却不受重新安装的影响,
+`patch-package` 这个 `npm` 是个好东西会帮到你。
+ 
+- https://github.com/ds300/patch-package
+- https://juejin.cn/post/6955736879106883597
+
 ## 今日图 - 老板画饼
 ![16ac3747430c8cd7.gif](../../images/16ac3747430c8cd7.gif)
