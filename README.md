@@ -11,6 +11,8 @@
 
 [Online Pages](https://weibozzz.github.io/#/)
 
+码云-项目地址(上面如果打不开试试这个)：<https://gitee.com/Weibozzz/Weibozzz.github.io>
+
 ## HTML
 
 + [html和css的技巧](./docs/HTML/html和css的技巧.md)
