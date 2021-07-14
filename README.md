@@ -111,6 +111,7 @@
 + [github_api](./docs/其他/github_api.md)
 + [ssh是什么](./docs/其他/ssh是什么.md)
 + [github自动同步gitee](./docs/其他/github自动同步gitee.md)
++ [解决github速度访问过慢](./docs/其他/解决github速度访问过慢.md)
 
 ## 面试
 + [面试基础](./docs/面试/面试基础.md)
