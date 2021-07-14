@@ -110,6 +110,7 @@
 + [npm发布包一些注意事项和流程](./docs/其他/npm发布包一些注意事项和流程.md)
 + [github_api](./docs/其他/github_api.md)
 + [ssh是什么](./docs/其他/ssh是什么.md)
++ [github自动同步gitee](./docs/其他/github自动同步gitee.md)
 
 ## 面试
 + [面试基础](./docs/面试/面试基础.md)
