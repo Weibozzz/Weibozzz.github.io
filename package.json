@@ -1,7 +1,7 @@
 {
-  "name": "Weibozzz.github.io",
+  "name": "weiboqianduan",
   "version": "1.0.0",
-  "description": "![icon.jpg](./icon.jpg)",
+  "description": "自己领域的前端知识体系",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -16,8 +16,12 @@
     "type": "git",
     "url": "git+https://github.com/Weibozzz/Weibozzz.github.io.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "伟波前端",
+    "前端知识",
+    "前端文档"
+  ],
+  "author": "刘伟波",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Weibozzz/Weibozzz.github.io/issues"
