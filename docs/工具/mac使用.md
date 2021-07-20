@@ -1,3 +1,4 @@
+# mac使用
 ## sh 进入服务器
 
 进入服务器 `ssh -p 端口号 服务器用户名@ip`例如： `ssh -p 22 liuweibo@111.11.11.11`
@@ -52,54 +53,56 @@ defaults write com.apple.finder AppleShowAllFiles -bool false
 
 
 ## 文件夹加权限
-	1. cd 你的文件夹路径的上一级目录。
-	2. `sudo chmod -R 777` 你的文件夹名。
-	3. 输入密码。
-	4. 成功
+
+1. cd 你的文件夹路径的上一级目录。
+2. `sudo chmod -R 777` 你的文件夹名。
+3. 输入密码。
+4. 成功
+
 ## linux命令使用
 ### 查看文件安装路径,比如：查看git安装路径
-    ```bash
-    which git
-    ```
+```bash
+which git
+```
 ### 文件操作
-    - `ren *.png *.jpg`  重命名文件
+- `ren *.png *.jpg`  重命名文件
 
-    - `touch nash` 创建文件
+- `touch nash` 创建文件
 
-    - `cp test test2`    复制文件
+- `cp test test2`    复制文件
 
-    - `cp -rv textCopt testCopt2`  复制文件夹 `-r -v`进度
+- `cp -rv textCopt testCopt2`  复制文件夹 `-r -v`进度
 
-    - `mv move testCopt/ `     移动文件
+- `mv move testCopt/ `     移动文件
 
-    - `mv test testCopt/movetest`  移动文件并且重命名
+- `mv test testCopt/movetest`  移动文件并且重命名
 
-    - `mv nash nash2 ` 重命名
+- `mv nash nash2 ` 重命名
 
-    - `rm shanchu`   删除
+- `rm shanchu`   删除
 
-    - `rm -r shanchu`   删除文件夹
+- `rm -r shanchu`   删除文件夹
 
-    - `rm -rf a` 删除a文件夹
+- `rm -rf a` 删除a文件夹
 
-    - `rm -ri shanchu`   交互式 带提示删除文件夹
+- `rm -ri shanchu`   交互式 带提示删除文件夹
 
-    - `mkdir wenjiajia` 创建文件夹
+- `mkdir wenjiajia` 创建文件夹
 
-    - `rmdir wenjiajia` 删除非空文件夹
+- `rmdir wenjiajia` 删除非空文件夹
 
-    - `pwd` 当前文件路径
+- `pwd` 当前文件路径
 
-    - `ll` 列出文件详情
-    - `ls -lh` 查看文件大小详情
+- `ll` 列出文件详情
+- `ls -lh` 查看文件大小详情
 
-    - `cat` 文件查看
+- `cat` 文件查看
 
-    - `head` 文件的前面部分查看 或者  `head -n 1 a.js` 看前一行
+- `head` 文件的前面部分查看 或者  `head -n 1 a.js` 看前一行
 
-    - `tail` 文件的后面部分查看 或者  `head -n 2 a.js` 看后两行
+- `tail` 文件的后面部分查看 或者  `head -n 2 a.js` 看后两行
 
-    - `grep ' 2' a.js ` 搜索带2的那一行
+- `grep ' 2' a.js ` 搜索带2的那一行
 
 ## 今日图 - margin-right: -5px
 ![16bcfa33dd0226d4.png](../../images/16bcfa33dd0226d4.png)

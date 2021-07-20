@@ -1,4 +1,5 @@
-# npx使用
+# npm和npx使用指南
+## npx使用
 npm v5.2.0引入的一条命令（npx），引入这个命令的目的是为了提升开发者使用包内提供的命令行工具的体验。
 举例：使用`create-react-app`创建一个react项目。
 老方法：
@@ -52,7 +53,7 @@ npx -p node@8 npm run build
 4. 可以指定node版本、命令的版本，解决了不同项目使用不同版本的命令的问题。
 
 
-# npm使用
+## npm使用
 ## 查看`webpack`所有版本号
 ```bash
 npm view webpack versions  --json
@@ -80,7 +81,7 @@ npm i vue-cli@2.9.6 -g
 ```bash
 npm uninstall vue-cli -g
 ```
-# npm scripts
+## npm scripts
 ## 原理
 
 `npm` 脚本的原理非常简单。每当执行`npm run`，就会自动新建一个 `Shell`，在这个 `Shell `里面执行指定的脚本命令。因此，只要是 Shell（一般是 Bash）可以运行的命令，就可以写在 npm 脚本里面。

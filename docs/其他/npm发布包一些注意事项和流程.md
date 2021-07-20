@@ -1,4 +1,4 @@
-# npm发布包
+# npm发布包一些注意事项和流程
 ## 初始化
 在[https://www.npmjs.com/](https://www.npmjs.com/)这里注册登录，
 起一个名字，比如http-auth-zfb,首先查询是否已存在

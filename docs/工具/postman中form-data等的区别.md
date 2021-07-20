@@ -1,4 +1,5 @@
-# postman中 form-data、x-www-form-urlencoded、raw、binary的区别
+# postman中form-data等的区别
+## postman中 form-data、x-www-form-urlencoded、raw、binary的区别
 
 ## form-data:
  就是`http`请求中的`multipart/form-data`,它会将表单的数据处理为一条消息，以标签为单元，用分隔符分开。既可以上传键值对，也可以上传文件。当上传的字段是文件时，会有`Content-Type`来表名文件类型；`content-disposition`，用来说明字段的一些信息；

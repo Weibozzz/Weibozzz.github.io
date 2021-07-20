@@ -1,3 +1,4 @@
+# 分享好用的js方法
 ## new URLSearchParams
 `URLSearchParams` 接口定义了一些实用的方法来处理 URL 的查询字符串。
 

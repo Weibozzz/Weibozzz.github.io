@@ -1,4 +1,4 @@
-
+# useRequest封装
 前后端通信通常使用 AJAX 方案，对于 AJAX 社区有非常多的封装，目前主流推荐 [axios](https://github.com/axios/axios)。
 
 ## 使用 axios 进行通信

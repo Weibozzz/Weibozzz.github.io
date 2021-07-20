@@ -1,5 +1,6 @@
+# SSE服务端推送
 ## SSE服务端推送
-    `SSE` (Server-sent Events) 是 `WebSocket` 的一种轻量代替方案，使用 `HTTP` 协议。
+`SSE` (Server-sent Events) 是 `WebSocket` 的一种轻量代替方案，使用 `HTTP` 协议。
 与 `WebSockets`,不同的是，服务端推送是单向的。
 
 严格地说，`HTTP` 协议是没有办法做服务器推送的，但是当服务器向客户端声明接下来要发送流信息时，

@@ -1,4 +1,5 @@
-# git命令
+# 你想要的git都有
+## git命令
 ## 在Mac上配置全局的Git忽略文件
 
 ```sh
@@ -175,7 +176,7 @@ fatal: cannot lock ref 'refs/heads/***': 'refs/heads/***' exists; cannot create 
 git remote prune origin
 ```
 
-# 小结
+## 小结
 - 查看分支：`git branch`
 
 - 创建分支：`git branch `

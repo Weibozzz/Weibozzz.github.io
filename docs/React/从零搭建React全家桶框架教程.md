@@ -1,4 +1,5 @@
-# 说明
+# 从零搭建React全家桶框架教程
+## 说明
 
 技术栈均是目前最新的。本文借鉴 [从零搭建React全家桶框架教程](https://github.com/brickspert/blog/issues/1)
 
@@ -7,7 +8,7 @@
 - redux 4.0.4
 - React 16.12.0
 
-# init项目
+## init项目
 
 1. 创建文件夹并进入
 
@@ -17,7 +18,7 @@
 
    `npm init` 按照提示填写项目基本信息
 
-# webpack
+## webpack
 
 1. 安装 `webpack`
 
@@ -95,7 +96,7 @@
 
    把入口文件 `index.js` 经过处理之后，生成 `bundle.js`。就这么简单。
 
-# 命令优化
+## 命令优化
 
 Q：每次打包都得在根目录执行这么一长串命令`webpack --config webpack.dev.config.js`,能不打这么长吗？
 
@@ -115,7 +116,7 @@ package.json
 
 http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html
 
-# babel
+## babel
 
 > Babel 把用最新标准编写的 JavaScript 代码向下编译成可以在今天随处可用的版本。 这一过程叫做“源码到源码”编译， 也被称为转换编译。
 
@@ -160,7 +161,7 @@ http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html
 
 现在我们简单测试下，是否能正确转义ES6~
 
-# react
+## react
 
 ```
 npm install --save react react-dom
@@ -225,7 +226,7 @@ webpack --config webpack.dev.config.js
 
 打开`index.html`看效果咯~
 
-# react-router
+## react-router
 
 ```
 npm install --save react-router-dom

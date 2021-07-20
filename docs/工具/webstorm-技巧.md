@@ -1,4 +1,5 @@
-# js-live-template
+# webstorm-技巧
+## js-live-template
 
 一个webstorm的live-template
 
@@ -910,4 +911,4 @@ alias ws.=webstorm64.exe ./
 
 ## 今日图 - 为高考的学子点赞
 
-![20190606091845.jpg](../../images/20190606091845.jpg)
+![20190606091845.jpg](../../images/20190606091845.jpg)~~

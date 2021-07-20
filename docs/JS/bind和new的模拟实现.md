@@ -1,3 +1,4 @@
+# bind和new的模拟实现
 ## bind
 `bind` 应用 举个例子：
 ```js

@@ -68,7 +68,7 @@ btn.onclick = function(){
 添加了另一个副本。在下一个间隔，即605ms处，第一个定时器代码仍在运行，同时在队列中已经有了一个定时
 器代码的实例。结果是，在这个时间点上的定时器代码不会被添加到队列中
 
-
+# RAF替代setTimeout_setInterval
 
 ## 迭代setTimeout实现setInterval
 

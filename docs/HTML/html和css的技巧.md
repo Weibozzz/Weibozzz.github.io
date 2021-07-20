@@ -1,5 +1,6 @@
+# html和css的技巧
 
-## 一 download属性
+## download属性
 
 
 例如，我们希望点击“下载”链接下载图片而不是浏览，直接增加一个`download`属性就可以：
@@ -11,7 +12,7 @@
 如果后缀名一样，我们还可以缺省，直接文件名：
 `<a href="index_logo.gif" download="5332">下载</a>`
 
-## 二、:not()的应用技巧
+## :not()的应用技巧
 
 
 我们平时在书写导航栏分割线的时候，最后一个标签是没有分割线的，我们一般的写法如下：
@@ -33,7 +34,7 @@
 ```
 
 
-## 三 纯css制作精美鼠标移上去显示tips效果
+## 纯css制作精美鼠标移上去显示tips效果
 
 看如下案例：
 
@@ -82,8 +83,7 @@ span{
 
 当然，用纯css写tips，还有其他办法！
 
-  ## 四&nbsp;<span style="line-height: 1;">**box-shadow的偏移效果来书写移动端导航按钮“三道杠**</span>
-
+## box-shadow的偏移效果来书写移动端导航按钮三道杠
 
 我们可以用box-shadow的偏移效果来书写移动端导航按钮“三道杠”，如下图：
 
@@ -113,7 +113,7 @@ span{
 ```
 上面代码，我们用一个伪元素，书写了中间的一道杠，然后用`box - shadow:0 7px 0 #fff,0 -7px 0 #fff;`书写了上面和下面的两道杠，分别偏移是7px。
 
-## 五 &nbsp;隐藏没有静音、自动播放的影片
+## 隐藏没有静音、自动播放的影片
 
 这是一个自定义用户样式表的不错的技巧。避免在加载页面时自动播放。如果没有静音，则不显示视频：
 
@@ -124,7 +124,7 @@ video[autoplay]:not([muted]) {
 }
 ```
 
-## 六 contant
+## content
 如果您想插入一系列递增的值，比如说“美女1，美女2，美女3，美女4……”，您就可以使用计数器在每个列表项的前面插入递增的序号值。CSS代码如下：
 
 ```css
@@ -150,22 +150,23 @@ HTML代码如下：
 
 [http://www.zhangxinxu.com/study/201004/css-content-number.html](http://www.zhangxinxu.com/study/201004/css-content-number.html)
 
-## 七 jq选择select的option的title
+## jq选择select的option的title
+```js
+$("#testid").find("option:selected").attr("title")
+```
 
-    $("#testid").find("option:selected").attr("title")
+## css溢出隐藏
 
-## 八 &nbsp;css溢出隐藏
-
-```css
-overflow:hidden;
+```
+    overflow:hidden;
     text-overflow:ellipsis;
     display:-webkit-box;
     -webkit-box-orient:vertical;
     -webkit-line-clamp:2;
 ```
-## 九 CSS3 linear-gradient线性渐变实现虚线等简单实用图形
+## CSS3 linear-gradient线性渐变实现虚线等简单实用图形
 
-### 1 实现各种需求的虚线boder
+### 实现各种需求的虚线border
 
 ```css
 .dashed {
@@ -278,7 +279,7 @@ background: -webkit-linear-gradient(left, rgb(194,169,99), rgb(255,243,182) 5%, 
 
 ```
 
-## 十 CSS3 Patterns Gallery 各种css3纹理背景图
+## CSS3 Patterns Gallery 各种css3纹理背景图
 
  [http://lea.verou.me/css3patterns/](http://lea.verou.me/css3patterns/)
 
@@ -308,7 +309,7 @@ HTML <base> 标签
 
    `<base target="_blank" />`
 
-## 十一 HTML DOM classList 属性
+## HTML DOM classList 属性
 
    ` document.getElementById("myDIV").classList.add("mystyle");`
 
@@ -337,7 +338,7 @@ HTML <base> 标签
 
 
 
- ## 十二 可以输入也可以下拉选择的select
+ ## 可以输入也可以下拉选择的select
 
 ` jQuery Editable Select`项目官网地址：
 
@@ -396,7 +397,7 @@ $('#editable-select').editableSelect({
 
 此外，还支持键盘方向键、回车键、Tab键以及Esc键操作。
 
-## 十三 css loading效果
+## css loading效果
 
 ```css
 /* 按钮loading */
@@ -440,7 +441,7 @@ label[class*=-btn].loading::before {
 }
 ```
 
-## 十四 dom元素获得left值
+## dom元素获得left值
 
  [getBoundingClientRect的用法](http://www.cnblogs.com/Songyc/p/4458570.html)
 
@@ -462,7 +463,7 @@ label[class*=-btn].loading::before {
 
 3. 兼容性：我用ie11的Document Mode模式测试，ie5以上都能支持。
 
-## 十五 滚动条样式
+## 滚动条样式
 
 ```css
 /*滚动条样式*/
@@ -476,14 +477,14 @@ label[class*=-btn].loading::before {
     background: #e6e6e6;
 }
 ```
-```
+```css
 /*隐藏滚动条*/
 ::-webkit-scrollbar {
         display:none
       }
 ```
 
-## 十六 当页面有position:fixed的置顶悬浮菜单时，如何调整锚定位的时候不被悬浮菜单挡住？
+## 当页面有position:fixed的置顶悬浮菜单时，如何调整锚定位的时候不被悬浮菜单挡住？
 
 ```js
 function locateAt(e){
@@ -501,9 +502,9 @@ function locateAt(e){
 2.  `<a href="javascript:void(0)" onclick="locateAt('target')">锚点定位</a>  `
 
 
-## 十七 input，option,canvas
+## input，option,canvas
 
-```css
+```
 1. input:focus
 
 input:valid
@@ -561,7 +562,7 @@ ctx.lineTo;
 ctx.stroke();
 ```
 
-##  十八 使用JS判断用户操作系统是否安装某字体
+## 使用JS判断用户操作系统是否安装某字体
 
 [http://www.zhangxinxu.com/wordpress/2018/02/js-detect-suppot-font-family/](http://www.zhangxinxu.com/wordpress/2018/02/js-detect-suppot-font-family/)
 
@@ -613,7 +614,7 @@ var isSupportMicrosoftYahei = isSupportFontFamily('Microsoft Yahei');
 
 如果用户的操作系统安装了微软雅黑，则`isSupportMicrosoftYahei`为true，否则为false。
 
-## 十九 后台验证码为文件（流）
+## 后台验证码为文件（流）
 
 ```js
       var xmlhttp;
@@ -634,7 +635,7 @@ xmlhttp.send();
 ```
 
 
-### 二十 ajax进度条
+### ajax进度条
 
 [https://www.w3.org/TR/progress-events/](https://www.w3.org/TR/progress-events/)
 

@@ -1,3 +1,4 @@
+# homebrew使用
 ## 查看homebrew安装的服务列表
 ```sh
 brew services list

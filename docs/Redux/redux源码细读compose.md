@@ -1,3 +1,6 @@
+# redux源码细读compose
+> redux_v3.7.2源码详细解读与学习之compose
+
 ## 上代码看效果
 
 ```js

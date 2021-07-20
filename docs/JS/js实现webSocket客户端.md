@@ -1,3 +1,4 @@
+# js实现webSocket客户端
 ## websocket
 由于http请求只能由客户端发起，所有当服务器资源有变化时，客户端只能通过轮询的方式。非常浪费资源。
 websocket的特点：

@@ -1,3 +1,4 @@
+# linux常用操作
 ## 进入 linux 服务器
 ```shell script
 # 用户名@ip地址
@@ -11,6 +12,7 @@ scp /Users/xx/xx.zip root@xx.xx.xx.xx:/opt/xx
 scp -r root@xx.xx.xx.xx:/root/xx.sql test.sql
 ```
 ## 文件操作
+```
 ren *.png *.jpg  重命名文件
 
 touch nash 创建文件
@@ -48,12 +50,9 @@ head 文件的前面部分查看 或者  head -n 1 a.js 看前一行
 tail 文件的后面部分查看 或者  head -n 2 a.js 看后两行
 
 grep ' 2' a.js  搜索带2的那一行
-
-
-
-
-
+```
 ## 日期查看
+```
 date 查看日期
 
 date date +%Y--%m--%d    2017--07--16
@@ -65,10 +64,9 @@ clock（hwclock）显示硬件时间
 cal 查看日期
 
 uptime 系统运行时间 负载
-
-
-
+```
 ## 输入输出
+```
 echo 输出一样的
 
 cat 输出文本内容
@@ -81,19 +79,20 @@ head 显示文件默认头十行  -n指定几行
 
 tail 末尾几行    -n指定最后几行 -f追踪显示文件的更新（一般用于查看日志，命令不会退出）
 
-
-
+```
 ## 查看硬件信息
+```
 lspci 查看PCI设备 -v查看详细信息
 
 lsusb 查看USB设备
 
 lsmod查看加载的模块（驱动）
 
+```
 
 
 ## 关机，重启
-
+```
 shutdown -h关机 -r重新启动
 
 -h  now
@@ -107,13 +106,14 @@ shutdown -h关机 -r重新启动
 poweroff 立即关机
 
 reboot立即重启
-
+```
 ## 文件归档
 ```shell script
 #安装unzip
 yum install -y unzip zip
 ```
 
+```
 zip test 文件名     压缩文件
 
 unzip test.zip  解压
@@ -127,8 +127,9 @@ tar -xvf 名字.tar
 tar -cvzf  名字.tar.gz   归档并压缩 调用了gzip
 
 
-
+```
 ## 文件查找
+```
 locate 快速查找文件，文件夹
 
 updatedb 手动更新数据库
@@ -153,7 +154,9 @@ find / -name *.conf  找到结尾的
 
 -size
 
+```
 ## VIM模式  esc退出
+```
 -命令模式
 
 -插入模式 Y
@@ -179,11 +182,9 @@ u 撤销上一个操作
 r 替换当前字符
 
 / 查找关键字 n键移动
-
-
-
+```
 ## EX模式
-
+```
 ：w 保存当前模式
 
 ：q 退出
@@ -198,17 +199,15 @@ r 替换当前字符
 
 ：sh 切换到命令行，使用ctrl+d切换回vim
 
-
-
+```
 ## 关闭端口占用命令
-//关闭端口占用命令
-eg:
-```sh
+关闭端口占用命令 eg:
+```
 1. netstat -nao | findstr “8080” 查询8080端口
 2. taskkill /pid 3017 /F 关闭pid为3017的进程
 ```
 
-//详解 ↓ 但往往很多时候只需要查看某个端口的使用情况，它到底被那个进程（对应PID）占用了，或者你还需要把它`Kill`掉。
+详解 ↓ 但往往很多时候只需要查看某个端口的使用情况，它到底被那个进程（对应PID）占用了，或者你还需要把它`Kill`掉。
 
 如果你在`Windows`操作系统，你可以使用`netstat`命令来查询`PID`，然后可以打开任务管理器，查看这个PID对应的进程名；如果PID没有显示，菜单》查看》选择列》选中PID即可；得知进程后，我们可以将进程杀掉。
 
