@@ -8,3 +8,5 @@ package-lock.json
 .vscode
 .test.test
 .config
+.cache
+.temp
