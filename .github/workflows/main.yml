@@ -20,18 +20,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
-
-      - name: Build and Deploy
-        uses: jenkey2011/vuepress-deploy@master
-        env:
+        uses: actions/checkout@v2.3.1 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          persist-credentials: false
+      - name: Install and Build
+        run: |
+          npm install
+          npm run docs:build
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
           ACCESS_TOKEN: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-          # 你要操作的目标仓库
-          TARGET_REPO: Weibozzz/Weibozzz.github.io
-          # 构建结果存储的分支
-          TARGET_BRANCH: gh_pages
-          # 要使用的构建命令
-          BUILD_SCRIPT: npm install && npm run docs:build
-          # 构建结果存储目录
-          BUILD_DIR: dist/
+          BRANCH: gh_pages
+          FOLDER: docs/.vuepress/dist/
 
