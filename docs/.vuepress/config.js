@@ -23,13 +23,14 @@ module.exports = {
     warning: '注意',
     danger: '警告',
     // page meta
-    // editLinkText: '在 GitHub 上编辑此页',
+    editLinkText: '在 GitHub 上编辑此页',
     // docsRepo: 'https://gitlab.com/owner/name',
     docsBranch: 'master',
     // docsDir: 'docs',
     // editLinkPattern: ':repo/-/edit/:branch/:path',
-    // lastUpdatedText: '上次更新',
-    contributorsText: '贡献者',
+    lastUpdatedText: '上次更新',
+    contributors: false,
+    // contributorsText: '贡献者',
     backToHome: '返回首页',
     // a11y
     openInNewWindow: '在新窗口打开',
@@ -43,7 +44,7 @@ module.exports = {
     chainWebpack: config => {
       config.module
         .rule('images')
-        .test(/\.(png|jpe?g|gif|webp|svg)(\?.*)?$/i)
+        .test(/\.(png|jpe?g|gif|webp)(\?.*)?$/i)
         .use('url-loader')
         .loader('url-loader')
         .tap(options => Object.assign(options, { limit: 10240 }));
