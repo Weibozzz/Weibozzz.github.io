@@ -6,7 +6,7 @@
 
 [解决github速度访问过慢](./解决github速度访问过慢.md)
 
-**注意：前提是 `github` 和 `gitee` 都已经配置了 `ssh` **,如果没配置，看我 [ssh是什么](./ssh是什么.md) 来配置即可。
+**注意：前提是 `github` 和 `gitee` 都已经配置了 `ssh`** ,如果没配置，看我 [ssh是什么](./ssh是什么.md) 来配置即可。
 
 ## 1. 同步部署
 > 提交 github 自动同步提交到 gitee
