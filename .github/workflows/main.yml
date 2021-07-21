@@ -16,4 +16,22 @@ jobs:
           source-repo: git@github.com:Weibozzz/Weibozzz.github.io.git
           # 注意替换为你的 Gitee 目标仓库地址
           destination-repo: git@gitee.com:Weibozzz/Weibozzz.github.io
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Build and Deploy
+        uses: jenkey2011/vuepress-deploy@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+          # 你要操作的目标仓库
+          TARGET_REPO: Weibozzz/Weibozzz.github.io
+          # 构建结果存储的分支
+          TARGET_BRANCH: gh_pages
+          # 要使用的构建命令
+          BUILD_SCRIPT: npm install && npm run docs:build
+          # 构建结果存储目录
+          BUILD_DIR: dist/
 
