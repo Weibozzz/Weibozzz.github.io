@@ -175,7 +175,19 @@ fatal: cannot lock ref 'refs/heads/***': 'refs/heads/***' exists; cannot create 
 ```bash
 git remote prune origin
 ```
+### Git创建一个空分支
+```shell
+git checkout --orphan emptyBranchName
+git rm -rf .
+```
+## git提交空文件夹
+创建 `.gitkeep` 文件，内容如下
 
+```
+# Ignore everything in this directory
+*
+# Except this file !.gitkeep
+```
 ## 小结
 - 查看分支：`git branch`
 
