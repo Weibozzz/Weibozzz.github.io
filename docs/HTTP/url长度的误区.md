@@ -74,9 +74,9 @@ Apache能接受url长度限制为8 192 字符
 
 2、IIS
 
-Microsoft Internet Information Server(IIS)能接受url长度限制为16 384个字符。
+`Microsoft Internet Information Server(IIS)`能接受`url`长度限制为16 384个字符。
 这个是可以通过修改的（IIS7）
-configuration/system.webServer/security/requestFiltering/requestLimits@maxQueryStringsetting.<requestLimits maxQueryString="length"/>
+`configuration/system.webServer/security/requestFiltering/requestLimits@maxQueryStringsetting.<requestLimits maxQueryString="length"/>`
 
 3、Perl HTTP::Daemon
 
