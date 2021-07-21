@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no"><meta name="description" content="刘伟波,伟波前端,刘伟波的个人网站，刘伟波的技术作品，刘伟波的生活成长"><meta name="keywords" content="伟波前端,weiboqianduan,weiboqd,liuweibo,刘伟波,个人网站,个人博客,web前端,程序员博客,技术博客,Web开发,Web后端,技术文档"><meta name="author" content="刘伟波,liuweibo"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"><script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script><title>从零搭建React全家桶框架教程 | 伟波前端</title><meta charset="utf-8"><meta name="generator" content="VuePress 2.0.0-beta.22">
+    <link rel="preload" href="/assets/js/runtime~app.c62c7374.js" as="script"><link rel="preload" href="/assets/css/styles.87b3d4b6.css" as="style"><link rel="preload" href="/assets/js/4640.7707568a.js" as="script"><link rel="preload" href="/assets/js/app.cebd16b7.js" as="script">
+    <link rel="stylesheet" href="/assets/css/styles.87b3d4b6.css">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme-container"><header class="navbar"><div class="toggle-sidebar-button"><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><span><a href="/" class=""><img class="logo" src="/images/avatar.jpg" alt="伟波前端"><span class="site-name can-hide">伟波前端</span></a></span><div class="navbar-links-wrapper" style=""><!--[--><!--]--><nav class="navbar-links can-hide"><!--[--><div class="navbar-links-item"><a href="/" class="nav-link" aria-label="指南"><!--[--><!--]--> 指南 <!--[--><!--]--></a></div><div class="navbar-links-item"><div class="dropdown-wrapper"><button class="dropdown-title" type="button" aria-label="了解更多"><span class="title">了解更多</span><span class="arrow down"></span></button><button class="mobile-dropdown-title" type="button" aria-label="了解更多"><span class="title">了解更多</span><span class="right arrow"></span></button><ul style="display:none;" class="nav-dropdown"><!--[--><li class="dropdown-item"><a class="nav-link external" href="https://github.com/Weibozzz/Weibozzz.github.io/commits/master" rel="noopener noreferrer" target="_blank" aria-label="更新日志"><!--[--><!--]--> 更新日志 <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span><!--[--><!--]--></a></li><li class="dropdown-item"><a class="nav-link external" href="http://www.liuweibo.cn" rel="noopener noreferrer" target="_blank" aria-label="React SSR博客"><!--[--><!--]--> React SSR博客 <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span><!--[--><!--]--></a></li><li class="dropdown-item"><a class="nav-link external" href="https://v2.vuepress.vuejs.org/zh/" rel="noopener noreferrer" target="_blank" aria-label="静态网站生成器"><!--[--><!--]--> 静态网站生成器 <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span><!--[--><!--]--></a></li><li class="dropdown-item"><a class="nav-link external" href="https://github.com/stevenjoezhang/live2d-widget" rel="noopener noreferrer" target="_blank" aria-label="萌萌哒看板娘"><!--[--><!--]--> 萌萌哒看板娘 <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span><!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-links-item"><a class="nav-link external" href="https://github.com/Weibozzz/Weibozzz.github.io" rel="noopener noreferrer" target="_blank" aria-label="GitHub"><!--[--><!--]--> GitHub <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span><!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><button class="toggle-dark-button"><svg style="" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg style="display:none;" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><!----></div></header><div class="sidebar-mask"></div><aside class="sidebar"><nav class="navbar-links"><!--[--><div class="navbar-links-item"><a href="/" class="nav-link" aria-label="指南"><!--[--><!--]--> 指南 <!--[--><!--]--></a></div><div class="navbar-links-item"><div class="dropdown-wrapper"><button class="dropdown-title" type="button" aria-label="了解更多"><span class="title">了解更多</span><span class="arrow down"></span></button><button class="mobile-dropdown-title" type="button" aria-label="了解更多"><span class="title">了解更多</span><span class="right arrow"></span></button><ul style="display:none;" class="nav-dropdown"><!--[--><li class="dropdown-item"><a class="nav-link external" href="https://github.com/Weibozzz/Weibozzz.github.io/commits/master" rel="noopener noreferrer" target="_blank" aria-label="更新日志"><!--[--><!--]--> 更新日志 <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span><!--[--><!--]--></a></li><li class="dropdown-item"><a class="nav-link external" href="http://www.liuweibo.cn" rel="noopener noreferrer" target="_blank" aria-label="React SSR博客"><!--[--><!--]--> React SSR博客 <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span><!--[--><!--]--></a></li><li class="dropdown-item"><a class="nav-link external" href="https://v2.vuepress.vuejs.org/zh/" rel="noopener noreferrer" target="_blank" aria-label="静态网站生成器"><!--[--><!--]--> 静态网站生成器 <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span><!--[--><!--]--></a></li><li class="dropdown-item"><a class="nav-link external" href="https://github.com/stevenjoezhang/live2d-widget" rel="noopener noreferrer" target="_blank" aria-label="萌萌哒看板娘"><!--[--><!--]--> 萌萌哒看板娘 <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span><!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-links-item"><a class="nav-link external" href="https://github.com/Weibozzz/Weibozzz.github.io" rel="noopener noreferrer" target="_blank" aria-label="GitHub"><!--[--><!--]--> GitHub <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span><!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><ul class="sidebar-links"><!--[--><!--[--><p class="sidebar-heading sidebar-item">HTML/CSS</p><ul class=""><li><!--[--><a href="/HTML/html%E5%92%8Ccss%E7%9A%84%E6%8A%80%E5%B7%A7.html" class="nav-link sidebar-item" aria-label="html和css的技巧"><!--[--><!--]--> html和css的技巧 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/HTML/%E5%89%8D%E7%AB%AF%E5%B8%B8%E8%A7%81%E5%B8%83%E5%B1%80.html" class="nav-link sidebar-item" aria-label="前端常见布局"><!--[--><!--]--> 前端常见布局 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/CSS/%E6%9D%83%E5%A8%81%E5%88%86%E6%9E%90%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%86%E5%8F%A3.html" class="nav-link sidebar-item" aria-label="权威分析浏览器视口"><!--[--><!--]--> 权威分析浏览器视口 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--><!--[--><p class="sidebar-heading sidebar-item">JS</p><ul class=""><li><!--[--><p class="sidebar-item">新特性</p><ul class="sidebar-sub-items"><li><!--[--><a href="/JS/ES7-Decorator-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F.html" class="nav-link sidebar-item" aria-label="ES7-Decorator-装饰者模式"><!--[--><!--]--> ES7-Decorator-装饰者模式 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/JS/Iterator-Generate.html" class="nav-link sidebar-item" aria-label="Iterator-Generate"><!--[--><!--]--> Iterator-Generate <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/JS/set%E5%92%8Cmap.html" class="nav-link sidebar-item" aria-label="set和map"><!--[--><!--]--> set和map <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/JS/%E6%96%B0%E7%89%B9%E6%80%A7proxy-%E7%AE%A1%E9%81%93%E6%93%8D%E4%BD%9C%E7%AC%A6.html" class="nav-link sidebar-item" aria-label="新特性proxy-管道操作符"><!--[--><!--]--> 新特性proxy-管道操作符 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><p class="sidebar-item">socket</p><ul class="sidebar-sub-items"><li><!--[--><a href="/JS/js%E5%AE%9E%E7%8E%B0webSocket%E5%AE%A2%E6%88%B7%E7%AB%AF.html" class="nav-link sidebar-item" aria-label="js实现webSocket客户端"><!--[--><!--]--> js实现webSocket客户端 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/JS/SSE%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%8E%A8%E9%80%81.html" class="nav-link sidebar-item" aria-label="SSE服务端推送"><!--[--><!--]--> SSE服务端推送 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><p class="sidebar-item">深入浅出</p><ul class="sidebar-sub-items"><li><!--[--><a href="/JS/%E5%87%BD%E6%95%B0%E8%AE%B0%E5%BF%86.html" class="nav-link sidebar-item" aria-label="函数记忆"><!--[--><!--]--> 函数记忆 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/JS/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D.html" class="nav-link sidebar-item" aria-label="深浅拷贝"><!--[--><!--]--> 深浅拷贝 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/JS/bind%E5%92%8Cnew%E7%9A%84%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0.html" class="nav-link sidebar-item" aria-label="bind和new的模拟实现"><!--[--><!--]--> bind和new的模拟实现 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/JS/call%E5%92%8Capply%E7%9A%84%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0.html" class="nav-link sidebar-item" aria-label="call和apply的模拟实现"><!--[--><!--]--> call和apply的模拟实现 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/JS/%E7%BB%A7%E6%89%BF%E7%9A%84%E5%A4%9A%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%92%8C%E4%BC%98%E7%BC%BA%E7%82%B9.html" class="nav-link sidebar-item" aria-label="继承的多种方式和优缺点"><!--[--><!--]--> 继承的多种方式和优缺点 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><a href="/JS/fetch%E4%BD%BF%E7%94%A8%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html" class="nav-link sidebar-item" aria-label="fetch使用的常见问题及其解决办法"><!--[--><!--]--> fetch使用的常见问题及其解决办法 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/JS/RAF%E6%9B%BF%E4%BB%A3setTimeout_setInterval.html" class="nav-link sidebar-item" aria-label="RAF替代setTimeout_setInterval"><!--[--><!--]--> RAF替代setTimeout_setInterval <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/JS/%E5%88%86%E4%BA%AB%E5%A5%BD%E7%94%A8%E7%9A%84js%E6%96%B9%E6%B3%95.html" class="nav-link sidebar-item" aria-label="分享好用的js方法"><!--[--><!--]--> 分享好用的js方法 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/JS/%E5%8E%9F%E7%94%9Fjs%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4%E5%89%AA%E5%88%87.html" class="nav-link sidebar-item" aria-label="原生js复制粘贴剪切"><!--[--><!--]--> 原生js复制粘贴剪切 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/JS/%E5%BE%AE%E4%BB%BB%E5%8A%A1_%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8EEvent-Loop.html" class="nav-link sidebar-item" aria-label="微任务_宏任务与Event-Loop"><!--[--><!--]--> 微任务_宏任务与Event-Loop <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--><!--[--><p class="sidebar-heading sidebar-item active">React/Redux/Vue</p><ul class=""><li><!--[--><p class="sidebar-item active">React</p><ul class="sidebar-sub-items"><li><!--[--><a href="/React/10%E5%88%86%E9%92%9F%E4%BA%86%E8%A7%A3react%E6%96%B0%E7%89%B9%E6%80%A7hooks.html" class="nav-link sidebar-item" aria-label="10分钟了解react新特性hooks"><!--[--><!--]--> 10分钟了解react新特性hooks <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/React/hooks%E4%B9%8Bmemo%E5%92%8CuseCallback.html" class="nav-link sidebar-item" aria-label="hooks之memo和useCallback"><!--[--><!--]--> hooks之memo和useCallback <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/React/useRequest%E5%B0%81%E8%A3%85.html" class="nav-link sidebar-item" aria-label="useRequest封装"><!--[--><!--]--> useRequest封装 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/React/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A1%86%E6%9E%B6%E6%95%99%E7%A8%8B.html" class="router-link-active router-link-exact-active nav-link router-link-active sidebar-item active" aria-label="从零搭建React全家桶框架教程"><!--[--><!--]--> 从零搭建React全家桶框架教程 <!--[--><!--]--></a><ul class="sidebar-sub-items"><li><!--[--><a aria-current="page" href="/React/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A1%86%E6%9E%B6%E6%95%99%E7%A8%8B.html#说明" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="说明"><!--[--><!--]--> 说明 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/React/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A1%86%E6%9E%B6%E6%95%99%E7%A8%8B.html#init项目" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="init项目"><!--[--><!--]--> init项目 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/React/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A1%86%E6%9E%B6%E6%95%99%E7%A8%8B.html#webpack" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="webpack"><!--[--><!--]--> webpack <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/React/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A1%86%E6%9E%B6%E6%95%99%E7%A8%8B.html#命令优化" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="命令优化"><!--[--><!--]--> 命令优化 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/React/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A1%86%E6%9E%B6%E6%95%99%E7%A8%8B.html#babel" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="babel"><!--[--><!--]--> babel <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/React/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A1%86%E6%9E%B6%E6%95%99%E7%A8%8B.html#react" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="react"><!--[--><!--]--> react <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/React/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A1%86%E6%9E%B6%E6%95%99%E7%A8%8B.html#react-router" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="react-router"><!--[--><!--]--> react-router <!--[--><!--]--></a><ul class="sidebar-sub-items"><li><!--[--><a aria-current="page" href="/React/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A1%86%E6%9E%B6%E6%95%99%E7%A8%8B.html#使用-hooks" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="使用 hooks"><!--[--><!--]--> 使用 hooks <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/React/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A1%86%E6%9E%B6%E6%95%99%E7%A8%8B.html#react-redux" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="react-redux"><!--[--><!--]--> react-redux <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><a aria-current="page" href="/React/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E5%85%A8%E5%AE%B6%E6%A1%B6%E6%A1%86%E6%9E%B6%E6%95%99%E7%A8%8B.html#combinreducers优化" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="combinReducers优化"><!--[--><!--]--> combinReducers优化 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><a href="/React/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86.html" class="nav-link sidebar-item" aria-label="权限管理"><!--[--><!--]--> 权限管理 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><p class="sidebar-item">Redux</p><ul class="sidebar-sub-items"><li><!--[--><a href="/Redux/redux%E6%BA%90%E7%A0%81%E7%BB%86%E8%AF%BBcompose.html" class="nav-link sidebar-item" aria-label="redux源码细读compose"><!--[--><!--]--> redux源码细读compose <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Redux/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAredux.html" class="nav-link sidebar-item" aria-label="从零实现一个redux"><!--[--><!--]--> 从零实现一个redux <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><p class="sidebar-item">Vue</p><ul class="sidebar-sub-items"><li><!--[--><a href="/Vue/vue-%E9%85%8D%E7%BD%AE%E6%8C%89%E9%9C%80%E5%8A%A0%E8%BD%BD.html" class="nav-link sidebar-item" aria-label="vue-配置按需加载"><!--[--><!--]--> vue-配置按需加载 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Vue/vue%E4%BD%A0%E5%BA%94%E8%AF%A5%E7%9F%A5%E9%81%93%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9.html" class="nav-link sidebar-item" aria-label="vue你应该知道的知识点"><!--[--><!--]--> vue你应该知道的知识点 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li></ul><!--]--><!--[--><p class="sidebar-heading sidebar-item">Webpack</p><ul class=""><li><!--[--><a href="/Webpack/loader.html" class="nav-link sidebar-item" aria-label="loader"><!--[--><!--]--> loader <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Webpack/plugin.html" class="nav-link sidebar-item" aria-label="plugin"><!--[--><!--]--> plugin <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--><!--[--><p class="sidebar-heading sidebar-item">性能优化</p><ul class=""><li><!--[--><a href="/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html" class="nav-link sidebar-item" aria-label="前端性能优化"><!--[--><!--]--> 前端性能优化 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF.html" class="nav-link sidebar-item" aria-label="十大经典排序算法和使用场景"><!--[--><!--]--> 十大经典排序算法和使用场景 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--><!--[--><p class="sidebar-heading sidebar-item">正则表达式</p><ul class=""><li><!--[--><a href="/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/%E6%AD%A3%E5%88%99%E5%BA%94%E7%94%A8(%E6%80%BB%E7%BB%93).html" class="nav-link sidebar-item" aria-label="正则应用(总结)"><!--[--><!--]--> 正则应用(总结) <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/%E5%89%8D%E7%AB%AF%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%E5%B8%B8%E7%94%A8%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html" class="nav-link sidebar-item" aria-label="前端表单验证常用的正则表达式"><!--[--><!--]--> 前端表单验证常用的正则表达式 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E6%95%B4%E7%90%86.html" class="nav-link sidebar-item" aria-label="常用正则整理"><!--[--><!--]--> 常用正则整理 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/%E5%85%88%E8%A1%8C%E6%96%AD%E8%A8%80%E5%92%8C%E5%90%8E%E8%A1%8C%E6%96%AD%E8%A8%80.html" class="nav-link sidebar-item" aria-label="先行断言和后行断言"><!--[--><!--]--> 先行断言和后行断言 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--><!--[--><p class="sidebar-heading sidebar-item">代码规范</p><ul class=""><li><!--[--><a href="/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93.html" class="nav-link sidebar-item" aria-label="代码整洁之道"><!--[--><!--]--> 代码整洁之道 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/%E8%87%AA%E6%88%91%E6%80%BB%E7%BB%93%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83.html" class="nav-link sidebar-item" aria-label="自我总结代码规范"><!--[--><!--]--> 自我总结代码规范 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%89%8D%E7%AB%AF%E6%8A%80%E5%B7%A7/%E5%B0%91%E5%86%99if-else.html" class="nav-link sidebar-item" aria-label="少写if-else"><!--[--><!--]--> 少写if-else <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%89%8D%E7%AB%AF%E6%8A%80%E5%B7%A7/%E5%89%8D%E7%AB%AF%E6%9C%89%E8%B6%A3%E6%8A%80%E5%B7%A7%E7%BD%91%E7%AB%99.html" class="nav-link sidebar-item" aria-label="前端有趣技巧网站"><!--[--><!--]--> 前端有趣技巧网站 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--><!--[--><p class="sidebar-heading sidebar-item">HTTP</p><ul class=""><li><!--[--><a href="/HTTP/HTTP%E5%8D%8F%E8%AE%AE.html" class="nav-link sidebar-item" aria-label="HTTP协议"><!--[--><!--]--> HTTP协议 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/HTTP/url%E9%95%BF%E5%BA%A6%E7%9A%84%E8%AF%AF%E5%8C%BA.html" class="nav-link sidebar-item" aria-label="url长度的误区"><!--[--><!--]--> url长度的误区 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--><!--[--><p class="sidebar-heading sidebar-item">工具</p><ul class=""><li><!--[--><p class="sidebar-item">js</p><ul class="sidebar-sub-items"><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/%E7%90%86%E8%A7%A3JS%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81%E5%92%8C%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96.html" class="nav-link sidebar-item" aria-label="理解JS函数节流和函数防抖"><!--[--><!--]--> 理解JS函数节流和函数防抖 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/babel%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91.html" class="nav-link sidebar-item" aria-label="babel插件开发"><!--[--><!--]--> babel插件开发 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%85%B6%E4%BB%96/%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88.html" class="nav-link sidebar-item" aria-label="线程和进程的区别是什么"><!--[--><!--]--> 线程和进程的区别是什么 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><p class="sidebar-item">git</p><ul class="sidebar-sub-items"><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/git%E5%8E%86%E5%8F%B2%E5%92%8C%E5%8E%9F%E7%90%86.html" class="nav-link sidebar-item" aria-label="git历史和原理"><!--[--><!--]--> git历史和原理 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/%E4%BD%A0%E6%83%B3%E8%A6%81%E7%9A%84git%E9%83%BD%E6%9C%89.html" class="nav-link sidebar-item" aria-label="你想要的git都有"><!--[--><!--]--> 你想要的git都有 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><p class="sidebar-item">github</p><ul class="sidebar-sub-items"><li><!--[--><a href="/%E5%85%B6%E4%BB%96/%E8%A7%A3%E5%86%B3github%E9%80%9F%E5%BA%A6%E8%AE%BF%E9%97%AE%E8%BF%87%E6%85%A2.html" class="nav-link sidebar-item" aria-label="解决github速度访问过慢"><!--[--><!--]--> 解决github速度访问过慢 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%85%B6%E4%BB%96/github_api.html" class="nav-link sidebar-item" aria-label="github_api"><!--[--><!--]--> github_api <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%85%B6%E4%BB%96/github%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5gitee.html" class="nav-link sidebar-item" aria-label="github自动同步gitee"><!--[--><!--]--> github自动同步gitee <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%85%B6%E4%BB%96/github%E5%85%8D%E8%B4%B9cdn.html" class="nav-link sidebar-item" aria-label="github免费cdn"><!--[--><!--]--> github免费cdn <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><p class="sidebar-item">mac工具</p><ul class="sidebar-sub-items"><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/mac%E4%BD%BF%E7%94%A8.html" class="nav-link sidebar-item" aria-label="mac使用"><!--[--><!--]--> mac使用 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/homebrew%E4%BD%BF%E7%94%A8.html" class="nav-link sidebar-item" aria-label="homebrew使用"><!--[--><!--]--> homebrew使用 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><p class="sidebar-item">linux</p><ul class="sidebar-sub-items"><li><!--[--><a href="/%E5%85%B6%E4%BB%96/ssh%E6%98%AF%E4%BB%80%E4%B9%88.html" class="nav-link sidebar-item" aria-label="ssh是什么"><!--[--><!--]--> ssh是什么 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%85%B6%E4%BB%96/linux%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C.html" class="nav-link sidebar-item" aria-label="linux常用操作"><!--[--><!--]--> linux常用操作 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/shell%E7%AE%80%E5%8D%95%E8%84%9A%E6%9C%AC.html" class="nav-link sidebar-item" aria-label="shell简单脚本"><!--[--><!--]--> shell简单脚本 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/vim%E4%BD%BF%E7%94%A8.html" class="nav-link sidebar-item" aria-label="vim使用"><!--[--><!--]--> vim使用 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><p class="sidebar-item">node</p><ul class="sidebar-sub-items"><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/node%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2.html" class="nav-link sidebar-item" aria-label="node版本切换"><!--[--><!--]--> node版本切换 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/npm%E5%92%8Cnpx%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html" class="nav-link sidebar-item" aria-label="npm和npx使用指南"><!--[--><!--]--> npm和npx使用指南 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%85%B6%E4%BB%96/npm%E5%8F%91%E5%B8%83%E5%8C%85%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E5%92%8C%E6%B5%81%E7%A8%8B.html" class="nav-link sidebar-item" aria-label="npm发布包一些注意事项和流程"><!--[--><!--]--> npm发布包一些注意事项和流程 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/%E8%B0%83%E8%AF%95node.html" class="nav-link sidebar-item" aria-label="调试node"><!--[--><!--]--> 调试node <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/%E8%87%AA%E6%90%AD%E6%A2%AF%E5%AD%90.html" class="nav-link sidebar-item" aria-label="自搭梯子"><!--[--><!--]--> 自搭梯子 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/nginx%E4%BD%BF%E7%94%A8.html" class="nav-link sidebar-item" aria-label="nginx使用"><!--[--><!--]--> nginx使用 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/postman%E4%B8%ADform-data%E7%AD%89%E7%9A%84%E5%8C%BA%E5%88%AB.html" class="nav-link sidebar-item" aria-label="postman中form-data等的区别"><!--[--><!--]--> postman中form-data等的区别 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/webstorm-%E6%8A%80%E5%B7%A7.html" class="nav-link sidebar-item" aria-label="webstorm-技巧"><!--[--><!--]--> webstorm-技巧 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/%E4%BD%BF%E7%94%A8PS%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E5%9B%BE%E7%89%87%E5%A4%A7%E5%B0%8F.html" class="nav-link sidebar-item" aria-label="使用PS批量修改图片大小"><!--[--><!--]--> 使用PS批量修改图片大小 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/%E7%94%A8docker%E9%83%A8%E7%BD%B2%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE.html" class="nav-link sidebar-item" aria-label="用docker部署一个项目"><!--[--><!--]--> 用docker部署一个项目 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/%E5%B7%A5%E5%85%B7/%E7%A4%BE%E5%8C%BA%E7%83%AD%E9%97%A8%E5%B7%A5%E5%85%B7.html" class="nav-link sidebar-item" aria-label="社区热门工具"><!--[--><!--]--> 社区热门工具 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--><!--[--><p class="sidebar-heading sidebar-item">面试</p><ul class=""><li><!--[--><a href="/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E5%9F%BA%E7%A1%80.html" class="nav-link sidebar-item" aria-label="面试基础"><!--[--><!--]--> 面试基础 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--><!--]--></ul><!--[--><!--]--></aside><main class="page"><!--[--><!--]--><div class="theme-default-content"><!--[--><h1 id="从零搭建react全家桶框架教程" tabindex="-1"><a class="header-anchor" href="#从零搭建react全家桶框架教程" aria-hidden="true">#</a> 从零搭建React全家桶框架教程</h1><h2 id="说明" tabindex="-1"><a class="header-anchor" href="#说明" aria-hidden="true">#</a> 说明</h2><p>技术栈均是目前最新的。本文借鉴 <a href="https://github.com/brickspert/blog/issues/1" target="_blank" rel="noopener noreferrer">从零搭建React全家桶框架教程<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a></p><ul><li>webpack 4.41.2</li><li>Babel 7.x</li><li>redux 4.0.4</li><li>React 16.12.0</li></ul><h2 id="init项目" tabindex="-1"><a class="header-anchor" href="#init项目" aria-hidden="true">#</a> init项目</h2><ol><li><p>创建文件夹并进入</p><p><code>mkdir react-family &amp;&amp; cd react-family</code></p></li><li><p>init npm</p><p><code>npm init</code> 按照提示填写项目基本信息</p></li></ol><h2 id="webpack" tabindex="-1"><a class="header-anchor" href="#webpack" aria-hidden="true">#</a> webpack</h2><ol><li><p>安装 <code>webpack</code></p><p><code>npm install --save-dev webpack@3</code></p><p>Q: 什么时候用<code>--save-dev</code>，什么时候用<code>--save</code>？</p><p>A: <code>--save-dev</code> 是你开发时候依赖的东西，<code>--save</code> 是你发布之后还依赖的东西。看<a href="https://segmentfault.com/q/1010000005163089" target="_blank" rel="noopener noreferrer">这里<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a></p></li><li><p>根据<a href="https://doc.webpack-china.org/guides/getting-started" target="_blank" rel="noopener noreferrer">webpack文档<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>编写最基础的配置文件</p><p>新建<code>webpack</code>开发配置文件 <code>touch webpack.dev.config.js</code></p><p><code>webpack.dev.config.js</code></p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>const path = require(&#39;path&#39;);
+
+module.exports = {
+ 
+    /*入口*/
+    entry: path.join(__dirname, &#39;src/index.js&#39;),
+    
+    /*输出到dist文件夹，输出文件名字为bundle.js*/
+    output: {
+        path: path.join(__dirname, &#39;./dist&#39;),
+        filename: &#39;bundle.js&#39;
+    }
+};
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div></li><li><p>学会使用<code>webpack</code>编译文件</p><p>新建入口文件</p><p><code>mkdir src &amp;&amp; touch ./src/index.js</code></p><p><code>src/index.js</code> 添加内容</p><p><code>document.getElementById(&#39;app&#39;).innerHTML = &quot;Webpack works&quot;</code></p><p>现在我们执行命令 <code>webpack --config webpack.dev.config.js</code></p><blockquote><p>webpack如果没有全局安装，这里会报错哦。命令建议全局安装,同时需要全局安装 webpack-cli</p></blockquote><p>我们可以看到生成了<code>dist</code>文件夹和<code>bundle.js</code>。</p></li><li><p>现在我们测试下~</p><p><code>dist</code>文件夹下面新建一个<code>index.html</code></p><p><code>touch ./dist/index.html</code></p><p><code>dist/index.html</code>填写内容</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;./bundle.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>用浏览器打开<code>index.html</code>,可以看到<code>Webpack works</code>!</p><p><a href="https://camo.githubusercontent.com/f011eda1205f66f52dea4c7d7d8ae6c0de1c8630/687474703a2f2f6f71636238646a6c772e626b742e636c6f7564646e2e636f6d2f7765627061636b2e706e67" target="_blank" rel="noopener noreferrer"><img src="https://camo.githubusercontent.com/f011eda1205f66f52dea4c7d7d8ae6c0de1c8630/687474703a2f2f6f71636238646a6c772e626b742e636c6f7564646e2e636f6d2f7765627061636b2e706e67" alt="webpack"><span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a></p><p>现在回头看下，我们做了什么或者说<code>webpack</code>做了什么。</p><p>把入口文件 <code>index.js</code> 经过处理之后，生成 <code>bundle.js</code>。就这么简单。</p></li></ol><h2 id="命令优化" tabindex="-1"><a class="header-anchor" href="#命令优化" aria-hidden="true">#</a> 命令优化</h2><p>Q：每次打包都得在根目录执行这么一长串命令<code>webpack --config webpack.dev.config.js</code>,能不打这么长吗？</p><p>A：修改<code>package.json</code>里面的<code>script</code>，增加<code>dev-build</code>。</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>package.json
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+    &quot;dev-build&quot;: &quot;webpack --config webpack.dev.config.js&quot;
+  }
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>现在我们打包只需要执行<code>npm run dev-build</code>就可以啦！</p><p>参考地址：</p><p>http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html</p><h2 id="babel" tabindex="-1"><a class="header-anchor" href="#babel" aria-hidden="true">#</a> babel</h2><blockquote><p>Babel 把用最新标准编写的 JavaScript 代码向下编译成可以在今天随处可用的版本。 这一过程叫做“源码到源码”编译， 也被称为转换编译。</p></blockquote><p>通俗的说，就是我们可以用ES6, ES7等来编写代码，Babel会把他们统统转为ES5。</p><ul><li><a href="https://github.com/babel/babel-loader" target="_blank" rel="noopener noreferrer">babel-loader<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>：使用 Babel 转换 JavaScript依赖关系的 Webpack 加载器</li><li><a href="https://babeljs.io/docs/en/babel-core" target="_blank" rel="noopener noreferrer">@babel/core<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>：即 babel-core，将 ES6 代码转换为 ES5</li><li><a href="https://babeljs.io/docs/en/babel-preset-env" target="_blank" rel="noopener noreferrer">@babel/preset-env<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>：即 babel-preset-env，根据您要支持的浏览器，决定使用哪些 transformations / plugins 和 polyfills，例如为旧浏览器提供现代浏览器的新特性</li><li><a href="https://babeljs.io/docs/en/babel-preset-react" target="_blank" rel="noopener noreferrer">@babel/preset-react<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>：即 babel-preset-react，针对所有 React 插件的 Babel 预设，例如将 JSX 转换为函数</li></ul><p>**注：babel 7 使用了 <code>@babel</code> 命名空间来区分官方包，因此以前的官方包 babel-xxx 改成了 <code>@babel/xxx</code></p><p><code>npm install --save-dev @babel/core babel-loader @babel/preset-env @babel/preset-react</code></p><p>新建<code>babel</code>配置文件<code>.babelrc</code></p><p><code>touch .babelrc</code></p><p><code>.babelrc</code></p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>  {
+  &quot;presets&quot;: [&quot;@babel/preset-env&quot;, &quot;@babel/preset-react&quot;]
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>修改<code>webpack.dev.config.js</code>，增加<code>babel-loader</code>！</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>    /*src文件夹下面的以.js结尾的文件，要使用babel解析*/
+    /*cacheDirectory是用来缓存编译结果，下次编译加速*/
+    module: {
+        rules: [{
+            test: /\.js$/,
+            use: [&#39;babel-loader?cacheDirectory=true&#39;],
+            include: path.join(__dirname, &#39;src&#39;)
+        }]
+    }
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>现在我们简单测试下，是否能正确转义ES6~</p><h2 id="react" tabindex="-1"><a class="header-anchor" href="#react" aria-hidden="true">#</a> react</h2><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>npm install --save react react-dom
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>修改 <code>src/index.js</code>使用<code>react</code></p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>import React from &#39;react&#39;;
+import ReactDom from &#39;react-dom&#39;;
+
+ReactDom.render(
+    &lt;div&gt;Hello React!&lt;/div&gt;, document.getElementById(&#39;app&#39;));
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>执行打包命令<code>webpack --config webpack.dev.config.js</code></p><p>打开<code>index.html</code> 看效果。</p><p>我们简单做下改进，把<code>Hello React</code>放到组件里面。体现组件化~</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>cd src
+mkdir components
+cd components
+touch Hello.js
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>按照React语法，写一个Hello组件</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>import React, {Component} from &#39;react&#39;;
+
+export default class Hello extends Component {
+    render() {
+        return (
+            &lt;div&gt;
+                Hello,React!
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>然后让我们修改<code>src/index.js</code>，引用<code>Hello</code>组件！</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>src/index.js
+import React from &#39;react&#39;;
+import ReactDom from &#39;react-dom&#39;;
+import Hello from &#39;./component/Hello&#39;;
+
+ReactDom.render(
+    &lt;Hello/&gt;, document.getElementById(&#39;app&#39;));
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>在<strong>根目录</strong>执行打包命令</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>webpack --config webpack.dev.config.js
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>打开<code>index.html</code>看效果咯~</p><h2 id="react-router" tabindex="-1"><a class="header-anchor" href="#react-router" aria-hidden="true">#</a> react-router</h2><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>npm install --save react-router-dom
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>新建<code>router</code>文件夹和组件</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>cd src
+mkdir router &amp;&amp; touch router/router.js
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>按照<code>react-router</code><a href="http://reacttraining.cn/web/guides/quick-start" target="_blank" rel="noopener noreferrer">文档<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>编辑一个最基本的<code>router.js</code>。包含两个页面<code>home</code>和<code>page1</code>。</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>src/router/router.js
+import React from &#39;react&#39;;
+
+import {BrowserRouter as Router, Route, Switch, Link} from &#39;react-router-dom&#39;;
+
+import Home from &#39;../pages/Home/Home&#39;;
+import Page1 from &#39;../pages/Page1/Page1&#39;;
+
+
+const getRouter = () =&gt; (
+    &lt;Router&gt;
+        &lt;div&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;Link to=&quot;/&quot;&gt;首页&lt;/Link&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;Link to=&quot;/page1&quot;&gt;Page1&lt;/Link&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;Switch&gt;
+                &lt;Route exact path=&quot;/&quot; component={Home}/&gt;
+                &lt;Route path=&quot;/page1&quot; component={Page1}/&gt;
+            &lt;/Switch&gt;
+        &lt;/div&gt;
+    &lt;/Router&gt;
+);
+
+export default getRouter;
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>新建页面文件夹</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>cd src
+mkdir pages
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>新建两个页面 <code>Home</code>,<code>Page1</code></p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>cd src/pages
+mkdir Home &amp;&amp; touch Home/Home.js
+mkdir Page1 &amp;&amp; touch Page1/Page1.js
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>填充内容：</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>src/pages/Home/Home.js
+import React, {Component} from &#39;react&#39;;
+
+export default class Home extends Component {
+    render() {
+        return (
+            &lt;div&gt;
+                this is home~
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>Page1.js</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>import React, {Component} from &#39;react&#39;;
+
+export default class Page1 extends Component {
+    render() {
+        return (
+            &lt;div&gt;
+                this is Page1~
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>现在路由和页面建好了，我们在入口文件<code>src/index.js</code>引用Router。</p><p>修改<code>src/index.js</code></p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>import React from &#39;react&#39;;
+import ReactDom from &#39;react-dom&#39;;
+
+import getRouter from &#39;./router/router&#39;;
+
+ReactDom.render(
+    getRouter(), document.getElementById(&#39;app&#39;));
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>现在执行打包命令<code>npm run dev-build</code>。打开<code>index.html</code>查看效果啦！</p><p>那么问题来了~我们发现点击‘首页’和‘Page1’没有反应。不要惊慌，这是正常的。</p><p>我们之前一直用这个路径访问<code>index.html</code>，类似这样：<code>file:///F:/react/react-family/dist/index.html</code>。 这种路径了，不是我们想象中的路由那样的路径<code>http://localhost:3000</code>~我们需要配置一个简单的WEB服务器，指向 <code>index.html</code>~有下面两种方法来实现</p><ol><li><code>Nginx</code>, <code>Apache</code>, <code>IIS</code>等配置启动一个简单的的WEB服务器。</li><li>使用<code>webpack-dev-server</code>来配置启动WEB服务器。</li></ol><p>下一节，我们来使用第二种方法启动服务器。这一节的DEMO，先放这里。</p><h1 id="webpack-dev-server" tabindex="-1"><a class="header-anchor" href="#webpack-dev-server" aria-hidden="true">#</a> webpack-dev-server</h1><p>简单来说，<code>webpack-dev-server</code>就是一个小型的静态文件服务器。使用它，可以为<code>webpack</code>打包生成的资源文件提供Web服务。</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>npm install webpack-dev-server --save-dev
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><blockquote><p>2017.11.16补充：这里webpack-dev-server需要全局安装，要不后面用的时候要写相对路径。需要再执行这个 <code>npm install webpack-dev-server@2 -g</code></p></blockquote><p>修改<code>webpack.dev.config.js</code>,增加<code>webpack-dev-server</code>的配置。</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>webpack.dev.config.js
+    devServer: {
+        contentBase: path.join(__dirname, &#39;./dist&#39;)
+    }
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>现在执行</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>webpack-dev-server --config webpack.dev.config.js
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>浏览器打开<a href="http://localhost:8080/" target="_blank" rel="noopener noreferrer">http://localhost:8080<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>，OK,现在我们可以点击<code>首页</code>,<code>Page1</code>了， 看URL地址变化啦！我们看到<code>react-router</code>已经成功了哦。</p><p>Q: <code>--content-base</code>是什么？</p><p>A：<code>URL的根目录。如果不设定的话，默认指向项目根目录。</code></p><p><strong>重要提示：webpack-dev-server编译后的文件，都存储在内存中，我们并不能看见的。你可以删除之前遗留的文件dist/bundle.js，仍然能正常打开网站！</strong></p><p>每次执行<code>webpack-dev-server --config webpack.dev.config.js</code>,要打很长的命令，我们修改<code>package.json</code>，增加<code>script-&gt;start</code>:</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+    &quot;dev-build&quot;: &quot;webpack --config webpack.dev.config.js&quot;,
+    &quot;start&quot;: &quot;webpack-dev-server --config webpack.dev.config.js&quot;
+  }
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>下次执行<code>npm start</code>就可以了。</p><p>既然用到了<code>webpack-dev-server</code>，我们就看看<a href="https://doc.webpack-china.org/configuration/dev-server" target="_blank" rel="noopener noreferrer">它的其他的配置项<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>。 看了之后，发现有几个我们可以用的。</p><ul><li>color（CLI only） <code>console</code>中打印彩色日志</li><li>historyApiFallback 任意的<code>404</code>响应都被替代为<code>index.html</code>。有什么用呢？你现在运行 <code>npm start</code>，然后打开浏览器，访问<code>http://localhost:8080</code>,然后点击<code>Page1</code>到链接<code>http://localhost:8080/page1</code>， 然后刷新页面试试。是不是发现刷新后<code>404</code>了。为什么？<code>dist</code>文件夹里面并没有<code>page1.html</code>,当然会<code>404</code>了，所以我们需要配置 <code>historyApiFallback</code>，让所有的<code>404</code>定位到<code>index.html</code>。</li><li>host 指定一个<code>host</code>,默认是<code>localhost</code>。如果你希望服务器外部可以访问，指定如下：<code>host: &quot;0.0.0.0&quot;</code>。比如你用手机通过IP访问。</li><li>hot 启用<code>Webpack</code>的模块热替换特性。关于热模块替换，我下一小节专门讲解一下。</li><li>port 配置要监听的端口。默认就是我们现在使用的<code>8080</code>端口。</li><li>proxy 代理。比如在 <code>localhost:3000</code> 上有后端服务的话，你可以这样启用代理：</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>    proxy: {
+      &quot;/api&quot;: &quot;http://localhost:3000&quot;
+    }
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><ul><li>progress（CLI only） 将编译进度输出到控制台。</li></ul><p>根据这几个配置，修改下我们的<code>webpack-dev-server</code>的配置~</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>webpack.dev.config.js
+    devServer: {
+        port: 8080,
+        contentBase: path.join(__dirname, &#39;./dist&#39;),
+        historyApiFallback: true,
+        host: &#39;0.0.0.0&#39;
+    }
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p><code>CLI ONLY</code>的需要在命令行中配置</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>package.json
+&quot;start&quot;: &quot;webpack-dev-server --config webpack.dev.config.js --color --progress&quot;
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>现在我们执行<code>npm start</code> 看看效果。是不是看到打包的时候有百分比进度？在<code>http://localhost:8080/page1</code>页面刷新是不是没问题了？ 用手机通过局域网IP是否可以访问到网站？</p><h1 id="模块热替换-hot-module-replacement" tabindex="-1"><a class="header-anchor" href="#模块热替换-hot-module-replacement" aria-hidden="true">#</a> 模块热替换（Hot Module Replacement）</h1><p>到目前，当我们修改代码的时候，浏览器会自动刷新，不信你可以去试试。（如果你的不会刷新，看看这个<a href="https://github.com/brickspert/blog/issues/1#editor" target="_blank" rel="noopener noreferrer">调整文本编辑器<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>）</p><p>我相信看这个教程的人，应该用过别人的框架。我们在修改代码的时候，浏览器不会刷新，只会更新自己修改的那一块。我们也要实现这个效果。</p><p>我们看下<a href="https://doc.webpack-china.org/guides/hot-module-replacement" target="_blank" rel="noopener noreferrer">webpack模块热替换<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>教程。</p><p>我们接下来要这么修改</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>package.json` 增加 `--hot
+&quot;start&quot;: &quot;webpack-dev-server --config webpack.dev.config.js --color --progress --hot&quot;
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><code>src/index.js</code> 增加<code>module.hot.accept()</code>,如下。当模块更新的时候，通知<code>index.js</code>。</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>src/index.js
+import React from &#39;react&#39;;
+import ReactDom from &#39;react-dom&#39;;
+
+import getRouter from &#39;./router/router&#39;;
+
+if (module.hot) {
+    module.hot.accept();
+}
+
+ReactDom.render(
+    getRouter(), document.getElementById(&#39;app&#39;));
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>现在我们执行<code>npm start</code>，打开浏览器，修改<code>Home.js</code>,看是不是不刷新页面的情况下，内容更新了？惊不惊喜？意不意外？</p><p><strong>做模块热替换，我们只改了几行代码，非常简单的。纸老虎一个~</strong></p><p>现在我需要说明下我们命令行使用的<code>--hot</code>，可以通过配置<code>webpack.dev.config.js</code>来替换， 向文档上那样,修改下面三处。但我们还是用<code>--hot</code>吧。下面的方式我们知道一下就行，我们不用。同样的效果。</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>const webpack = require(&#39;webpack&#39;);
+
+devServer: {
+    hot: true
+}
+
+plugins:[
+     new webpack.HotModuleReplacementPlugin()
+]
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p><code>HRM</code>配置其实有两种方式，一种<code>CLI</code>方式，一种<code>Node.js API</code>方式。我们用到的就是<code>CLI</code>方式，比较简单。 <code>Node.js API</code>方式，就是建一个<code>server.js</code>等等，网上大部分教程都是这种方式，这里不做讲解了。</p><p>你以为模块热替换到这里就结束了？no<s>no</s>no~</p><p>上面的配置对<code>react</code>模块的支持不是很好哦。</p><p>例如下面的<code>demo</code>，当模块热替换的时候，<code>state</code>会重置，这不是我们想要的。</p><p>修改<code>Home.js</code>,增加计数<code>state</code></p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>src/pages/Home/Home.js
+import React, {Component} from &#39;react&#39;;
+
+export default class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 0
+        }
+    }
+
+    _handleClick() {
+        this.setState({
+            count: ++this.state.count
+        });
+    }
+
+    render() {
+        return (
+            &lt;div&gt;
+                this is home~&lt;br/&gt;
+                当前计数：{this.state.count}&lt;br/&gt;
+                &lt;button onClick={() =&gt; this._handleClick()}&gt;自增&lt;/button&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><p>你可以测试一下，当我们修改代码的时候，<code>webpack</code>在更新页面的时候，也把<code>count</code>初始为0了。</p><p>为了在<code>react</code>模块更新的同时，能保留<code>state</code>等页面中其他状态，我们需要引入<a href="https://github.com/gaearon/react-hot-loader" target="_blank" rel="noopener noreferrer">react-hot-loader<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>~</p><p>Q:　请问<code>webpack-dev-server</code>与<code>react-hot-loader</code>两者的热替换有什么区别？</p><p>A: 区别在于<code>webpack-dev-serve</code>r自己的<code>--hot</code>模式只能即时刷新页面，但状态保存不住。因为<code>React</code>有一些自己语法(JSX)是<code>HotModuleReplacementPlugin</code>搞不定的。 而<code>react-hot-loader</code>在<code>--hot</code>基础上做了额外的处理，来保证状态可以存下来。（来自<a href="https://segmentfault.com/q/1010000005612845" target="_blank" rel="noopener noreferrer">segmentfault<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>）</p><p>下面我们来加入<code>react-hot-loader v4</code>,</p><p>安装依赖</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>npm install react-hot-loader --save-dev
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>根据<a href="https://github.com/gaearon/react-hot-loader#getting-started" target="_blank" rel="noopener noreferrer">文档<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>， 我们要做如下几个修改~</p><ol><li><code>.babelrc</code> 增加 <code>react-hot-loader/babel</code></li></ol><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>.babelrc
+{
+  &quot;presets&quot;: [
+    &quot;es2015&quot;,
+    &quot;react&quot;,
+    &quot;stage-0&quot;
+  ],
+  &quot;plugins&quot;: [
+    &quot;react-hot-loader/babel&quot;
+  ]
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><ol><li><code>webpack.dev.config.js</code>入口增加<code>react-hot-loader/patch</code></li></ol><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>webpack.dev.config.js
+    entry: [
+        &#39;react-hot-loader/patch&#39;,
+        path.join(__dirname, &#39;src/index.js&#39;)
+    ]
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><ol><li><code>src/index.js</code>修改如下</li></ol><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>src/index.js
+import React from &#39;react&#39;;
+import ReactDom from &#39;react-dom&#39;;
+
+import getRouter from &#39;./router/router&#39;;
+
+if (module.hot) {
+  module.hot.accept();
+}
+ReactDom.render(
+  getRouter(), document.getElementById(&#39;app&#39;));
+
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>现在，执行<code>npm start</code>，试试。是不是修改页面的时候，<code>state</code>不更新了？</p><ol start="2"><li><p><code>src/Page1/Page1.js</code>修改如下</p><div class="language-JS ext-JS line-numbers-mode"><pre class="language-JS"><code>import React, {Component} from &#39;react&#39;;
+import { hot } from &#39;react-hot-loader/root&#39;;
+
+class Home extends Component {
+  render() {
+    return (
+      &lt;div&gt;
+        this is page1~
+      &lt;/div&gt;
+    )
+  }
+}
+export default hot(Home)
+
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div></li><li><p><code>src/Home/Home.js</code> 修改如下</p><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;react&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> hot <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;react-hot-loader/root&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Home</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+      count<span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">_handleClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      count<span class="token operator">:</span> <span class="token operator">++</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>count
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+        <span class="token keyword">this</span> is home<span class="token operator">~</span><span class="token operator">&lt;</span>br<span class="token operator">/</span><span class="token operator">&gt;</span>
+        当前计数：<span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>count<span class="token punctuation">}</span><span class="token operator">&lt;</span>br<span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_handleClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>自增<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">hot</span><span class="token punctuation">(</span>Home<span class="token punctuation">)</span>
+
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div></li></ol><h3 id="使用-hooks" tabindex="-1"><a class="header-anchor" href="#使用-hooks" aria-hidden="true">#</a> 使用 hooks</h3><p><a href="https://github.com/gaearon/react-hot-loader#hook-support" target="_blank" rel="noopener noreferrer">文档<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a></p><ol><li><p><code>src/Pages/Hooks/Hooks.js</code></p><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;react&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> hot <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;react-hot-loader/root&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">useGithub</span> <span class="token operator">=</span> <span class="token parameter">userName</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>user<span class="token punctuation">,</span> setUser<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">https://api.github.com/users/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>userName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">r</span> <span class="token operator">=&gt;</span> r<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>setUser<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>userName<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> user<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token function">useGithub</span><span class="token punctuation">(</span><span class="token string">&#39;weibozzz&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>Loading<span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      Hello <span class="token operator">&lt;</span>b<span class="token operator">&gt;</span><span class="token punctuation">{</span>user<span class="token punctuation">.</span>login<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>b<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span>user<span class="token punctuation">.</span>bio<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">hot</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div></li><li><p><code>src/router/router.js</code></p></li></ol><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&#39;react&#39;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span>BrowserRouter <span class="token keyword">as</span> Router<span class="token punctuation">,</span> Route<span class="token punctuation">,</span> Switch<span class="token punctuation">,</span> Link<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;react-router-dom&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Home <span class="token keyword">from</span> <span class="token string">&#39;../pages/Home/Home&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Page1 <span class="token keyword">from</span> <span class="token string">&#39;../pages/Page1/Page1&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Hook <span class="token keyword">from</span> <span class="token string">&#39;../pages/Hooks/Hooks&#39;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">getRouter</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>Router<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>ul<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>li<span class="token operator">&gt;</span><span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">&quot;/&quot;</span><span class="token operator">&gt;</span>首页<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>li<span class="token operator">&gt;</span><span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">&quot;/page1&quot;</span><span class="token operator">&gt;</span>Page1<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>li<span class="token operator">&gt;</span><span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">&quot;/hook&quot;</span><span class="token operator">&gt;</span>Hook2<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Switch<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>Route exact path<span class="token operator">=</span><span class="token string">&quot;/&quot;</span> component<span class="token operator">=</span><span class="token punctuation">{</span>Home<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">&quot;/page1&quot;</span> component<span class="token operator">=</span><span class="token punctuation">{</span>Page1<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">&quot;/hook&quot;</span> component<span class="token operator">=</span><span class="token punctuation">{</span>Hook<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>Switch<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>Router<span class="token operator">&gt;</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> getRouter<span class="token punctuation">;</span>
+
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><ol start="3"><li><code>webpack.dev.config.js</code> 避免出现黄色警告</li></ol><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&#39;path&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&#39;webpack&#39;</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token operator">...</span>
+  resolve<span class="token operator">:</span> <span class="token punctuation">{</span>
+    alias<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string">&#39;react-dom&#39;</span><span class="token operator">:</span> <span class="token string">&#39;@hot-loader/react-dom&#39;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><ul><li>https://github.com/gatsbyjs/gatsby/issues/11934</li></ul><p><strong>注意：您不能在类组件中使用 Hooks ，但是您绝对可以在组件树中，将类和函数式组件混合在一起使用。组件是类还是使用Hook的函数是该组件的实现细节</strong> http://react.html.cn/docs/hooks-faq.html</p><h1 id="文件路径优化" tabindex="-1"><a class="header-anchor" href="#文件路径优化" aria-hidden="true">#</a> 文件路径优化</h1><p>做到这里，我们简单休息下。做下优化~</p><p>在之前写的代码中，我们引用组件，或者页面时候，写的是相对路径~</p><p>比如<code>src/router/router.js</code>里面，引用<code>Home.js</code>的时候就用的相对路径</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>import Home from &#39;../pages/Home/Home&#39;;
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>webpack提供了一个别名配置，就是我们无论在哪个路径下，引用都可以这样</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>import Home from &#39;pages/Home/Home&#39;;
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>下面我们来配置下，修改<code>webpack.dev.config.js</code>，增加别名~</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>webpack.dev.config.js
+    resolve: {
+        alias: {
+            pages: path.join(__dirname, &#39;src/pages&#39;),
+            component: path.join(__dirname, &#39;src/component&#39;),
+            router: path.join(__dirname, &#39;src/router&#39;)
+        }
+    }
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>然后我们把之前使用的绝对路径统统改掉。</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>src/router/router.js
+import Home from &#39;pages/Home/Home&#39;;
+import Page1 from &#39;pages/Page1/Page1&#39;;
+src/index.js
+import getRouter from &#39;router/router&#39;;
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>我们这里约定，下面，我们会默认配置需要的别名路径，不再做重复的讲述哦。</p><h1 id="redux" tabindex="-1"><a class="header-anchor" href="#redux" aria-hidden="true">#</a> redux</h1><p><code>npm install redux -S</code></p><p>接下来，我们就要就要就要集成<code>redux</code>了。</p><p>要对<code>redux</code>有一个大概的认识，可以阅读阮一峰前辈的<a href="http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html" target="_blank" rel="noopener noreferrer">Redux 入门教程（一）：基本用法<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a></p><p>如果要对<code>redux</code>有一个非常详细的认识，我推荐阅读<a href="http://cn.redux.js.org/index.html" target="_blank" rel="noopener noreferrer">中文文档<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>，写的非常好。读了这个教程，有一个非常深刻的感觉，<code>redux</code>并没有任何魔法。</p><p><strong>不要被各种关于 reducers, middleware, store 的演讲所蒙蔽 ---- Redux 实际是非常简单的。</strong></p><p>当然，我这篇文章是写给新手的，如果看不懂上面的文章，或者不想看，没关系。先会用，多用用就知道原理了。</p><p>开始整代码！我们就做一个最简单的计数器。自增，自减，重置。</p><p>先安装<code>redux</code> <code>npm install --save redux</code></p><p>初始化目录结构</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>cd src
+mkdir redux
+cd redux
+mkdir actions
+mkdir reducers
+touch reducers.js
+touch store.js
+touch actions/counter.js
+touch reducers/counter.js
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>先来写<code>action</code>创建函数。<strong>通过action创建函数，可以创建action~</strong><code>src/redux/actions/counter.js</code></p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>/*action*/
+
+export const INCREMENT = &quot;counter/INCREMENT&quot;;
+export const DECREMENT = &quot;counter/DECREMENT&quot;;
+export const RESET = &quot;counter/RESET&quot;;
+
+export function increment() {
+    return {type: INCREMENT}
+}
+
+export function decrement() {
+    return {type: DECREMENT}
+}
+
+export function reset() {
+    return {type: RESET}
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>再来写<code>reducer</code>,<strong>reducer是一个纯函数，接收action和旧的state,生成新的state.</strong></p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>src/redux/reducers/counter.js
+import {INCREMENT, DECREMENT, RESET} from &#39;../actions/counter&#39;;
+
+/*
+* 初始化state
+ */
+
+const initState = {
+    count: 0
+};
+/*
+* reducer
+ */
+export default function reducer(state = initState, action) {
+    switch (action.type) {
+        case INCREMENT:
+            return {
+                count: state.count + 1
+            };
+        case DECREMENT:
+            return {
+                count: state.count - 1
+            };
+        case RESET:
+            return {count: 0};
+        default:
+            return state
+    }
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><p>一个项目有很多的<code>reducers</code>,我们要把他们整合到一起</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>src/redux/reducers.js
+import counter from &#39;./reducers/counter&#39;;
+
+export default function combineReducers(state = {}, action) {
+    return {
+        counter: counter(state.counter, action)
+    }
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>到这里，我们必须再理解下一句话。</p><p><strong>reducer就是纯函数，接收state 和 action，然后返回一个新的 state。</strong></p><p>看看上面的代码，无论是<code>combineReducers</code>函数也好，还是<code>reducer</code>函数也好，都是接收<code>state</code>和<code>action</code>， 返回更新后的<code>state</code>。区别就是<code>combineReducers</code>函数是处理整棵树，<code>reducer</code>函数是处理树的某一点。</p><p>接下来，我们要创建一个<code>store</code>。</p><p>前面我们可以使用 <code>action</code> 来描述“发生了什么”，使用<code>action</code>创建函数来返回<code>action</code>。</p><p>还可以使用 <code>reducers</code> 来根据 <code>action</code> 更新 <code>state</code> 。</p><p>那我们如何提交<code>action</code>？提交的时候，怎么才能触发<code>reducers</code>呢？</p><p><code>store</code> 就是把它们联系到一起的对象。<code>store</code> 有以下职责：</p><ul><li>维持应用的 <code>state</code>；</li><li>提供 <code>getState()</code> 方法获取 <code>state</code>；</li><li>提供 <code>dispatch(action)</code> 触发<code>reducers</code>方法更新 <code>state</code>；</li><li>通过<code> subscribe(listener)</code> 注册监听器;</li><li>通过 <code>subscribe(listener)</code> 返回的函数注销监听器。</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>src/redux/store.js
+import {createStore} from &#39;redux&#39;;
+import combineReducers from &#39;./reducers.js&#39;;
+
+let store = createStore(combineReducers);
+
+export default store;
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>到现在为止，我们已经可以使用<code>redux</code>了~</p><p>下面我们就简单的测试下</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>cd src
+cd redux
+touch testRedux.js
+src/redux/testRedux.js
+import {increment, decrement, reset} from &#39;./actions/counter&#39;;
+
+import store from &#39;./store&#39;;
+
+// 打印初始状态
+console.log(store.getState());
+
+// 每次 state 更新时，打印日志
+// 注意 subscribe() 返回一个函数用来注销监听器
+let unsubscribe = store.subscribe(() =&gt;
+    console.log(store.getState())
+);
+
+// 发起一系列 action
+store.dispatch(increment());
+store.dispatch(decrement());
+store.dispatch(reset());
+
+// 停止监听 state 更新
+unsubscribe();
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>当前文件夹执行命令</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>webpack testRedux.js 
+
+node dist/main.js
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>是不是看到输出了<code>state</code>变化？</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{ counter: { count: 0 } }
+{ counter: { count: 1 } }
+{ counter: { count: 0 } }
+{ counter: { count: 0 } }
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>做这个测试，就是为了告诉大家，<code>redux</code>和<code>react</code>没关系，虽说他俩能合作。</p><p>到这里，我建议你再理下<code>redux</code>的数据流，看看<a href="http://cn.redux.js.org/docs/basics/DataFlow.html" target="_blank" rel="noopener noreferrer">这里<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>。</p><ol><li>调用<code>store.dispatch(action)</code>提交<code>action</code>。</li><li><code>redux store</code>调用传入的<code>reducer</code>函数。把当前的<code>state</code>和<code>action</code>传进去。</li><li>根 <code>reducer</code> 应该把多个子 <code>reducer</code> 输出合并成一个单一的 <code>state</code> 树。</li><li><code>Redux store</code> 保存了根 <code>reducer</code> 返回的完整 <code>state</code> 树。</li></ol><p>就是酱紫~~</p><p>这会<code>webpack.dev.config.js</code>路径别名增加一下，后面好写了。</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>webpack.dev.config.js
+          alias: {
+              ...
+              actions: path.join(__dirname, &#39;src/redux/actions&#39;),
+              reducers: path.join(__dirname, &#39;src/redux/reducers&#39;)
+          }
+  
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>把前面的相对路径都改改。</p><h3 id="react-redux" tabindex="-1"><a class="header-anchor" href="#react-redux" aria-hidden="true">#</a> react-redux</h3><p><code>npm install --save react-redux</code></p><p>下面我们开始搭配<code>react</code>使用。</p><p>写一个<code>Counter</code>页面</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>cd src/pages
+mkdir Counter
+touch Counter/Counter.js
+src/pages/Counter/Counter.js
+
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;react&#39;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Counter</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token function">当前计数为</span><span class="token punctuation">(</span>显示redux计数<span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#39;调用自增函数&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>自增
+                <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#39;调用自减函数&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>自减
+                <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#39;调用重置函数&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>重置
+                <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p>修改路由，增加<code>Counter</code></p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>// src/router/router.js
+
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&#39;react&#39;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span>BrowserRouter <span class="token keyword">as</span> Router<span class="token punctuation">,</span> Route<span class="token punctuation">,</span> Switch<span class="token punctuation">,</span> Link<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;react-router-dom&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Home <span class="token keyword">from</span> <span class="token string">&#39;../pages/Home/Home&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Page1 <span class="token keyword">from</span> <span class="token string">&#39;../pages/Page1/Page1&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Hook <span class="token keyword">from</span> <span class="token string">&#39;../pages/Hooks/Hooks&#39;</span>
+<span class="token keyword">import</span> Counter <span class="token keyword">from</span> <span class="token string">&#39;pages/Counter/Counter&#39;</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">const</span> <span class="token function-variable function">getRouter</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>Router<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>ul<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>li<span class="token operator">&gt;</span><span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">&quot;/&quot;</span><span class="token operator">&gt;</span>首页<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>li<span class="token operator">&gt;</span><span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">&quot;/page1&quot;</span><span class="token operator">&gt;</span>Page1<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>li<span class="token operator">&gt;</span><span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">&quot;/hook&quot;</span><span class="token operator">&gt;</span>Hook2<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>li<span class="token operator">&gt;</span><span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">&quot;/counter&quot;</span><span class="token operator">&gt;</span>Counter<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Switch<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>Route exact path<span class="token operator">=</span><span class="token string">&quot;/&quot;</span> component<span class="token operator">=</span><span class="token punctuation">{</span>Home<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">&quot;/page1&quot;</span> component<span class="token operator">=</span><span class="token punctuation">{</span>Page1<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">&quot;/hook&quot;</span> component<span class="token operator">=</span><span class="token punctuation">{</span>Hook<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">&quot;/counter&quot;</span> component<span class="token operator">=</span><span class="token punctuation">{</span>Counter<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>Switch<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>Router<span class="token operator">&gt;</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> getRouter<span class="token punctuation">;</span>
+
+
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><p>npm start`看看效果。</p><p>下一步，我们让<code>Counter</code>组件和<code>Redux</code>联合起来。使<code>Counter</code>能获得到<code>Redux</code>的<code>state</code>，并且能发射<code>action</code>。</p><p>当然我们可以使用刚才测试<code>testRedux</code>的方法，手动监听~手动引入<code>store</code>~但是这肯定很麻烦哦。</p><p><code>react-redux</code>提供了一个方法<code>connect</code>。</p><blockquote><p>容器组件就是使用 store.subscribe() 从 Redux state 树中读取部分数据，并通过 props 来把这些数据提供给要渲染的组件。你可以手工来开发容器组件，但建议使用 React Redux 库的 connect() 方法来生成，这个方法做了性能优化来避免很多不必要的重复渲染。</p></blockquote><p><code>connect</code>接收两个参数，一个<code>mapStateToProps</code>,就是把<code>redux</code>的<code>state</code>，转为组件的<code>Props</code>，还有一个参数是<code>mapDispatchToprops</code>, 就是把发射<code>actions</code>的方法，转为<code>Props</code>属性函数。</p><p>先来安装<code>react-redux</code></p><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">// src/pages/Counter/Counter.js</span>
+<span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;react&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>increment<span class="token punctuation">,</span> decrement<span class="token punctuation">,</span> reset<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;actions/counter&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>connect<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;react-redux&#39;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Counter</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token function">当前计数为</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>counter<span class="token punctuation">.</span>count<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>increment<span class="token punctuation">}</span><span class="token operator">&gt;</span>自增
+        <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>decrement<span class="token punctuation">}</span><span class="token operator">&gt;</span>自减
+        <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>reset<span class="token punctuation">}</span><span class="token operator">&gt;</span>重置
+        <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> <span class="token function-variable function">mapStateToProps</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    counter<span class="token operator">:</span> state<span class="token punctuation">.</span>counter
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">mapDispatchToProps</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">dispatch</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    <span class="token function-variable function">increment</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">decrement</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">decrement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">reset</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">connect</span><span class="token punctuation">(</span>mapStateToProps<span class="token punctuation">,</span> mapDispatchToProps<span class="token punctuation">)</span><span class="token punctuation">(</span>Counter<span class="token punctuation">)</span>
+
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br></div></div><p>下面我们要传入<code>store</code></p><blockquote><p>所有容器组件都可以访问 Redux store，所以可以手动监听它。一种方式是把它以 props 的形式传入到所有容器组件中。但这太麻烦了，因为必须要用 store 把展示组件包裹一层，仅仅是因为恰好在组件树中渲染了一个容器组件。</p></blockquote><blockquote><p>建议的方式是使用指定的 React Redux 组件 来 魔法般的 让所有容器组件都可以访问 store，而不必显示地传递它。只需要在渲染根组件时使用即可。</p></blockquote><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>// src/index.js
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&#39;react&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> ReactDom <span class="token keyword">from</span> <span class="token string">&#39;react-dom&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Provider<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;react-redux&#39;</span>
+<span class="token keyword">import</span> store <span class="token keyword">from</span> <span class="token string">&#39;./redux/store&#39;</span>
+
+<span class="token keyword">import</span> getRouter <span class="token keyword">from</span> <span class="token string">&#39;./router/router&#39;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>module<span class="token punctuation">.</span>hot<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  module<span class="token punctuation">.</span>hot<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">renderWithHotReload</span><span class="token punctuation">(</span><span class="token function">getRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">function</span> <span class="token function">renderWithHotReload</span><span class="token punctuation">(</span><span class="token parameter">RootElement</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  ReactDom<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>Provider store<span class="token operator">=</span><span class="token punctuation">{</span>store<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>RootElement<span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>Provider<span class="token operator">&gt;</span><span class="token punctuation">,</span>
+    document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&#39;app&#39;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p>到这里我们就可以执行<code>npm start</code>，打开localhost:8080/counter看效果了。</p><p>这里我们再缕下（可以读<a href="http://taobaofed.org/blog/2016/08/18/react-redux-connect/" target="_blank" rel="noopener noreferrer">React 实践心得：react-redux 之 connect 方法详解<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>）</p><ol><li><code>Provider</code>组件是让所有的组件可以访问到<code>store</code>。不用手动去传。也不用手动去监听。</li><li><code>connect</code>函数作用是从 <code>Redux state</code> 树中读取部分数据，并通过 props 来把这些数据提供给要渲染的组件。也传递<code>dispatch(action)</code>函数到<code>props</code>。</li></ol><p>接下来，我们要说异步<code>action</code></p><p>参考地址： http://cn.redux.js.org/docs/advanced/AsyncActions.html</p><p>想象一下我们调用一个异步<code>get</code>请求去后台请求数据：</p><ol><li>请求开始的时候，界面转圈提示正在加载。<code>isLoading</code>置为<code>true</code>。</li><li>请求成功，显示数据。<code>isLoading</code>置为<code>false</code>,<code>data</code>填充数据。</li><li>请求失败，显示失败。<code>isLoading</code>置为<code>false</code>，显示错误信息。</li></ol><p>下面，我们以向后台请求用户基本信息为例。</p><ol><li>我们先创建一个<code>user.json</code>，等会请求用，相当于后台的API接口。</li></ol><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>cd dist
+mkdir api
+cd api
+touch user.json
+dist/api/user.json
+{
+  &quot;name&quot;: &quot;brickspert&quot;,
+  &quot;intro&quot;: &quot;please give me a star&quot;
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><ol><li>创建必须的<code>action</code>创建函数。</li></ol><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>cd src/redux/actions
+touch userInfo.js
+src/redux/actions/userInfo.js
+export const GET_USER_INFO_REQUEST = &quot;userInfo/GET_USER_INFO_REQUEST&quot;;
+export const GET_USER_INFO_SUCCESS = &quot;userInfo/GET_USER_INFO_SUCCESS&quot;;
+export const GET_USER_INFO_FAIL = &quot;userInfo/GET_USER_INFO_FAIL&quot;;
+
+function getUserInfoRequest() {
+    return {
+        type: GET_USER_INFO_REQUEST
+    }
+}
+
+function getUserInfoSuccess(userInfo) {
+    return {
+        type: GET_USER_INFO_SUCCESS,
+        userInfo: userInfo
+    }
+}
+
+function getUserInfoFail() {
+    return {
+        type: GET_USER_INFO_FAIL
+    }
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>我们创建了请求中，请求成功，请求失败三个<code>action</code>创建函数。</p><ol><li>创建<code>reducer</code></li></ol><p>再强调下，<code>reducer</code>是根据<code>state</code>和<code>action</code>生成新<code>state</code>的<strong>纯函数</strong>。</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>cd src/redux/reducers
+touch userInfo.js
+src/redux/reducers/userInfo.js
+import {GET_USER_INFO_REQUEST, GET_USER_INFO_SUCCESS, GET_USER_INFO_FAIL} from &#39;actions/userInfo&#39;;
+
+
+const initState = {
+    isLoading: false,
+    userInfo: {},
+    errorMsg: &#39;&#39;
+};
+
+export default function reducer(state = initState, action) {
+    switch (action.type) {
+        case GET_USER_INFO_REQUEST:
+            return {
+                ...state,
+                isLoading: true,
+                userInfo: {},
+                errorMsg: &#39;&#39;
+            };
+        case GET_USER_INFO_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                userInfo: action.userInfo,
+                errorMsg: &#39;&#39;
+            };
+        case GET_USER_INFO_FAIL:
+            return {
+                ...state,
+                isLoading: false,
+                userInfo: {},
+                errorMsg: &#39;请求错误&#39;
+            };
+        default:
+            return state;
+    }
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div><p><strong>这里的...state语法，是和别人的Object.assign()起同一个作用，合并新旧state。我们这里是没效果的，但是我建议都写上这个哦</strong></p><p>组合<code>reducer</code></p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>src/redux/reducers.js
+import counter from &#39;reducers/counter&#39;;
+import userInfo from &#39;reducers/userInfo&#39;;
+
+export default function combineReducers(state = {}, action) {
+    return {
+        counter: counter(state.counter, action),
+        userInfo: userInfo(state.userInfo, action)
+    }
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><ol><li><p>现在有了</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>action
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>，有了</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>reducer
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>，我们就需要调用把</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>action
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>里面的三个</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>action
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>函数和网络请求结合起来。</p><ul><li>请求中 <code>dispatch getUserInfoRequest</code></li><li>请求成功 <code>dispatch getUserInfoSuccess</code></li><li>请求失败 <code>dispatch getUserInfoFail</code></li></ul></li></ol><p><code>src/redux/actions/userInfo.js</code>增加</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>export function getUserInfo() {
+    return function (dispatch) {
+        dispatch(getUserInfoRequest());
+
+        return fetch(&#39;http://localhost:8080/api/user.json&#39;)
+            .then((response =&gt; {
+                return response.json()
+            }))
+            .then((json) =&gt; {
+                    dispatch(getUserInfoSuccess(json))
+                }
+            ).catch(
+                () =&gt; {
+                    dispatch(getUserInfoFail());
+                }
+            )
+    }
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>我们这里发现，别的<code>action</code>创建函数都是返回<code>action</code>对象：</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{type: xxxx}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>但是我们现在的这个<code>action</code>创建函数 <code>getUserInfo</code>则是返回函数了。</p><p>为了让<code>action</code>创建函数除了返回<code>action</code>对象外，还可以返回函数，我们需要引用<code>redux-thunk</code>。</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>npm install --save redux-thunk
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>这里涉及到<code>redux</code>中间件<code>middleware</code>，我后面会讲到的。你也可以读这里<a href="http://cn.redux.js.org/docs/advanced/Middleware.html" target="_blank" rel="noopener noreferrer">Middleware<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>。</p><p>简单的说，中间件就是<code>action</code>在到达<code>reducer</code>，先经过中间件处理。我们之前知道<code>reducer</code>能处理的<code>action</code>只有这样的<code>{type:xxx}</code>，所以我们使用中间件来处理 函数形式的<code>action</code>，把他们转为标准的<code>action</code>给<code>reducer</code>。这是<code>redux-thunk</code>的作用。 使用<code>redux-thunk</code>中间件</p><p>我们来引入<code>redux-thunk</code>中间件</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>src/redux/store.js
+import {createStore, applyMiddleware} from &#39;redux&#39;;
+import thunkMiddleware from &#39;redux-thunk&#39;;
+import combineReducers from &#39;./reducers.js&#39;;
+
+let store = createStore(combineReducers, applyMiddleware(thunkMiddleware));
+
+export default store;
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>到这里，<code>redux</code>这边OK了，我们来写个组件验证下。</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>cd src/pages
+mkdir UserInfo
+cd UserInfo
+touch UserInfo.js
+src/pages/UserInfo/UserInfo.js
+import React, {Component} from &#39;react&#39;;
+import {connect} from &#39;react-redux&#39;;
+import {getUserInfo} from &quot;actions/userInfo&quot;;
+
+class UserInfo extends Component {
+
+    render() {
+        const {userInfo, isLoading, errorMsg} = this.props.userInfo;
+        return (
+            &lt;div&gt;
+                {
+                    isLoading ? &#39;请求信息中......&#39; :
+                        (
+                            errorMsg ? errorMsg :
+                                &lt;div&gt;
+                                    &lt;p&gt;用户信息：&lt;/p&gt;
+                                    &lt;p&gt;用户名：{userInfo.name}&lt;/p&gt;
+                                    &lt;p&gt;介绍：{userInfo.intro}&lt;/p&gt;
+                                &lt;/div&gt;
+                        )
+                }
+                &lt;button onClick={() =&gt; this.props.getUserInfo()}&gt;请求用户信息&lt;/button&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+export default connect((state) =&gt; ({userInfo: state.userInfo}), {getUserInfo})(UserInfo);
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><p>这里你可能发现<code>connect</code>参数写法不一样了，<code>mapStateToProps</code>函数用了<code>es6</code>简写，<code>mapDispatchToProps</code>用了<code>react-redux</code>提供的简单写法。</p><p>增加路由 <code>src/router/router.js</code></p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>import React from &#39;react&#39;;
+
+import {BrowserRouter as Router, Route, Switch, Link} from &#39;react-router-dom&#39;;
+import Home from &#39;../pages/Home/Home&#39;;
+import Page1 from &#39;../pages/Page1/Page1&#39;;
+import Hook from &#39;../pages/Hooks/Hooks&#39;
+import UserInfo from &#39;pages/UserInfo/UserInfo&#39;;
+import Counter from &#39;pages/Counter/Counter&#39;;
+
+
+const getRouter = () =&gt; (
+  &lt;Router&gt;
+    &lt;div&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;Link to=&quot;/&quot;&gt;首页&lt;/Link&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;Link to=&quot;/page1&quot;&gt;Page1&lt;/Link&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;Link to=&quot;/hook&quot;&gt;Hook2&lt;/Link&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;Link to=&quot;/counter&quot;&gt;Counter&lt;/Link&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;Link to=&quot;/userInfo&quot;&gt;UserInfo&lt;/Link&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;Switch&gt;
+        &lt;Route exact path=&quot;/&quot; component={Home}/&gt;
+        &lt;Route path=&quot;/page1&quot; component={Page1}/&gt;
+        &lt;Route path=&quot;/hook&quot; component={Hook}/&gt;
+        &lt;Route path=&quot;/counter&quot; component={Counter}/&gt;
+        &lt;Route path=&quot;/userInfo&quot; component={UserInfo}/&gt;
+      &lt;/Switch&gt;
+    &lt;/div&gt;
+  &lt;/Router&gt;
+);
+
+export default getRouter;
+
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><p>现在你可以执行<code>npm start</code>去看效果啦！</p><p>到这里<code>redux</code>集成基本告一段落了，后面我们还会有一些优化。</p><h2 id="combinreducers优化" tabindex="-1"><a class="header-anchor" href="#combinreducers优化" aria-hidden="true">#</a> combinReducers优化</h2><p><code>redux</code>提供了一个<code>combineReducers</code>函数来合并<code>reducer</code>，不用我们自己合并哦。写起来简单，但是意思和我们 自己写的<code>combinReducers</code>也是一样的。</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>src/redux/reducers.js
+import {combineReducers} from &quot;redux&quot;;
+
+import counter from &#39;reducers/counter&#39;;
+import userInfo from &#39;reducers/userInfo&#39;;
+
+
+export default combineReducers({
+    counter,
+    userInfo
+});
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h1 id="devtool优化" tabindex="-1"><a class="header-anchor" href="#devtool优化" aria-hidden="true">#</a> devtool优化</h1><p>现在我们发现一个问题，代码哪里写错了，浏览器报错只报在<code>build.js</code>第几行。</p><p>这让我们分析错误无从下手。看<a href="https://doc.webpack-china.org/configuration/devtool" target="_blank" rel="noopener noreferrer">这里<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>。</p><p>我们增加<code>webpack</code>配置<code>devtool</code>！</p><p><code>webpack.dev.config.js</code>增加</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>devtool: &#39;inline-source-map&#39;
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><h1 id="编译css" tabindex="-1"><a class="header-anchor" href="#编译css" aria-hidden="true">#</a> 编译css</h1><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>npm install css-loader style-loader --save-dev
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p><code>css-loader</code>使你能够使用类似<code>@import</code> 和 <code>url(...)</code>的方法实现 <code>require()</code>的功能；</p><p><code>style-loader</code>将所有的计算后的样式加入页面中； 二者组合在一起使你能够把样式表嵌入<code>webpack</code>打包后的JS文件中。</p><p><code>webpack.dev.config.js</code> <code>rules</code>增加</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
+   test: /\.css$/,
+   use: [&#39;style-loader&#39;, &#39;css-loader&#39;]
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>我们用<code>Page1</code>页面来测试下</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>cd src/pages/Page1
+touch Page1.css
+src/pages/Page1/Page1.css
+.page-box {
+    border: 1px solid red;
+}
+src/pages/Page1/Page1.js
+import React, {Component} from &#39;react&#39;;
+
+import &#39;./Page1.css&#39;;
+
+export default class Page1 extends Component {
+    render() {
+        return (
+            &lt;div className=&quot;page-box&quot;&gt;
+                this is page1~
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p>好了，现在<code>npm start</code>去看效果吧。</p><h1 id="编译less" tabindex="-1"><a class="header-anchor" href="#编译less" aria-hidden="true">#</a> 编译less</h1><p><a href="https://webpack.docschina.org/loaders/less-loader/#%E8%A6%81%E6%B1%82" target="_blank" rel="noopener noreferrer">https://webpack.docschina.org/loaders/less-loader/#%E8%A6%81%E6%B1%82<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a></p><p>先说这里为什么不用<code>scss</code>，因为<code>Windows</code>使用<code>node-sass</code>，需要先安装<a href="https://www.microsoft.com/en-us/download/details.aspx?id=8279" target="_blank" rel="noopener noreferrer"> Microsoft Windows SDK for Windows 7 and .NET Framework 4<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>。 我怕有些人copy这份代码后，没注意，运行不起来。所以这里不用<code>scss</code>了，如果需要，自行编译哦。</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>npm install less less-loader --save-dev
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p><code>css-loader</code>使你能够使用类似<code>@import</code> 和 <code>url(...)</code>的方法实现 <code>require()</code>的功能；</p><p><code>style-loader</code>将所有的计算后的样式加入页面中； 二者组合在一起使你能够把样式表嵌入<code>webpack</code>打包后的JS文件中。</p><p><code>webpack.dev.config.js</code> <code>rules</code>增加</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
+   test: /\.less$/,
+   use: [&#39;style-loader&#39;, &#39;css-loader&#39;, &#39;less-loader&#39;]
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>我们用<code>Page1</code>页面来测试下</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>cd src/pages/Page1
+touch Page1.css
+src/pages/Page1/Page1.less
+.page-box {
+    border: 1px solid green;
+}
+src/pages/Page1/Page1.js
+import React, {Component} from &#39;react&#39;;
+
+import &#39;./Page1.css&#39;;
+
+export default class Page1 extends Component {
+    render() {
+        return (
+            &lt;div className=&quot;page-box&quot;&gt;
+                this is page1~
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p>好了，现在<code>npm start</code>去看效果吧。</p><h1 id="编译图片" tabindex="-1"><a class="header-anchor" href="#编译图片" aria-hidden="true">#</a> 编译图片</h1><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>npm install --save-dev url-loader file-loader
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p><code>webpack.dev.config.js</code> <code>rules</code>增加</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
+    test: /\.(png|jpg|jpeg|gif)$/,
+    use: [{
+        loader: &#39;url-loader&#39;,
+        options: {
+            limit: 8192
+        }
+    }]
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p><code>options limit 8192</code>意思是，小于等于8K的图片会被转成<code>base64</code>编码，直接插入HTML中，减少<code>HTTP</code>请求。</p><p>我们来用<code>Page1</code> 测试下</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>cd src/pages/Page1
+mkdir images
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>给<code>images</code>文件夹放一个图片。</p><p>修改代码，引用图片</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>src/pages/Page1/Page1.js
+import React, {Component} from &#39;react&#39;;
+
+import &#39;./Page1.css&#39;;
+
+import image from &#39;./images/weibozzz.jpeg&#39;;
+
+export default class Page1 extends Component {
+    render() {
+        return (
+            &lt;div className=&quot;page-box&quot;&gt;
+                this is page1~
+                &lt;img src={image}/&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>可以去看看效果啦。</p><h1 id="按需加载" tabindex="-1"><a class="header-anchor" href="#按需加载" aria-hidden="true">#</a> 按需加载</h1><p>为什么要实现按需加载？</p><p>我们现在看到，打包完后，所有页面只生成了一个<code>build.js</code>,当我们首屏加载的时候，就会很慢。因为他也下载了别的页面的<code>js</code>了哦。</p><p>如果每个页面都打包了自己单独的JS，在进入自己页面的时候才加载对应的js，那首屏加载就会快很多哦。</p><p>在 <code>react-router 2.0</code>时代， 按需加载需要用到的最关键的一个函数，就是<code>require.ensure()</code>，它是按需加载能够实现的核心。</p><p>在4.0版本，官方放弃了这种处理按需加载的方式，选择了一个更加简洁的处理方式。</p><p><a href="https://reacttraining.com/react-router/web/guides/code-splitting" target="_blank" rel="noopener noreferrer">传送门<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a></p><p>根据官方示例，我们开搞</p><ol><li><code>npm install bundle-loader --save-dev</code></li><li>新建<code>bundle.js</code></li></ol><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>cd src/router
+touch Bundle.js
+src/router/Bundle.js
+import React, {Component} from &#39;react&#39;
+
+class Bundle extends Component {
+    state = {
+        // short for &quot;module&quot; but that&#39;s a keyword in js, so &quot;mod&quot;
+        mod: null
+    };
+
+    componentWillMount() {
+        this.load(this.props)
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.load !== this.props.load) {
+            this.load(nextProps)
+        }
+    }
+
+    load(props) {
+        this.setState({
+            mod: null
+        });
+        props.load((mod) =&gt; {
+            this.setState({
+                // handle both es imports and cjs
+                mod: mod.default ? mod.default : mod
+            })
+        })
+    }
+
+    render() {
+        return this.props.children(this.state.mod)
+    }
+}
+
+export default Bundle;
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div><ol><li>改造路由器</li></ol><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>src/router/router.js
+import React from &#39;react&#39;;
+
+import {BrowserRouter as Router, Route, Switch, Link} from &#39;react-router-dom&#39;;
+
+import Bundle from &#39;./Bundle&#39;;
+
+import Home from &#39;bundle-loader?lazy&amp;name=home!pages/Home/Home&#39;;
+import Page1 from &#39;bundle-loader?lazy&amp;name=page1!pages/Page1/Page1&#39;;
+import Counter from &#39;bundle-loader?lazy&amp;name=counter!pages/Counter/Counter&#39;;
+import UserInfo from &#39;bundle-loader?lazy&amp;name=userInfo!pages/UserInfo/UserInfo&#39;;
+
+const Loading = function () {
+    return &lt;div&gt;Loading...&lt;/div&gt;
+};
+
+const createComponent = (component) =&gt; (props) =&gt; (
+    &lt;Bundle load={component}&gt;
+        {
+            (Component) =&gt; Component ? &lt;Component {...props} /&gt; : &lt;Loading/&gt;
+        }
+    &lt;/Bundle&gt;
+);
+
+const getRouter = () =&gt; (
+    &lt;Router&gt;
+        &lt;div&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;Link to=&quot;/&quot;&gt;首页&lt;/Link&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;Link to=&quot;/page1&quot;&gt;Page1&lt;/Link&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;Link to=&quot;/counter&quot;&gt;Counter&lt;/Link&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;Link to=&quot;/userinfo&quot;&gt;UserInfo&lt;/Link&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;Switch&gt;
+                &lt;Route exact path=&quot;/&quot; component={createComponent(Home)}/&gt;
+                &lt;Route path=&quot;/page1&quot; component={createComponent(Page1)}/&gt;
+                &lt;Route path=&quot;/counter&quot; component={createComponent(Counter)}/&gt;
+                &lt;Route path=&quot;/userinfo&quot; component={createComponent(UserInfo)}/&gt;
+            &lt;/Switch&gt;
+        &lt;/div&gt;
+    &lt;/Router&gt;
+);
+
+export default getRouter;
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br></div></div><p>现在你可以<code>npm start</code>，打开浏览器，看是不是进入新的页面，都会加载自己的JS的~</p><p>但是你可能发现，名字都是<code>0.bundle.js</code>这样子的，这分不清楚是哪个页面的<code>js</code>呀！</p><p>我们修改下<code>webpack.dev.config.js</code>,加个<code>chunkFilename</code>。<code>chunkFilename</code>是除了<code>entry</code>定义的入口<code>js</code>之外的<code>js</code>~</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>    output: {
+        path: path.join(__dirname, &#39;./dist&#39;),
+        filename: &#39;bundle.js&#39;,
+        chunkFilename: &#39;[name].js&#39;
+    }
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>现在你运行发现名字变成<code>home.js</code>,这样的了。棒棒哒！</p><p>那么问题来了<code>home</code>是在哪里设置的？<code>webpack</code>怎么知道他叫<code>home</code>？</p><p>其实在这里我们定义了，<code>router.js</code>里面</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>import Home from &#39;bundle-loader?lazy&amp;name=home!pages/Home/Home&#39;;
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>看到没。这里有个<code>name=home</code>。嘿嘿。</p><p>**报错： Support for the experimental syntax &#39;classProperties&#39; isn&#39;t currently enabled **</p><p><strong>解决： https://github.com/babel/babel/issues/8655</strong></p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>// .babelrc 增加此插件
+&quot;plugins&quot;: [
+      &quot;@babel/plugin-proposal-class-properties&quot;
+    ]
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>参考地址：</p><ol><li>http://www.jianshu.com/p/8dd98a7028e0</li><li>https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/guides/code-splitting.md</li><li>https://segmentfault.com/a/1190000007949841</li><li>http://react-china.org/t/webpack-react-router/10123</li><li>https://juejin.im/post/58f9717e44d9040069d06cd6</li></ol><h1 id="其他" tabindex="-1"><a class="header-anchor" href="#其他" aria-hidden="true">#</a> 其他</h1><p>其他的配置就相对简单，可参考这个 <a href="https://github.com/brickspert/blog/issues/1" target="_blank" rel="noopener noreferrer">从零搭建React全家桶框架教程<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a>，或者看最新 <a href="https://github.com/Weibozzz/webpack-demos" target="_blank" rel="noopener noreferrer">webpack配置<span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span></a></p><!--]--></div><footer class="page-meta"><div class="meta-item edit-link"><a class="nav-link external meta-item-label" href="https://github.com/Weibozzz/Weibozzz.github.io/edit/master/React/从零搭建React全家桶框架教程.md" rel="noopener noreferrer" target="_blank" aria-label="在 GitHub 上编辑此页"><!--[--><!--]--> 在 GitHub 上编辑此页 <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">在新窗口打开</span><!--]--></span><!--[--><!--]--></a></div><div class="meta-item last-updated"><span class="meta-item-label">上次更新: </span><span class="meta-item-info">2021/7/21 上午5:05:14</span></div><!----></footer><nav class="page-nav"><p class="inner"><span class="prev"> ← <a href="/React/useRequest%E5%B0%81%E8%A3%85.html" class="nav-link" aria-label="useRequest封装"><!--[--><!--]--> useRequest封装 <!--[--><!--]--></a></span><span class="next"><a href="/React/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86.html" class="nav-link" aria-label="权限管理"><!--[--><!--]--> 权限管理 <!--[--><!--]--></a> → </span></p></nav><!--[--><!--]--></main></div><!----><!--]--></div>
+    <script src="/assets/js/runtime~app.c62c7374.js" defer></script><script src="/assets/js/4640.7707568a.js" defer></script><script src="/assets/js/app.cebd16b7.js" defer></script>
+  </body>
+</html>
