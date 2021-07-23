@@ -88,7 +88,7 @@ if (window.EventSource) {
 - https://www.cnblogs.com/goloving/p/9196066.html
 
 ## 相关推荐
-- [js实现webSocket客户端](../JS/js实现webSocket客户端.md)
+- [js实现webSocket客户端](../../JS/socket/js实现webSocket客户端.md)
 
 ## 兼容性
 不支持ie

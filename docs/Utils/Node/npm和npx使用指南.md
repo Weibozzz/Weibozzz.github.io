@@ -230,4 +230,4 @@ npm cache clean --force
 - https://juejin.cn/post/6955736879106883597
 
 ## 今日图 - 老板画饼
-![16ac3747430c8cd7.gif](../../images/16ac3747430c8cd7.gif)
+![16ac3747430c8cd7.gif](../../../images/16ac3747430c8cd7.gif)

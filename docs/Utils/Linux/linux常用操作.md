@@ -221,4 +221,4 @@ r 替换当前字符
 
 
 ## 今日图 - 没有了他的总决赛
-![weweew.gif](../../images/weweew.gif)
+![weweew.gif](../../../images/weweew.gif)

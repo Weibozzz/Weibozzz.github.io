@@ -4,7 +4,7 @@ const sidebar = require('./config/sidebar')
 module.exports = {
   lang: 'zh-CN',
   title: '伟波前端',
-  description: '刘伟波-伟波前端',
+  description: '一个记录前端知识的小前端',
   head,
   themeConfig: {
     logo: '/images/avatar.jpg',

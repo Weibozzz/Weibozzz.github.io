@@ -105,4 +105,4 @@ which git
 - `grep ' 2' a.js ` 搜索带2的那一行
 
 ## 今日图 - margin-right: -5px
-![16bcfa33dd0226d4.png](../../images/16bcfa33dd0226d4.png)
+![16bcfa33dd0226d4.png](../../../images/16bcfa33dd0226d4.png)

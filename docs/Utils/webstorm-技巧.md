@@ -907,7 +907,7 @@ alias ws.=webstorm64.exe ./
 
 
 
-![image-20200520145052792](F:\ctrl\Weibozzz.github.io\images\image-20200520145052792.png)
+![image-20200520145052792](../../images/image-20200520145052792.png)
 
 ## 今日图 - 为高考的学子点赞
 

@@ -11,11 +11,11 @@
 
 1. [DNS查询](http://ping.chinaz.com/github.com)
 
-    ![](../../images/github-actions/ping1.png)
+    ![](../../../images/github-actions/ping1.png)
    
 2. 选择TTL和响应时间都比较小的两个响应IP
    
-    ![](../../images/github-actions/ping2.png)
+    ![](../../../images/github-actions/ping2.png)
 
 3. 修改HOST
 使用管理员权限打开位于 C:\Windows\System32\drivers\etc 下的 `hosts` 文件 ，末尾添加对应的IP映射。

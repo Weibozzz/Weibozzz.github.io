@@ -198,4 +198,4 @@ if ( webpackVersion=='4' ) {
 ## 引用
 - [npm包来制作命令行工具的原理](https://segmentfault.com/a/1190000015218126)
 ## 今日图 - 猜猜这个是谁？
-![e5f879a92a3c190ff5e29dd7146f4611.gif](../../images/e5f879a92a3c190ff5e29dd7146f4611.gif)
+![e5f879a92a3c190ff5e29dd7146f4611.gif](../../../images/e5f879a92a3c190ff5e29dd7146f4611.gif)

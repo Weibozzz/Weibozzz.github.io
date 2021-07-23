@@ -117,4 +117,4 @@ alias sock5='ssh -D 8080 -q -C -N -f user@your.server'
 - [读文件](https://www.cnblogs.com/iloveyoucc/archive/2012/07/10/2585529.html)
 
 ## 今日图 - 我写的代码到可运行的代码
-![16b873fd487172ba.gif](../../images/16b873fd487172ba.gif)
+![16b873fd487172ba.gif](../../../images/16b873fd487172ba.gif)

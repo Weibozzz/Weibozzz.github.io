@@ -29,4 +29,4 @@
 可以组合使用，`:wq`即退出和保存，按ESC键可随时退出底线命令模式。
 
 ## 今日图 - 百度安检
-![16bbc5e14e796c8a.gif](../../images/16bbc5e14e796c8a.gif)
+![16bbc5e14e796c8a.gif](../../../images/16bbc5e14e796c8a.gif)

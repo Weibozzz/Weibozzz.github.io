@@ -10,7 +10,7 @@
 
 以钢铁侠为例，钢铁侠本质是一个人，只是“装饰”了很多武器方才变得那么 `NB`，不过再怎么装饰他还是一个人。
 
-![TB1ex47KXXXXXbmXXXXXXXXXXXX-1024-768.jpg](../../images/TB1ex47KXXXXXbmXXXXXXXXXXXX-1024-768.jpg)
+![TB1ex47KXXXXXbmXXXXXXXXXXXX-1024-768.jpg](../../../images/TB1ex47KXXXXXbmXXXXXXXXXXXX-1024-768.jpg)
 
 我们的示例场景是这样的
 
@@ -384,7 +384,7 @@ export default {
 }
 ```
 ### vue中 debounce 和 打点, logger 应用
-- [理解JS函数节流和函数防抖](../工具/理解JS函数节流和函数防抖.md)
+- [理解JS函数节流和函数防抖](../../JS/理解JS函数节流和函数防抖.md)
 
 ```js
 // 理解JS函数节流和函数防抖 中节流 修改如下
@@ -485,4 +485,4 @@ export function logger(isAsync = false){
 - https://www.jianshu.com/p/208904b34d8f
 
 ## 今日图 羞羞哒
-![gdfs.gif](../../images/gdfs.gif)
+![gdfs.gif](../../../images/gdfs.gif)

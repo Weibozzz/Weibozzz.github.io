@@ -111,4 +111,4 @@ person.age = 300;
 
 
 ## 今日图 - 詹姆斯和史蒂芬森相爱相杀
-![rereere.gif](../../images/rereere.gif)
+![rereere.gif](../../../images/rereere.gif)

@@ -219,4 +219,4 @@ myElement.addEventListener('click', function() {
 
 ## 今日图 - 如何证明豹和老虎都是猫科动物
 
-![16bb5bc8e450a571.png](../../images/16bb5bc8e450a571.png)
+![16bb5bc8e450a571.png](../../../images/16bb5bc8e450a571.png)

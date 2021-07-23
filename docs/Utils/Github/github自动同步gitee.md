@@ -4,9 +4,9 @@
 
 由于 `Gitee Pages` 的访问速度很快，同步 `github` 到 `gitee`
 
-[解决github速度访问过慢](../其他/解决github速度访问过慢.md)
+[解决github速度访问过慢](../../Utils/Github/解决github速度访问过慢.md)
 
-**注意：前提是 `github` 和 `gitee` 都已经配置了 `ssh`** ,如果没配置，看我 [ssh是什么](../其他/ssh是什么.md) 来配置即可。
+**注意：前提是 `github` 和 `gitee` 都已经配置了 `ssh`** ,如果没配置，看我 [ssh是什么](../../Utils/Linux/ssh是什么.md) 来配置即可。
 
 ## 1. 同步部署
 > 提交 github 自动同步提交到 gitee
@@ -17,11 +17,11 @@
 4. 提交即可
 
 ### 1.1 点击 actions
-![点击 actions](../../images/github-actions/step1.png)
+![点击 actions](../../../images/github-actions/step1.png)
 ### 1.2 建立 GITEE_RSA_PRIVATE_KEY
 点击右上角 `New repository secret`
 
-![新建](../../images/github-actions/step2.png)
+![新建](../../../images/github-actions/step2.png)
 
 1. `Name` 输入 `GITEE_RSA_PRIVATE_KEY`
 2. `Value` 输入 `ssh` 的 `私钥`(注意是私钥，`cat id_rsa`)
