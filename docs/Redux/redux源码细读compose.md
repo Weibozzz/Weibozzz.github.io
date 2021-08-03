@@ -1,8 +1,7 @@
 # redux源码细读compose
-> redux_v3.7.2源码详细解读与学习之compose
 
 ## 上代码看效果
-
+### 同步
 ```js
   function compose (...funcs) {
     if (funcs.length === 0) {
@@ -31,10 +30,53 @@
   )(conts))
 ```
 
-如果有点看不懂可以看看原作者讲解，我这里介绍一下我看后的实践，只有运用才能真正掌握！
+### 异步
+```js
+  ;(async () => {
+    function compose (...funcs) {
+      if (funcs.length === 0) {
+        return args => args
+      }
+      if (funcs.length === 1) {
+        return funcs[0]
+      }
+      return funcs.reduce((a, b) => async (...args) => b(await a(...args)))
+    }
+    function fn1 (arg) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          arg += '_Promise_fn1'
+          console.log('fn1')
+          resolve(arg)
+        }, 1000)
+      })
+    }
+    function fn2 (arg) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          arg += '_Promise_fn2'
+          console.log('fn2')
+          resolve(arg)
+        }, 1000)
+      })
+    }
+    function fn3 (arg) {
+      arg += '_fn3'
+      return arg;
+    }
+    const result = compose(fn1, fn3, fn2)
+    result(1).then(res => {
+      console.log('异步返回', res)
+    })
+  })()
+```
 
-## 摘自
-- https://blog.seosiwei.com/detail/12
+只有运用才能真正掌握！
 
-## 今日图 - 我以为我变秃了，也会变强的。后来我找到原因了，越洗越少
+## 借鉴
+- https://github.com/reduxjs/redux/blob/master/src/compose.ts
+
+## 今日图
+> 我以为我变秃了，也会变强的。后来我找到原因了，越洗越少
+
 ![16d7bd644e2332d9.png](../../images/16d7bd644e2332d9.png)
