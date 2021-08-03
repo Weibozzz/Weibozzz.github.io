@@ -1,7 +1,7 @@
 {
   "name": "weiboqianduan",
   "version": "1.0.0",
-  "description": "自己领域的前端知识体系",
+  "description": "前端知识体系",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -31,6 +31,8 @@
     "pre-commit": "^1.2.2"
   },
   "devDependencies": {
+    "file-loader": "^6.2.0",
+    "url-loader": "^4.1.1",
     "vuepress": "^2.0.0-beta.22"
   }
 }
