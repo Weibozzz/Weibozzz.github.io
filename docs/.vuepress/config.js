@@ -27,7 +27,7 @@ module.exports = {
     // docsRepo: 'https://gitlab.com/owner/name',
     docsBranch: 'master',
     // docsDir: 'docs',
-    // editLinkPattern: ':repo/-/edit/:branch/:path',
+    editLinkPattern: ':repo/edit/:branch/docs/:path',
     lastUpdatedText: '上次更新',
     contributors: false,
     // contributorsText: '贡献者',
