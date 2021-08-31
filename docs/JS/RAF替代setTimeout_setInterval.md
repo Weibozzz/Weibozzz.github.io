@@ -1,3 +1,4 @@
+# RAF替代setTimeout_setInterval
 ## 前言
 
 为什么用 `requestAnimationFrame`代替 `setInterval` 和 `setTimeout`？那得先了解微任务、宏任务与`Event-Loop`，
@@ -67,8 +68,6 @@ btn.onclick = function(){
 　　例子中的第一个定时器是在`205ms`处添加到队列中的，但是直到过了`300ms`处才能执行。当执行这个定时器代码时，在`405ms`处又给队列
 添加了另一个副本。在下一个间隔，即605ms处，第一个定时器代码仍在运行，同时在队列中已经有了一个定时
 器代码的实例。结果是，在这个时间点上的定时器代码不会被添加到队列中
-
-# RAF替代setTimeout_setInterval
 
 ## 迭代setTimeout实现setInterval
 
@@ -150,7 +149,28 @@ raf.setTimeout(() => {
   raf.clearInterval(timer2)
 }, 6000)
 ```
-
+## 计算计算机刷新频率
+```js
+ // 题外计算一下 requestAnimationFrame 刷新频率
+  let startTime = Date.now()
+  let timer = null
+  let arr = []
+  function calc () {
+    timer = requestAnimationFrame(calc)
+    const nowTime = Date.now()
+    const diff = nowTime - startTime
+    startTime = nowTime
+    arr.push(diff)
+  }
+  calc()
+  setTimeout(() => {
+    const newArr = arr.filter(v => v > 10)
+    console.log(newArr)
+    const total = newArr.reduce((t, i) => t + i, 0)
+    console.log('平均刷新次数', 1000 / (total / newArr.length))
+    cancelAnimationFrame(timer)
+  }, 3000)
+```
 ## 引用
 
 - [requestAnimationFrame](https://developer.mozilla.org/zh-CN/docs/Web/API/window/requestAnimationFrame)
