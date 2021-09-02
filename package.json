@@ -10,7 +10,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run docs:dev",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "build:deploy": "node builds/index.js",
+    "deploy": "npm run docs:build && npm run build:deploy"
   },
   "repository": {
     "type": "git",

@@ -16,21 +16,5 @@ jobs:
           source-repo: git@github.com:Weibozzz/Weibozzz.github.io.git
           # 注意替换为你的 Gitee 目标仓库地址
           destination-repo: git@gitee.com:Weibozzz/Weibozzz.github.io
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2.3.1 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
-        with:
-          persist-credentials: false
-      - name: Install and Build
-        run: |
-          npm install
-          npm run docs:build
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.4
-        with:
-          ACCESS_TOKEN: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-          BRANCH: gh_pages
-          FOLDER: docs/.vuepress/dist/
+
 
