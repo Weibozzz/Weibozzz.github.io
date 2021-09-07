@@ -206,6 +206,7 @@ module.exports = [
       {
         text: '其他工具',
         children: [
+          '/Utils/chrome插件开发.md',
           '/Utils/自搭梯子.md',
           '/Utils/nginx使用.md',
           '/Utils/postman中form-data等的区别.md',
