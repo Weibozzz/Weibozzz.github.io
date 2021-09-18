@@ -230,6 +230,10 @@ module.exports = [
         link: 'http://www.liuweibo.cn',
       },
       {
+        text: '个人常用工具库',
+        link: 'https://github.com/Weibozzz/weibozzz-utils',
+      },
+      {
         text: '静态网站生成器',
         link: 'https://v2.vuepress.vuejs.org/zh/',
       },
