@@ -110,11 +110,20 @@ git reset  commitB_hash
 
 ## git stash用法
 ### 保存当前修改
-git stash会把所有未提交的修改（包括暂存的和非暂存的）都保存起来，用于后续恢复当前工作目录。stash是本地的，不会通过git push命令上传到git server上。
+`git stash` 会把所有未提交的修改（包括暂存的和非暂存的）都保存起来，用于后续恢复当前工作目录。`stash` 是本地的，不会通过 `git push` 命令上传到 `git server` 上。
 ### 重新应用缓存的stash
-可以通过git stash pop命令恢复之前缓存的工作目录，这个指令将缓存堆栈中的第一个stash删除，并将对应修改应用到当前的工作目录下
+可以通过 `git stash pop` 命令恢复之前缓存的工作目录，这个指令将缓存堆栈中的第一个stash删除，并将对应修改应用到当前的工作目录下
+
+或者 `git stash apply {stashID}`
 ### 查看现有stash
-可以使用git stash list命令， 点击查看[更多stash用法](https://www.cnblogs.com/tocy/p/git-stash-reference.html)。
+可以使用 `git stash list` 命令， 点击查看[更多stash用法](https://www.cnblogs.com/tocy/p/git-stash-reference.html)。
+### 恢复 stash
+使用 `git stash clear` 误删除找回
+
+`git log --graph --oneline --decorate  $( git fsck --no-reflog | awk '/dangling commit/ {print $3}')` 调出 `stash` 的 `log`，该 `log` 对应 `stash` 的栈缓存纪录，`WIP` 为 `midify` 内容，`index` 为 `add` 内容，所以，一般情况下，`WIP` 比 `index` 内容要全
+
+然后执行 `git stash apply {id}` 恢复最后 `stash` 的内容
+至此，`stash` 被删除的内容全部被找回
 
 
 ## 删除文件
