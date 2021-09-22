@@ -28,6 +28,7 @@ module.exports = {
     {
       text: 'Javascript',
       children: [
+        '/JS/基础中间件实现.md',
         '/JS/理解JS函数节流和函数防抖.md',
         '/JS/线程和进程的区别是什么.md',
         '/JS/fetch使用的常见问题及其解决办法.md',
@@ -119,6 +120,14 @@ module.exports = {
       children: [
         '/HTTP/HTTP协议.md',
         '/HTTP/url长度的误区.md',
+      ],
+    }
+  ],
+  '/Threejs/': [
+    {
+      text: '前端周边-ThreeJs',
+      children: [
+        '/Threejs/threejs基本使用.md',
       ],
     }
   ],
