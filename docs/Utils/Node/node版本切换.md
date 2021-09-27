@@ -27,3 +27,19 @@ $ nvm run x.x.x some.js
 // 卸载nvm
 $ rm -rf ~/.nvm
 ```
+## node版本切换：nvs
+> 跨平台
+
+### 安装
+- [nvs/releases](https://github.com/jasongin/nvs/releases)
+
+### 使用
+```
+# 安装镜像
+nvs remote node https://npm.taobao.org/mirrors/node/
+
+nvs --help
+
+# 查看已安装的版本
+nvs ls
+```
