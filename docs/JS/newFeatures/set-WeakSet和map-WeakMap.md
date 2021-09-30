@@ -1,4 +1,4 @@
-# set和map
+# set-WeakSet和map-WeakMap
 ## Set
 `ES6` 提供了新的数据结构 `Set`。它类似于数组，但是成员的值都是唯一的，没有重复的值。
 
@@ -126,7 +126,11 @@ data['[object HTMLDivElement]'] // "metadata"
 const map = new Map();
 
 map.set(['a'], 555);
-map.get(['a']) // unde
+map.get(['a']) // undefined
+
+const o = ['b']
+map.set(o, 555);
+map.get(o) // 555
 ```
 
 **如果 `Map` 的键是一个简单类型的值（数字、字符串、布尔值），则只要两个值严格相等，`Map` 将其视为一个键，比如0和-0就是一个键，布尔值true和字符串true则是两个不同的键。另外，undefined和null也是两个不同的键。虽然NaN不严格相等于自身，但 Map 将其视为同一个键。**
@@ -212,10 +216,108 @@ myElement.addEventListener('click', function() {
 }, false);
 ```
 上面代码中，`myElement`是一个` DOM `节点，每当发生click事件，就更新一下状态。我们将这个状态作为键值放在 WeakMap 里，对应的键名就是`myElement`。一旦这个 DOM 节点删除，该状态就会自动消失，不存在内存泄漏风险。
+## 再次理解弱引用
+一般来说，在 `JavaScript` 中，对象的引用是强保留的，这意味着只要持有对象的引用，它就不会被垃圾回收。
 
+```js
+const ref = { x: 42, y: 51 };
+// 只要我们访问ref对象（或者任何其他引用指向该对象），这个对象就不会被垃圾回收
+```
+
+`WeakMap` 和 `WeakSet` 是弱引用对象的唯一方法：将对象作为键添加到 `WeakMap` 或 `WeakSet` 中，是不会阻止它被垃圾回收的。例如上面 `WeakMap` 举例的 `dom` 操作次数统计。
+
+假设有一个 `getImage` 函数，它接受一个 `name` 入参，并执行一些昂贵的操作来生成另一个对象，比如生成二进制图像数据：
+
+```js
+function getImage(name) {
+  const image = performExpensiveOperation(name);
+  return image;
+}
+// 为了提高性能，我们将图像保存在缓存中。现在，我们不必再为相同的入参执行昂贵的操作了！
+const cache = new Map();
+
+function getImageCached(name) {
+  if (cache.has(name)) return cache.get(name);
+  const image = performExpensiveOperation(name);
+  cache.set(name, image);
+  return image;
+}
+
+```
+但是，这里存在一个问题。`Map` 会强保留它的键和值，因此，图像名称和数据永远不会被垃圾回收。这会逐步增加内存占用，最终导致内存泄漏！
+
+```js
+const cache = new Map();
+
+function getImageCached(name) {
+  const ref = cache.get(name);
+  if (ref !== undefined) {
+    const deref = ref.deref();
+    if (deref !== undefined) return deref;
+  }
+  const image = performExpensiveOperation(name);
+  const wr = new WeakRef(image);
+  cache.set(name, wr);
+  return image;
+}
+
+```
+
+WeakRef 通过创建图像对象的弱引用并将弱引用保存在缓存中（而不是保存图像对象本身）来解决内存泄漏问题。这样，垃圾回收器就可以清除没有强引用的图像对象了。
+
+但这里仍然存在一个问题：`Map` 仍然永远保留 `name` 的字符串，因为这些字符串是缓存中的键。理想情况下，这些字符串也要被删除。 `WeakRef` 提案中也提供了一个解决方案！通过新的 `FinalizationGroup API`，我们可以注册一个回调，以便在垃圾回收器回收已注册的对象时运行。这种回调称为终结器（`Finalizers`）。
+
+**注意：在垃圾回收器回收图像对象之后，终结回调不会立即运行。它可能在将来某个时候运行，甚至根本不运行——规范并不保证它一定运行！编写代码时，请注意这一点.**
+
+在此，我们注册一个回调，以便在图像对象被垃圾回收时从缓存中删除键：
+
+```js
+const cache = new Map();
+
+const finalizationGroup = new FinalizationGroup((iterator) => {
+  for (const name of iterator) {
+    const ref = cache.get(name);
+    if (ref !== undefined && ref.deref() === undefined) {
+      cache.delete(name);
+    }
+  }
+});
+
+```
+**注意：`ref !== undefined && ref.deref() === undefined` 是必需的，因为在旧 `WeakRef` 进入终结回调队列和实际运行终结回调之间，可能已经添加了同一个 `name` 的新 `WeakRef`。**
+
+```js
+const cache = new Map();
+
+const finalizationGroup = new FinalizationGroup((iterator) => {
+  for (const name of iterator) {
+    const ref = cache.get(name);
+    if (ref !== undefined && ref.deref() === undefined) {
+      cache.delete(name);
+    }
+  }
+});
+
+function getImageCached(name) {
+  const ref = cache.get(name); // 1
+  if (ref !== undefined) { // 2
+    const deref = ref.deref();
+    if (deref !== undefined) return deref;
+  }
+  const image = performExpensiveOperation(name); // 3
+  const wr = new WeakRef(image); // 4
+  cache.set(name, wr); // 5
+  finalizationGroup.register(image, name); // 6
+  return image; // 7
+}
+
+```
+
+给定一个图像名称（入参），我们在缓存中查找其对应的弱引用（1）。如果弱引用仍然指向某个对象（2），那么我们就返回缓存的图像数据。如果该图像名称对应的弱引入没有在缓存中，或者缓存的图像数据被垃圾回收了，那么我们计算图像数据（3），创建一个新的弱引用（4），将图像名称和弱引用保存到缓存中（5），注册一个终结器，一旦图像数据被垃圾回收，该终结器就删除缓存中图像名称（6），最后返回图像（7）。
 ## 引用
 详细介绍请看引用
 - https://es6.ruanyifeng.com/?search=weakset&x=0&y=0#docs/set-map
+- https://www.infoq.cn/article/lKsmb2tlGH1EHG0*bbYg
 
 ## 今日图 - 如何证明豹和老虎都是猫科动物
 
