@@ -21,6 +21,7 @@ module.exports = {
       text: 'CSS',
       children: [
         '/CSS/权威分析浏览器视口.md',
+        '/CSS/组件动画实现.md',
       ],
     },
   ],
