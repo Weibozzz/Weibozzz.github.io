@@ -38,6 +38,12 @@ module.exports = [
         ]
       },
       {
+        text: 'Api',
+        children: [
+          '/JS/Api/IntersectionObserver.md',
+        ]
+      },
+      {
         text: '新特性',
         children: [
           '/JS/newFeatures/ES7-Decorator-装饰者模式.md',
