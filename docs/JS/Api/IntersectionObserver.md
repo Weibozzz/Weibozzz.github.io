@@ -13,7 +13,8 @@
 2. [vue示例](https://weibozzz.github.io/some-componets/web/IntersectionObserver/index-vue.html)
 3. [react示例](https://weibozzz.github.io/some-componets/web/IntersectionObserver/index-react.html)
 ## 参考
+- [官方polyfill](https://github.com/w3c/IntersectionObserver/blob/main/polyfill/intersection-observer.js)
 - [ruanyifeng 使用教程](https://www.ruanyifeng.com/blog/2016/11/intersectionobserver_api.html)
 - [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver)
 ## 今日图 - 安慰程序员的方法
-![16b39c3e0a3096fa.jpg](../../../images/16b39c3e0a3096fa.jpg)
+![16b39c3e0a3096fa.jpg](../../../images/20211103150812.jpg)
