@@ -14,6 +14,8 @@ git config --global core.excludesfile ~/.gitignore_global
 - git获取最近一次提交的commit id:`git rev-parse HEAD`
 - git获取tag最大值:'git describe --tags `git rev-list --tags --max-count=1`'
 - git获取所有tag(包括提交信息-n):`git tag -l -n`
+- git获取某分支最近提交时间(处理一些僵尸分支):`git log -1 --date=iso <branchName>`
+- 显示所有远程分支 并且已合并到master分支的分支:`git branch -r --merged master`
 ## 正常提交
 ```bash
 git add .
@@ -151,14 +153,14 @@ git branch -vv
 首先创建`dev`分支，然后切换到`dev`分支
 ```bash
 $ git checkout –b dev
-git checkout - (-代表上一个分支名，这里是简写)
+git checkout - #(-代表上一个分支名，这里是简写)
 Switched to a new branch 'dev'
 ```
 git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：
 ```bash
 $ git branch dev
 $ git checkout dev
-Switched to branch 'dev'
+# Switched to branch 'dev'
 ```
 `git branch –a` 查看当前仓库的所有分支；`git branch –r`查看远程仓库的所有分支
 
