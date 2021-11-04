@@ -7,6 +7,8 @@
 
 ## 个人理解
 最简单的理解可以监听 `dom` 元素在浏览器中可见区域的比例
+## 配合动画
+可直接看下方 `react` 例子,[文档讲解组件动画实现](../../CSS/组件动画实现.md)
 ### 三个例子
 > 原生，可根据可见区域隐藏隐藏 dom。vue 和 react 可以封装组件，懒加载组件 
 1. [原生示例](https://weibozzz.github.io/some-componets/web/IntersectionObserver/index.html)
