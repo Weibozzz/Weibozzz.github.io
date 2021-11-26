@@ -199,6 +199,12 @@ git rm -rf .
 *
 # Except this file !.gitkeep
 ```
+## gerrit
+- [gerrit-guide](https://lipeng1667.github.io/2017/01/18/gerrit-guide/)
+- 新建分支 `git push origin HEAD:new-branch`
+- 提交分支 `git push origin HEAD:/refs/for/new-branch`
+### 常见报错
+- no changes `git commit --amend`
 ## 小结
 - 查看分支：`git branch`
 
@@ -213,7 +219,19 @@ git rm -rf .
 - 删除本地分支：`git branch -D 分支名`
 - 删除远程分支：` git push origin --delete 分支名`
 - 提交：`git branch origin 远程分支名称`
+### 误删分支
+不小心删除了远程的分支，如何恢复？
 
+查看 `git reflog` ，找到恢复的 `commitid`
+
+`git reflog --date=iso`
+
+`git reflog` 用来记录你的每一次命令，--date=iso 表示以标准时间显示
+**如果已删除的分支是落后于远程分支的，就不适用这种方法**。
+
+#切出分支
+git checkout -b feature_EMR2.2.2_guoba commitid
+然后再推到远端就有了。
 
 ## 自定义Git
 配置命令别名
@@ -239,6 +257,16 @@ git config --global alias.ss stash
 
 查看某一段代码谁写的 `git blame file.js -L 1,2`
 
+### 忽略操作系统尾部换行符
+从 `Windows` 更换到 `Mac`，`pull` 代码下来修改完提交时 ，提交一个 `CRLF` 文件到仓库上，这个 `CRLF` 其实是不同操作系统的尾部换行符的格式，`CRLF` 是 `Carriage Return Line Feed` 的缩写，中文意思是回车换行，`LF` 是 `Line Feed` 的缩写，中文意思是换行
+
+假如你正在 `Windows` 上写程序，又或者你正在和其他人合作，他们在 `Windows` 上编程，而你却在其他系统上，在这些情况下，就可能会遇到行尾结束符问题，这是因为 `Windows` 使用回车和换行两个字符来结束一行，而 `Mac` 和 `Linux` 只使用换行符一个字符。虽然这是小问题，但它会极大地扰乱跨平台协作，在提交时产生非常多的冲突。
+
+解决： `git config --global core.autocrlf true`
+
+- true `x -> LF -> CRLF` `Git` 可以在你提交时自动地把行结束符 `CRLF` 转换成 `LF` ，而在签出代码时把 `LF` 转换成 `CRLF` 。设置 `core.autocrlf` 来打开此项功能，如果是在 `Windows` 系统上，就把它设置成 `true` ，这样当签出代码时，`LF` 会被转换成 `CRLF`
+- input `x -> LF -> LF`  `Linux` 或 `Mac` 系统使用 `LF` 作为行结束符，因此你不想 `Git` 在签出文件时进行自动的转换；当一个以 `CRLF` 为行结束符的文件不小心被引入时你肯定想进行修正，把 `core` . `autocrlf` 设置成 `input` 来告诉 `Git` 在提交时把 `CRLF` 转换成 `LF` ，签出时不转换, 这样会在 `Windows` 系统上的签出文件中保留 `CRLF` ，会在 `Mac` 和 `Linux` 系统上，包括仓库中保留 `LF`
+- false  `x -> x -> x` 如果你是 `Windows` 程序员，且正在开发仅运行在 `Windows` 上的项目，可以设置 `false` 取消此功能，把回车符记录在库中
 
 ## 安全重命名
 
