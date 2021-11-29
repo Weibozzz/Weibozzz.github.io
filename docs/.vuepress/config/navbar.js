@@ -229,6 +229,7 @@ module.exports = [
           '/Utils/使用PS批量修改图片大小.md',
           '/Utils/用docker部署一个项目.md',
           '/Utils/社区热门工具.md',
+          '/Utils/常用小功能呢.md',
         ],
       },
     ],
