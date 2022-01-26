@@ -29,6 +29,7 @@ module.exports = [
       {
         text: 'JS',
         children: [
+          '/JS/ast语法实战.md',
           '/JS/基础中间件实现.md',
           '/JS/理解JS函数节流和函数防抖.md',
           '/JS/线程和进程的区别是什么.md',
