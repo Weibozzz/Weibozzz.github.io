@@ -221,6 +221,7 @@ module.exports = [
       {
         text: '其他工具',
         children: [
+          '/Utils/油猴插件开发.md',
           '/Utils/chrome插件开发.md',
           '/Utils/自搭梯子.md',
           '/Utils/nginx使用.md',
