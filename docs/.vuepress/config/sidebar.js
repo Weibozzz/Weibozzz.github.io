@@ -60,7 +60,6 @@ module.exports = {
       children: [
         '/JS/newFeatures/ES7-Decorator-装饰者模式.md',
         '/JS/newFeatures/Iterator-Generate.md',
-        '/JS/newFeatures/set和map.md',
         '/JS/newFeatures/新特性proxy-管道操作符.md',
       ],
     },
