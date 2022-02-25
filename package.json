@@ -34,8 +34,12 @@
     "pre-commit": "^1.2.2"
   },
   "devDependencies": {
+    "crypto": "^1.0.1",
     "file-loader": "^6.2.0",
+    "fs-extra": "^10.0.1",
+    "glob": "^7.2.0",
     "url-loader": "^4.1.1",
-    "vuepress": "^2.0.0-beta.22"
+    "vuepress": "^2.0.0-beta.22",
+    "webp-converter": "^2.3.3"
   }
 }
