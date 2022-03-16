@@ -14,6 +14,8 @@
 
 [https://tc9011.com/2017/01/16/webstorm%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/](https://tc9011.com/2017/01/16/webstorm%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/)
 
+- 长按alt+J，自动选择相同的元素（windows）
+- 选中元素后，按ctrl+g（mac）
 ## Table of Contents
 
 [![Join the chat at https://gitter.im/js-live-template/Lobby](https://badges.gitter.im/js-live-template/Lobby.svg)](https://gitter.im/js-live-template/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
