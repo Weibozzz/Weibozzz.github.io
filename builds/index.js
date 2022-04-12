@@ -1,5 +1,7 @@
 const fs = require('fs')
+const path = require('path')
 const { exec } = require('child_process')
+const rimraf = require('rimraf')
 const { targetToPath, targetPath, ignoreFiles } = require('./config')
 
 function init(){
@@ -66,7 +68,7 @@ async function copyFiles (targetPath, targetToPath) {
         const file = files[i]
         if (ignoreFiles.indexOf(file) === -1) {
           try {
-            await copyFile(`${targetPath}\\${file}`, targetToPath)
+            await copyFile(path.normalize(`${targetPath}/${file}`), targetToPath)
           } catch (error) {
           }
         }
@@ -86,9 +88,9 @@ function delFiles(){
         const file = files[i]
         if(ignoreFiles.indexOf(file) === -1){
           try {
-            const filePath = `${targetToPath}\\${file}`
-            logger(`正在删除 ${filePath}`)
-            await delFile(filePath)
+            const filePath = `${targetToPath}/${file}`
+            logger(`正在删除 ${path.normalize(filePath)}`)
+            rimraf.sync(filePath)
           } catch (error) {
           }
         }
@@ -116,6 +118,7 @@ function ps(){
     sh,
     (error, stdout, stderr) => {
       if (error) {
+        console.log('提交失败', error)
         return
       }
       console.log(stdout)
