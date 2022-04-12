@@ -1,5 +1,8 @@
 # robot控制鼠标键盘
 > 咱没有用到实际场景，先记录
+## 环境要求
+- 当前运行环境 MacOs node:v16.14.1
+- node版本需要v16
 ## 源码运行
 ```js
 const opn = require('opn');     //执行语句 也可直接使用node自带的child_process；用来执行操作文件的语句
