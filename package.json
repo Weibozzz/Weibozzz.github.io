@@ -40,7 +40,7 @@
     "glob": "^7.2.0",
     "rimraf": "^3.0.2",
     "url-loader": "^4.1.1",
-    "vuepress": "^2.0.0-beta.22",
+    "vuepress": "2.0.0-beta.22",
     "webp-converter": "^2.3.3"
   }
 }
