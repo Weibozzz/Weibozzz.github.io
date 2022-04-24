@@ -38,6 +38,7 @@ module.exports = [
           '/JS/分享好用的js方法.md',
           '/JS/原生js复制粘贴剪切.md',
           '/JS/微任务_宏任务与Event-Loop.md',
+          '/JS/精简js小技巧.md',
         ]
       },
       {
