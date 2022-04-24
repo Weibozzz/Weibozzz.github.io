@@ -16,6 +16,8 @@
 
 - 长按alt+J，自动选择相同的元素（windows）
 - 选中元素后，按ctrl+g（mac）
+- 设置选择一个单词快捷键 Keymap -> Editor Acitions -> 搜索Extend Selection
+
 ## Table of Contents
 
 [![Join the chat at https://gitter.im/js-live-template/Lobby](https://badges.gitter.im/js-live-template/Lobby.svg)](https://gitter.im/js-live-template/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
