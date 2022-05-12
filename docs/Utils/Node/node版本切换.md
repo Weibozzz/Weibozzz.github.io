@@ -1,5 +1,6 @@
 # node版本切换
 ## node版本切换：nvm
+### mac
 ```
 // 安装方式有两种：
 $ curl https://raw.github.com/creationix/nvm/v0.4.0/install.sh | sh
@@ -27,6 +28,8 @@ $ nvm run x.x.x some.js
 // 卸载nvm
 $ rm -rf ~/.nvm
 ```
+### window
+下载地址：https://github.com/coreybutler/nvm-windows/releases
 ## node版本切换：nvs
 > 跨平台
 
