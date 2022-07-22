@@ -32,6 +32,9 @@ $ rm -rf ~/.nvm
 下载地址：https://github.com/coreybutler/nvm-windows/releases
 ## node版本切换：nvs
 > 跨平台
+>
+
+用 `nvm` 安装 `node` 之后，如果每次启动终端的时候都要使用固定的版本 则使用输入命令 `nvm alias default stable` 就不需要每次 `nvm use v16.14.1`
 
 ### 安装
 - [nvs/releases](https://github.com/jasongin/nvs/releases)
