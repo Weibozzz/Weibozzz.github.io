@@ -3,6 +3,7 @@ const navbar = require('./config/navbar')
 const sidebar = require('./config/sidebar')
 module.exports = {
   lang: 'zh-CN',
+  base: process.argv[4] === 'gitee' ? '/weibozzz.github.io/' : '/',
   title: '伟波前端',
   description: '一个记录前端知识的小前端',
   head,

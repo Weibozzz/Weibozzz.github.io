@@ -5,7 +5,8 @@ const rimraf = require('rimraf')
 const { targetToPath, targetPath, ignoreFiles } = require('./config')
 
 function init(){
-  const checkout = 'git checkout gh_pages'
+  const branch = process.argv[2] === 'gitee' ? 'gh_pages_gitee' : 'gh_pages'
+  const checkout = `git checkout ${branch}`
   const reset = 'git reset --hard && git clean -df'
   const pl = 'git pull'
   const path = `cd ${targetToPath}`
@@ -20,7 +21,7 @@ function init(){
       console.log(stdout)
       try {
         await delFiles()
-        ps()
+        ps(branch)
       } catch (error) {
       }
     })
@@ -107,7 +108,7 @@ function delFiles(){
     })
   });
 }
-function ps(){
+function ps(branch){
   const add = 'git add .'
   const commit = 'git commit -m deploy'
   const ps = 'git push -f'
@@ -123,5 +124,6 @@ function ps(){
       }
       console.log(stdout)
       console.log('提交成功!')
+      console.log(`分支${branch}提交成功!`)
     })
 }

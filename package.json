@@ -12,8 +12,12 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "build": "npm run docs:build",
+    "build-gitee": "npm run docs:build -- gitee",
     "build:deploy": "node builds/index.js",
-    "deploy": "npm run docs:build && npm run build:deploy"
+    "build:deploy-gitee": "node builds/index.js gitee",
+    "deploy:github": "npm run build && npm run build:deploy",
+    "deploy:gitee": "npm run build-gitee && npm run build:deploy-gitee",
+    "deploy": "npm run deploy:github && npm run deploy:gitee"
   },
   "repository": {
     "type": "git",
