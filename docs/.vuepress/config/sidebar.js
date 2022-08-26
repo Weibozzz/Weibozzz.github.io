@@ -235,6 +235,7 @@ module.exports = {
       text: '前端工具-其他',
       children: [
         '/Utils/油猴插件开发.md',
+        '/Utils/ngrok内网穿透.md',
         '/Utils/chrome插件开发.md',
         '/Utils/robot控制鼠标键盘.md',
         '/Utils/自搭梯子.md',
