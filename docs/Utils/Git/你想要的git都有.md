@@ -169,6 +169,29 @@ $ git checkout dev
 ```bash
 $ git merge dev
 ```
+
+```bash
+git merge [branchName] --squash
+```
+将 `branchName` 合并到当前分支，并将 `branchName` 上的所有提交合并成一次提交
+### rebase
+- git pull --rebase origin [branchName] = git fetch + git rebase
+```bash
+// 假设当前分支dev, commit 为 a b c d e
+// 假设master分支, commit 为 a b f g h
+git pull --rebase origin master
+// 当前分支dev commit 变为 a b c d e f g h
+
+```
+- git rebase master
+```bash
+// 假设当前分支dev, commit 为 a b c d e
+// 假设master分支, commit 为 a b f g h
+git rebase origin/master
+// 当前分支dev commit 变为 a b f g h c d e
+
+```
+- git rebase -i HEAD~10 调整最近10次提交的日志、或合并多次提交为1次，让log更好看更清晰
 ### 修改分支
 如果对于分支不是当前分支，可以使用下面代码：
 
