@@ -12,10 +12,54 @@ git config --global core.excludesfile ~/.gitignore_global
 - 获取当前用户名：`git config user.name`
 - 获取当前分支: `git symbolic-ref --short HEAD`
 - git获取最近一次提交的commit id:`git rev-parse HEAD`
+- 获取某个commit信息: `git log --pretty=format:"%an" ${commitId} -${line}`
+  - [git获取某次commit的指定信息(作者，时间，message等)](https://blog.csdn.net/liurizhou/article/details/89234032)
+  - [ 查看提交历史](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2)
 - git获取tag最大值:'git describe --tags `git rev-list --tags --max-count=1`'
 - git获取所有tag(包括提交信息-n):`git tag -l -n`
 - git获取某分支最近提交时间(处理一些僵尸分支):`git log -1 --date=iso <branchName>`
 - 显示所有远程分支 并且已合并到master分支的分支:`git branch -r --merged master`
+### 想获取最近一条飞Merge commit 信息
+```js
+const execa = require("execa");
+const defaultIdLog = "git rev-parse HEAD";
+const defaultBranchLog = "git symbolic-ref --short HEAD";
+const userName = execa.shellSync("git config user.name").stdout;
+function getGitCommitInfo (sign, commitId, line = 1) {
+  const log = `git log --pretty=format:"${sign}" ${commitId} -${line}`;
+  return execa.shellSync(log).stdout;
+}
+function getGitInfo (idLog = defaultIdLog, line) {
+  const lastId = execa.shellSync(idLog).stdout;
+  const branch = execa.shellSync(defaultBranchLog).stdout;
+  const lastSubmitTxt = getGitCommitInfo("%s", lastId, line).split('\n');
+  const lastSubmitId = getGitCommitInfo("%h", lastId, line).split('\n');
+  const lastSubmitTime = getGitCommitInfo("%cd", lastId).split('\n');
+  const publishPerson = getGitCommitInfo("%an", lastId, line).split('\n');
+  return {
+    commitId: lastSubmitId[lastSubmitId.length - 1],
+    branch,
+    text: lastSubmitTxt[lastSubmitTxt.length - 1],
+    time: lastSubmitTime[lastSubmitTime.length - 1],
+    person: publishPerson[publishPerson.length - 1],
+  };
+}
+function getSelfAndNoMergeCommitTxt () {
+  let result = getGitInfo(defaultIdLog, 1);
+  const { person, text } = result;
+  let p = person;
+  let t = text;
+  let i = 1;
+  while (p !== userName || /^Merge branch.*/.test(t)) {
+    i++;
+    result = getGitInfo(defaultIdLog, i)
+    const { person, text } = getGitInfo(defaultIdLog, i);
+    p = person;
+    t = text;
+  }
+  return result;
+}
+```
 ## 正常提交
 ```bash
 git add .
