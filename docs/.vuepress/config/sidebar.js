@@ -147,6 +147,7 @@ module.exports = {
     {
       text: '前端周边-面试',
       children: [
+        '/Interview/面试实战.md',
         '/Interview/面试基础.md',
       ],
     }
