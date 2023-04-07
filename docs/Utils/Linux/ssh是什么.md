@@ -81,3 +81,11 @@ ls -al ~/.ssh
 #如果存在直接查看
 cat id_rsa.pub
 ```
+
+### 5.3 一台电脑多个 ssh
+> 同一台机器上管理多个 GitHub 账户
+
+```shell
+# 会生成另外一个 ~/.ssh/id_rsa_work_user1
+ssh-keygen -t rsa -C "email@work_mail.com" -f "id_rsa_work_user1"
+```
