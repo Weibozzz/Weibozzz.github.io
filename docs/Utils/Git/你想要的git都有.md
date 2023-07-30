@@ -348,6 +348,79 @@ git config --global alias.ss stash
 它最经常的用途是修改刚刚提交的 commit。也许我太粗心了，
 总是在刚提交完一条 commit 还不到 30 秒，就发现一个拼写错误或者忘了删除了调式信息了
 
+## Git 修改已提交 commit 的信息
+> 修改作者 邮箱等
+
+```shell
+# 修改最后一次提交 commit 的信息
+# 修改最近提交的 commit 信息
+$ git commit --amend --message="modify message by daodaotest" --author="jiangliheng <jiang_liheng@163.com>"
+
+# 仅修改 message 信息
+$ git commit --amend --message="modify message by daodaotest"
+
+# 仅修改 author 信息
+$ git commit --amend --author="jiangliheng <jiang_liheng@163.com>"
+```
+
+
+`git rebase -i` 列出 `commit` 列表
+找到需要修改的 `commit` 记录，把 `pick` 修改为 `edit` 或 `e`，`:wq` 保存退出
+修改 `commit` 的具体信息`git commit --amend`，保存并继续下一条`git rebase --continue`，直到全部完成
+中间也可跳过或退出`git rebase (--skip | --abort)`
+
+```shell
+# 列出 rebase 的 commit 列表，不包含 <commit id>
+$ git rebase -i <commit id>
+# 最近 3 条
+$ git rebase -i HEAD~3
+# 本地仓库没 push 到远程仓库的 commit 信息
+$ git rebase -i
+
+# vi 下，找到需要修改的 commit 记录，```pick``` 修改为 ```edit``` 或 ```e```，```:wq``` 保存退出
+# 重复执行如下命令直到完成
+$ git commit --amend --message="modify message by daodaotest" --author="jiangliheng <jiang_liheng@163.com>"
+$ git rebase --continue
+
+# 中间也可跳过或退出 rebase 模式
+$ git rebase --skip
+$ git rebase --abort
+```
+批量修改历史 `commit` 信息
+创建批量脚本`changeCommit.sh：`
+
+```shell
+$ cat changeCommit.sh
+#!/bin/sh
+# 本条未测试
+
+git filter-branch --env-filter '
+
+# 之前的邮箱
+OLD_EMAIL="jiangliheng@126.com"
+# 修改后的用户名
+CORRECT_NAME="jiangliheng"
+# 修改后的邮箱
+CORRECT_EMAIL="jiangliheng@163.com"
+
+if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
+then
+    export GIT_COMMITTER_NAME="$CORRECT_NAME"
+    export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+fi
+if [ "$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]
+then
+    export GIT_AUTHOR_NAME="$CORRECT_NAME"
+    export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+fi
+' --tag-name-filter cat -- --branches --tags
+```
+
+执行脚本成功后，强制推送到远程服务器：
+
+```shell
+git push --force --tags origin 'refs/heads/*'
+```
 
 ## 撤销远程操作
 已经提交到远程了，不想要了，怎么办？
