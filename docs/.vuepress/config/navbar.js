@@ -229,6 +229,7 @@ module.exports = [
           '/Utils/chrome插件开发.md',
           '/Utils/robot控制鼠标键盘.md',
           '/Utils/自搭梯子.md',
+          '/Utils/aws.md',
           '/Utils/nginx使用.md',
           '/Utils/postman中form-data等的区别.md',
           '/Utils/webstorm-技巧.md',
